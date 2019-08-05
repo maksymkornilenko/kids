@@ -23,6 +23,7 @@ use yii\helpers\Html
                     'tag' => 'button',
                     'class' => 'btn btn-success',
                 ],
+                'class'=>'m2'
                 'footer' => 'Низ окна',
             ]);
         ?>
@@ -47,22 +48,10 @@ use yii\helpers\Html
 
         <?= $form->field($model, 'city') ?>
         <div class="form-group">
-            <?= Html::submitButton('Купить', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+            <?= Html::submitButton('Купить', ['class' => 'btn btn-primary','class' => 'a2', 'name' => 'contact-button']) ?>
         </div>
         <?php ActiveForm::end(); ?>
             <?php Modal::end(); ?>
-        <?php
-            Modal::begin([
-                'header' => '<h2>Набор продукции DISNEY Kitchen</h2>',
-                'toggleButton' => [
-                    'label' => 'закрыты',
-                    'tag' => 'button',
-                    'class' => 'btn btn-success',
-                ],
-                'footer' => 'Низ окна',
-            ]);
-        ?>
-        <?php Modal::end()?>
     </div>
 <!--footer-->
     <table>
