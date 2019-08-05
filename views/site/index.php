@@ -5,7 +5,7 @@
 $this->title = 'My Yii Application';
 use yii\bootstrap\Modal;
 use yii\bootstrap\ActiveForm;
-use yii\helpers\Html
+use yii\helpers\Html;
 ?>
 <div class="site-index">
 
@@ -23,7 +23,6 @@ use yii\helpers\Html
                     'tag' => 'button',
                     'class' => 'btn btn-success',
                 ],
-                'class'=>'m2'
                 'footer' => 'Низ окна',
             ]);
         ?>
@@ -48,7 +47,7 @@ use yii\helpers\Html
 
         <?= $form->field($model, 'city') ?>
         <div class="form-group">
-            <?= Html::submitButton('Купить', ['class' => 'btn btn-primary','class' => 'a2', 'name' => 'contact-button']) ?>
+            <?= Html::submitButton('Купить', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
         </div>
         <?php ActiveForm::end(); ?>
             <?php Modal::end(); ?>
@@ -72,5 +71,5 @@ use yii\helpers\Html
         </tr>
     </table>
     <!--footer-->
-
+<?php var_dump($model->name);?>
 </div>
