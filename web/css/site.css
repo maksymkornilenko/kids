@@ -113,3 +113,32 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+.navbar-brand > img{
+    width: 50%;
+
+}
+.navbar-header, .navbar-inverse{
+    background-color: #a4c710;
+    border-color:#a4c710;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+.orangeblur3 > img{
+    widows: ;
+}.orangeblur3{
+    position: absolute;
+    left: 0;
+    top: 0;
+     margin: 0;
+     padding: 0;
+     border: 0;
+}
+.lead{
+    color: #5135dd;
+    text-align: center;
+    z-index: 6;
+}
+.footer{
+    background-image: linear-gradient(to bottom, rgba(106,17,203,1), rgba(37,117,252,0.6));
+}

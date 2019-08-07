@@ -63,6 +63,11 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model= new Form();
+
+        if($model->load(Yii::$app->request->post())&&$model->validate()){
+            Yii::$app->session->setFlash('sendForm','success');
+            return $this->render('index',['model'=>$model]);
+        }
         return $this->render('index',['model'=>$model]);
     }
 

@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -39,22 +40,15 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Заказать', 'url' => ['/site/index']],
+            ['label' => 'Заказать','options' => ['class' => 'dropdown']],
             ['label' => 'О нас', 'url' => ['/site/about']],
             ['label' => 'Польза', 'url' => ['/site/profits']],
             ['label' => 'Контакты', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+            ['label' => '+38 067 245-20-10', 'url' => ['tel:+38 067 245-20-10']],
+            ['label' => '+38 067 404 66 01', 'url' => ['tel:+38 067 404 66 01']],
+//            ['label' =>  Html::img(Url::to("../img/telegram.png"), ["alt" => "telegram"]), 'url' => ['tel:+38 067 404 66 01']],
+//            ['label' =>  Html::img(Url::to("../img/whatsapp.png"), ["alt" => "telegram"]), 'url' => ['tel:+38 067 404 66 01']],
+//            ['label' =>  Html::img(Url::to("img/viber.png"), ["alt" => "telegram"]), 'url' => ['tel:+38 067 404 66 01']],
         ],
     ]);
     NavBar::end();
@@ -68,16 +62,23 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
-
 <footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
+    <table>
+        <tr>
+            <td>Buy</td>
+        </tr>
+        <tr>
+            <td><a href="tel:+38 067 245-20-10">+38 067 245-20-10</a></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a href="tel:+38 067 245-20-10">+38 067 245-20-10</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 </footer>
 <?php $this->endBody() ?>
-<script src="js/script.js"</script>
 </body>
 </html>
 <?php $this->endPage() ?>

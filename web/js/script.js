@@ -16,6 +16,7 @@ $("#minus").click(function() {
         calculate();
     }
 });
+
 function getChar(event) {
     if (event.which == null) {
         if (event.keyCode < 32)
@@ -29,7 +30,8 @@ function getChar(event) {
     }
     return null; // специальная клавиша
 }
-var plus=document.getElementById('plus');
+var plus;
+plus = document.getElementById('plus');
 var minus=document.getElementById('minus');
 var moneyElem = document.getElementById('form-count');
 moneyElem.onkeydown = function(e) {
@@ -67,6 +69,11 @@ function calculate() {
         document.getElementById('form-sum').value = sum;
     }
 }
-
 calculate();
-console.log(document.getElementById('form-count'));
+
+$(document).ready(function($){
+    $("#form-tel").mask('8(099)999-99-99');
+});
+$(".dropdown").click(function(){
+    $('#test1').modal('show')
+})
