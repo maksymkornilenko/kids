@@ -20,7 +20,6 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/site.css">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -46,9 +45,6 @@ AppAsset::register($this);
             ['label' => 'Контакты', 'url' => ['/site/contact']],
             ['label' => '+38 067 245-20-10', 'url' => ['tel:+38 067 245-20-10']],
             ['label' => '+38 067 404 66 01', 'url' => ['tel:+38 067 404 66 01']],
-//            ['label' =>  Html::img(Url::to("../img/telegram.png"), ["alt" => "telegram"]), 'url' => ['tel:+38 067 404 66 01']],
-//            ['label' =>  Html::img(Url::to("../img/whatsapp.png"), ["alt" => "telegram"]), 'url' => ['tel:+38 067 404 66 01']],
-//            ['label' =>  Html::img(Url::to("img/viber.png"), ["alt" => "telegram"]), 'url' => ['tel:+38 067 404 66 01']],
         ],
     ]);
     NavBar::end();

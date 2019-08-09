@@ -1,3 +1,4 @@
+//"use strict";
 $("#plus").click(function() {
     var $count = $("#form-count");
     $count.val(parseInt($count.val()) + 1);
@@ -32,8 +33,10 @@ function getChar(event) {
 }
 var plus;
 plus = document.getElementById('plus');
-var minus=document.getElementById('minus');
-var moneyElem = document.getElementById('form-count');
+var minus
+minus=document.getElementById('minus');
+var moneyElem
+moneyElem= document.getElementById('form-count');
 moneyElem.onkeydown = function(e) {
     if(!((e.keyCode > 95 && e.keyCode < 106)
         || (e.keyCode > 47 && e.keyCode < 58)
@@ -77,3 +80,36 @@ $(document).ready(function($){
 $(".dropdown").click(function(){
     $('#test1').modal('show')
 })
+
+
+
+$("#nextmodal").click(function(){
+
+    var form = $("#contact-form").serialize();
+
+    $.ajax({
+        type: "POST",
+    url: "/site/check",
+    data: form,
+    //    beforeSend: function() {
+    //    // тут нужно кнопке поставить disable
+    //},
+    success: function(data) {
+        //console.log(data);
+        //var obj = $.parseJSON(data);
+        //console.log(data.success);
+        if (data.success == 1) {
+            $("#test1").modal('hide');
+            $('#myModal').modal('show');
+            alert('qwe')
+        } else {
+            alert('fasfsefew1111');
+        }
+    },
+    error: function() {
+       alert('fasfsefew');
+    },
+ });
+});
+
+

@@ -13,6 +13,7 @@ $config = [
     ],
     'components' => [
         'request' => [
+            'baseUrl' => '',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'IFy6dVIasCJa1q1TLsNPsh7RacV01Pq7',
         ],
@@ -43,14 +44,15 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'rules' => [
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];

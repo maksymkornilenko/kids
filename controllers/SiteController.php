@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Form;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -64,11 +65,33 @@ class SiteController extends Controller
     {
         $model= new Form();
 
-        if($model->load(Yii::$app->request->post())&&$model->validate()){
-            Yii::$app->session->setFlash('sendForm','success');
-            return $this->render('index',['model'=>$model]);
-        }
+
+//        if($model->load(Yii::$app->request->post())&&$model->validate()){
+//            Yii::$app->session->setFlash('sendForm','success');
+//
+//        }
         return $this->render('index',['model'=>$model]);
+    }
+
+    /**
+     * 3213
+     */
+    public function actionCheck() {
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+        $answer = ['success' => 0];
+        if (Yii::$app->request->isAjax) {
+            $model= new Form();
+            $model->load(Yii::$app->request->post());
+                // обработка и валидациЯ
+                if ($model->validate()) {
+                    $answer['success'] = 1;
+                }
+
+        }
+
+        return $answer;
+        //echo Json::encode($answer);
+        //die;
     }
 
     /**
