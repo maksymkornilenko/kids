@@ -19,7 +19,7 @@ class Form extends Model
     {
         return [
             // username and password are both required
-//            [['name', 'tel','city','list','count','sum','price'], 'required'],
+            [['name', 'tel','city','list','count','sum','price'], 'required'],
             [['list','count','sum','price'], 'required'],
             // tel must be a telephone value
             ['tel', 'match', 'pattern' => '/^(8)[(](\d{3})[)](\d{3})[-](\d{2})[-](\d{2})/', 'message' => 'Телефона, должно быть в формате 8(XXX)XXX-XX-XX'],
