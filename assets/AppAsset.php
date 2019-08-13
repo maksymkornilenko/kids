@@ -21,6 +21,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+        'https://tilda.ws/project1512102/tilda-blocks-2.12.css?t=1564769682',
     ];
     public $js = [
         '/js/script.js',
