@@ -21,11 +21,11 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
-        'https://tilda.ws/project1512102/tilda-blocks-2.12.css?t=1564769682',
+        'css/tildacss.css',
     ];
     public $js = [
         '/js/script.js',
-        '/js/jquery.mask.js'
+        '/js/jquery.mask.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
