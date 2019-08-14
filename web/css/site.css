@@ -55,7 +55,16 @@ a.asc:after, a.desc:after {
     line-height: 1;
     padding-left: 5px;
 }
-
+#order300uah, #order500uah,#order600uah, #order900uah, #dropdown,{
+    cursor: pointer;
+}
+.tn-elem__1182836851564117399646,
+.tn-elem__1180726281564002969763,
+.tn-elem__1180726281564003055718,
+.tn-elem__1180726281564003092950,
+.tn-elem__1180726281564003136580{
+    cursor: pointer;
+}
 a.asc:after {
     content: /*"\e113"*/ "\e151";
 }
@@ -1748,7 +1757,7 @@ a.desc:after {
 
 #main-container2 .tn-elem[elem-id="1564002638555"] .tn-atom {
     border-radius: 10px;
-    background-color: #ff4e50;
+
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1846,7 +1855,6 @@ a.desc:after {
 
 #main-container2 .tn-elem[elem-id="1564002925381"] .tn-atom {
     border-radius: 30px;
-    background-color: #fff705;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1985,7 +1993,6 @@ a.desc:after {
 
 #main-container2 .tn-elem[elem-id="1564003055699"] .tn-atom {
     border-radius: 10px;
-    background-color: #ff4e50;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -2082,7 +2089,6 @@ a.desc:after {
 
 #main-container2 .tn-elem[elem-id="1564003055711"] .tn-atom {
     border-radius: 30px;
-    background-color: #fff705;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -2221,7 +2227,6 @@ a.desc:after {
 
 #main-container2 .tn-elem[elem-id="1564003092931"] .tn-atom {
     border-radius: 10px;
-    background-color: #ff4e50;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -2318,7 +2323,6 @@ a.desc:after {
 
 #main-container2 .tn-elem[elem-id="1564003092944"] .tn-atom {
     border-radius: 30px;
-    background-color: #fff705;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -2457,7 +2461,6 @@ a.desc:after {
 
 #main-container2 .tn-elem[elem-id="1564003136562"] .tn-atom {
     border-radius: 10px;
-    background-color: #ff4e50;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -2554,7 +2557,6 @@ a.desc:after {
 
 #main-container2 .tn-elem[elem-id="1564003136573"] .tn-atom {
     border-radius: 30px;
-    background-color: #fff705;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;

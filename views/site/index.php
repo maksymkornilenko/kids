@@ -95,7 +95,7 @@ use yii\helpers\Html;
                     <a class='tn-atom t-bgimg' src="img/purpleblock.png" style="background-image:url('img/purplebutton.png');" >
                     </a>
                 </div>
-                <div style="cursor: pointer" class='main-inform-container__elem tn-elem tn-elem__1180726281564002969763' elem-id='1564002969763'>
+                <div class='main-inform-container__elem tn-elem tn-elem__1180726281564002969763' elem-id='1564002969763'>
                     <a id="order300uah" class='tn-atom' >300грн</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem tn-elem__1180726281564003025781' elem-id='1564003025781'>
@@ -116,7 +116,7 @@ use yii\helpers\Html;
                     <a class='tn-atom t-bgimg' src="img/purpleblock.png" style="background-image:url('img/purpleblock.png');" >
                     </a>
                 </div>
-                <div style="cursor: pointer" class='main-inform-container__elem tn-elem tn-elem__1180726281564003055718' elem-id='1564003055718'>
+                <div class='main-inform-container__elem tn-elem tn-elem__1180726281564003055718' elem-id='1564003055718'>
                     <a class='tn-atom' id="order500uah" >500грн</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem tn-elem__1180726281564003055722' elem-id='1564003055722'>
@@ -137,7 +137,7 @@ use yii\helpers\Html;
                     <a class='tn-atom t-bgimg' src="img/purpleblock.png" style="background-image:url('img/purpleblock.png');" >
                     </a>
                 </div>
-                <div style="cursor: pointer" class='main-inform-container__elem tn-elem tn-elem__1180726281564003092950' elem-id='1564003092950'>
+                <div class='main-inform-container__elem tn-elem tn-elem__1180726281564003092950' elem-id='1564003092950'>
                     <a class='tn-atom' id="order600uah" >600грн</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem tn-elem__1180726281564003092955' elem-id='1564003092955'>
@@ -158,7 +158,7 @@ use yii\helpers\Html;
                     <a class='tn-atom t-bgimg' src="img/purpleblock.png" style="background-image:url('img/purpleblock.png');" >
                     </a>
                 </div>
-                <div style="cursor: pointer" class='main-inform-container__elem tn-elem tn-elem__1180726281564003136580' elem-id='1564003136580'>
+                <div class='main-inform-container__elem tn-elem tn-elem__1180726281564003136580' elem-id='1564003136580'>
                     <a class='tn-atom' id="order900uah" >900грн</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem tn-elem__1180726281564003136584' elem-id='1564003136584'>
@@ -176,7 +176,7 @@ use yii\helpers\Html;
                         <img class='tn-atom__img t-img' src='img/orangeblur6.png'>
                     </div>
                 </div>
-                <div style="cursor: pointer" class='main-inform-container__elem tn-elem tn-elem__1180726281564003254227' elem-id='1564003254227'>
+                <div class='main-inform-container__elem tn-elem tn-elem__1180726281564003254227' elem-id='1564003254227'>
                     <a id="dropdown" class='tn-atom'>ПОПРОБОВАТЬ</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem tn-elem__1180726281564003647323' elem-id='1564003647323'>
@@ -402,7 +402,7 @@ use yii\helpers\Html;
                         <img class='tn-atom__img t-img' src='img/6.png'>
                     </div>
                 </div>
-                <div style="cursor: pointer" class='main-inform-container__elem tn-elem tn-elem__1182836851564117399646' elem-id='1564117399646'>
+                <div class='main-inform-container__elem tn-elem tn-elem__1182836851564117399646' elem-id='1564117399646'>
                     <a class='tn-atom' id="dropdown2" >ЕСТЬ РЕШЕНИЕ</a>
                 </div>
             </div>
