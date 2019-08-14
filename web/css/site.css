@@ -55,14 +55,25 @@ a.asc:after, a.desc:after {
     line-height: 1;
     padding-left: 5px;
 }
-#order300uah, #order500uah,#order600uah, #order900uah, #dropdown,{
+#order300uah{
     cursor: pointer;
 }
-.tn-elem__1182836851564117399646,
-.tn-elem__1180726281564002969763,
-.tn-elem__1180726281564003055718,
-.tn-elem__1180726281564003092950,
-.tn-elem__1180726281564003136580{
+#order500uah{
+    cursor: pointer;
+}
+#order600uah{
+    cursor: pointer;
+}
+#order900uah{
+    cursor: pointer;
+}
+#dropdown{
+    cursor: pointer;
+}
+#dropdown2{
+    cursor: pointer;
+}
+.tn-elem[elem-id="1564117399646"]{
     cursor: pointer;
 }
 a.asc:after {
@@ -156,13 +167,13 @@ a.desc:after {
     height: 70px;
 }
 #t-bgimg1, #t-bgimg3, #t-bgimg5, #t-bgimg7 {
-    background-image:url('img/orangeblock.png');
+    background-image:url('../img/orangeblock.png');
 }
 #t-bgimg2{
-    background-image:url('img/purplebutton.png');
+    cursor: pointer;
 }
 #t-bgimg4, #t-bgimg6, #t-bgimg8{
-    background-image:url('img/purpleblock.png');
+
 }
 
 .main-inform-container__carrier {
@@ -1860,6 +1871,8 @@ a.desc:after {
     left: calc(50% - 600px + 80px);
     width: 143px;
     height: 59px;
+    border-radius: 30px;
+    background-color: #6521dd;
 }
 
 #main-container2 .tn-elem[elem-id="1564002925381"] .tn-atom {
@@ -1902,10 +1915,25 @@ a.desc:after {
 #main-container2 .tn-elem[elem-id="1564002969763"] {
     color: #ffffff;
     text-align: center;
-    z-index: 14;
-    top: 790px;
-    left: calc(50% - 600px + 100px);
-    width: 100px;
+    z-index: 13;
+    top: 773px;
+    left: calc(50% - 600px + 80px);
+    width: 143px;
+    height: 59px;
+    border-radius: 30px;
+    background-color: #6521dd;
+}
+#main-container2 .tn-elem[elem-id="1564002969763"]:hover {
+    color: #ffffff;
+    text-align: center;
+    z-index: 13;
+    top: 773px;
+    left: calc(50% - 600px + 80px);
+    width: 143px;
+    height: 59px;
+    border-radius: 30px;
+    background-color: #62922f;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 #main-container2 .tn-elem[elem-id="1564002969763"] .tn-atom {
@@ -2094,6 +2122,18 @@ a.desc:after {
     left: calc(50% - 600px + 379px);
     width: 143px;
     height: 59px;
+    background-color: #6521dd;
+    border-radius: 30px;
+}
+#main-container2 .tn-elem[elem-id="1564003055711"]:hover {
+    z-index: 17;
+    top: 773px;
+    left: calc(50% - 600px + 379px);
+    width: 143px;
+    height: 59px;
+    background-color: #62922f;
+    border-radius: 30px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 #main-container2 .tn-elem[elem-id="1564003055711"] .tn-atom {
@@ -2136,10 +2176,25 @@ a.desc:after {
 #main-container2 .tn-elem[elem-id="1564003055718"] {
     color: #ffffff;
     text-align: center;
-    z-index: 18;
-    top: 790px;
-    left: calc(50% - 600px + 400px);
-    width: 100px;
+    z-index: 17;
+    top: 773px;
+    left: calc(50% - 600px + 379px);
+    width: 143px;
+    height: 59px;
+    background-color: #6521dd;
+    border-radius: 30px;
+}
+#main-container2 .tn-elem[elem-id="1564003055718"]:hover {
+    color: #ffffff;
+    text-align: center;
+    z-index: 17;
+    top: 773px;
+    left: calc(50% - 600px + 379px);
+    width: 143px;
+    height: 59px;
+    background-color: #62922f;
+    border-radius: 30px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 #main-container2 .tn-elem[elem-id="1564003055718"] .tn-atom {
@@ -2328,6 +2383,18 @@ a.desc:after {
     left: calc(50% - 600px + 678px);
     width: 143px;
     height: 59px;
+    background-color: #6521dd;
+    border-radius: 30px;
+}
+#main-container2 .tn-elem[elem-id="1564003092944"]:hover {
+    z-index: 21;
+    top: 773px;
+    left: calc(50% - 600px + 678px);
+    width: 143px;
+    height: 59px;
+    background-color: #62922f;
+    border-radius: 30px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 #main-container2 .tn-elem[elem-id="1564003092944"] .tn-atom {
@@ -2370,10 +2437,25 @@ a.desc:after {
 #main-container2 .tn-elem[elem-id="1564003092950"] {
     color: #ffffff;
     text-align: center;
-    z-index: 22;
-    top: 790px;
-    left: calc(50% - 600px + 700px);
-    width: 100px;
+    z-index: 21;
+    top: 773px;
+    left: calc(50% - 600px + 678px);
+    width: 143px;
+    height: 59px;
+    background-color: #6521dd;
+    border-radius: 30px;
+}
+#main-container2 .tn-elem[elem-id="1564003092950"]:hover {
+    color: #ffffff;
+    text-align: center;
+    z-index: 21;
+    top: 773px;
+    left: calc(50% - 600px + 678px);
+    width: 143px;
+    height: 59px;
+    background-color: #62922f;
+    border-radius: 30px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 #main-container2 .tn-elem[elem-id="1564003092950"] .tn-atom {
@@ -2562,8 +2644,19 @@ a.desc:after {
     left: calc(50% - 600px + 979px);
     width: 143px;
     height: 59px;
+    background-color: #6521dd;
+    border-radius: 30px;
 }
-
+#main-container2 .tn-elem[elem-id="1564003136573"]:hover {
+    z-index: 25;
+    top: 773px;
+    left: calc(50% - 600px + 979px);
+    width: 143px;
+    height: 59px;
+    background-color: #62922f;
+    border-radius: 30px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
 #main-container2 .tn-elem[elem-id="1564003136573"] .tn-atom {
     border-radius: 30px;
     background-position: center center;
@@ -2604,10 +2697,25 @@ a.desc:after {
 #main-container2 .tn-elem[elem-id="1564003136580"] {
     color: #ffffff;
     text-align: center;
-    z-index: 26;
-    top: 790px;
-    left: calc(50% - 600px + 999px);
-    width: 100px;
+    z-index: 25;
+    top: 773px;
+    left: calc(50% - 600px + 979px);
+    width: 143px;
+    height: 59px;
+    background-color: #6521dd;
+    border-radius: 30px;
+}
+#main-container2 .tn-elem[elem-id="1564003136580"]:hover {
+    color: #ffffff;
+    text-align: center;
+    z-index: 25;
+    top: 773px;
+    left: calc(50% - 600px + 979px);
+    width: 143px;
+    height: 59px;
+    background-color: #62922f;
+    border-radius: 30px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 #main-container2 .tn-elem[elem-id="1564003136580"] .tn-atom {
@@ -2792,7 +2900,6 @@ a.desc:after {
     width: 250px;
     height: 65px;
 }
-
 #main-container2 .tn-elem[elem-id="1564003254227"] .tn-atom {
     color: #ffffff;
     font-size: 20px;
@@ -2806,7 +2913,20 @@ a.desc:after {
     border-color: transparent;
     border-style: solid;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-    box-shadow: 3px 3px 0px 0px rgba(183, 89, 255, 1);
+}
+#main-container2 .tn-elem[elem-id="1564003254227"] .tn-atom:hover {
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'HelveticaNeueCyr', Arial, sans-serif;
+    line-height: 1;
+    font-weight: 100;
+    letter-spacing: 0.5px;
+    border-radius: 30px;
+    background-color: #62922f;
+    background-position: center center;
+    border-color: transparent;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 @media screen and (max-width: 1199px) {
@@ -5016,7 +5136,20 @@ a.desc:after {
     border-color: transparent;
     border-style: solid;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-    box-shadow: 0px 4px 0px 0px rgba(250, 203, 15, 1);
+}
+#main-container4 .tn-elem[elem-id="1564117399646"] .tn-atom:hover {
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'HelveticaNeueCyr', Arial, sans-serif;
+    line-height: 1;
+    font-weight: 100;
+    letter-spacing: 0.5px;
+    border-radius: 30px;
+    background-color: #62922f;
+    background-position: center center;
+    border-color: transparent;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 @media screen and (max-width: 1199px) {

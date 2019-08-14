@@ -63,14 +63,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model= new Form();
+        $model = new Form();
 
 
 //        if($model->load(Yii::$app->request->post())&&$model->validate()){
 //            Yii::$app->session->setFlash('sendForm','success');
 //
 //        }
-        return $this->render('index',['model'=>$model]);
+        return $this->render('index', ['model'=>$model]);
     }
 
     /**
@@ -82,10 +82,10 @@ class SiteController extends Controller
         if (Yii::$app->request->isAjax) {
             $model= new Form();
             $model->load(Yii::$app->request->post());
-                // обработка и валидациЯ
-                if ($model->validate()) {
-                    $answer['success'] = 1;
-                }
+            // обработка и валидациЯ
+            if ($model->validate()) {
+                $answer['success'] = 1;
+            }
 
         }
 

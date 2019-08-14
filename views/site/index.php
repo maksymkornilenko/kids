@@ -22,22 +22,22 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1563999965486'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur3.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur3.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564000058158'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur4.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur4.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564000076968'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur4.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur4.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564000161300'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/HealthMeal.png'>
+                        <img class='tn-atom__img t-img' src='/img/HealthMeal.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564001894745'>
@@ -50,7 +50,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem ' elem-id='1564002048659'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/happykids.png'>
+                        <img class='tn-atom__img t-img' src='/img/happykids.png'>
                     </div>
                 </div>
             </div>
@@ -73,16 +73,16 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564002562443'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/sticks.png'>
+                        <img class='tn-atom__img t-img' src='/img/sticks.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564002597820'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/SpiderMan.png'>
+                        <img class='tn-atom__img t-img' src='/img/SpiderMan.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564002638555'>
-                    <div class='tn-atom t-bgimg' id="t-bgimg1" src="img/orangeblock.png">
+                    <div class='tn-atom t-bgimg' id="t-bgimg1" src="/img/orangeblock.png">
 
                     </div>
                 </div>
@@ -92,19 +92,21 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564002925381'>
-                    <a class='tn-atom t-bgimg' id="t-bgimg2" src="img/purpleblock.png">
+                    <a class='tn-atom t-bgimg' id="t-bgimg2" src="/img/purpleblock.png">
                     </a>
                 </div>
+
                 <div class='main-inform-container__elem tn-elem' elem-id='1564002969763'>
-                    <a id="order300uah" class='tn-atom' >300грн</a>
+                    <a id="order300uah" class='tn-atom open-order' data-product="300">300грн</a>
                 </div>
+
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003025781'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/manystickswaffles.png'>
+                        <img class='tn-atom__img t-img' src='/img/manystickswaffles.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003055699'>
-                    <div class='tn-atom t-bgimg' id="t-bgimg3" src="img/orangeblock.png">
+                    <div class='tn-atom t-bgimg' id="t-bgimg3" src="/img/orangeblock.png">
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003055707'>
@@ -113,19 +115,21 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003055711'>
-                    <a class='tn-atom t-bgimg' id="t-bgimg4" src="img/purpleblock.png">
+                    <a class='tn-atom t-bgimg' id="t-bgimg4" src="/img/purpleblock.png">
                     </a>
                 </div>
-                <div class='main-inform-container__elem tn-elem' elem-id='1564003055718'>
-                    <a class='tn-atom' id="order500uah" >500грн</a>
+                <div class="t396__elem tn-elem tn-elem__1180726281564002969763" data-elem-id="1564002969763">
+                    <div class='main-inform-container__elem tn-elem' elem-id='1564003055718'>
+                        <a class='tn-atom open-order' id="order500uah" data-product="500">500грн</a>
+                    </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003055722'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/manystickswaffles.png'>
+                        <img class='tn-atom__img t-img' src='/img/manystickswaffles.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003092931'>
-                    <div class='tn-atom t-bgimg' id="t-bgimg5" src="img/orangeblock.png">
+                    <div class='tn-atom t-bgimg' id="t-bgimg5" src="/img/orangeblock.png">
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003092940'>
@@ -134,19 +138,17 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003092944'>
-                    <a class='tn-atom t-bgimg' id="t-bgimg6" src="img/purpleblock.png">
-                    </a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003092950'>
-                    <a class='tn-atom' id="order600uah" >600грн</a>
+                    <a class='tn-atom open-order' id="order600uah" data-product="600" >600грн</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003092955'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/manystickswaffles.png'>
+                        <img class='tn-atom__img t-img' src='/img/manystickswaffles.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003136562'>
-                    <div class='tn-atom t-bgimg' id="t-bgimg7" src="img/orangeblock.png">
+                    <div class='tn-atom t-bgimg' id="t-bgimg7" src="/img/orangeblock.png">
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003136568'>
@@ -155,33 +157,31 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003136573'>
-                    <a class='tn-atom t-bgimg' id="t-bgimg8" src="img/purpleblock.png">
-                    </a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003136580'>
-                    <a class='tn-atom' id="order900uah" >900грн</a>
+                    <a class='tn-atom open-order' id="order900uah" data-product="900">900грн</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003136584'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/manystickswaffles.png'>
+                        <img class='tn-atom__img t-img' src='/img/manystickswaffles.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003205180'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/rapunzel.png'>
+                        <img class='tn-atom__img t-img' src='/img/rapunzel.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003233740'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur6.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur6.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003254227'>
-                    <a id="dropdown" class='tn-atom'>ПОПРОБОВАТЬ</a>
+                    <a class='tn-atom open-order' data-product="300"'>ПОПРОБОВАТЬ</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003647323'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/ironman.png'>
+                        <img class='tn-atom__img t-img' src='/img/ironman.png'>
                     </div>
                 </div>
             </div>
@@ -204,12 +204,12 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564088349090'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/rapunzellong.png'>
+                        <img class='tn-atom__img t-img' src='/img/rapunzellong.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564088380779'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur6.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur6.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564088478342'>
@@ -256,22 +256,22 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564088783638'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/smallblur.png'>
+                        <img class='tn-atom__img t-img' src='/img/smallblur.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564088873336'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/rapunzelstick.png'>
+                        <img class='tn-atom__img t-img' src='/img/rapunzelstick.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564088952506'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur7.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur7.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564089183204'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/ironmanstick.png'>
+                        <img class='tn-atom__img t-img' src='/img/ironmanstick.png'>
                     </div>
                 </div>
             </div>
@@ -295,22 +295,22 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1470210033144'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/blur.png'>
+                        <img class='tn-atom__img t-img' src='/img/blur.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564089901023'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/daffyduck.png'>
+                        <img class='tn-atom__img t-img' src='/img/daffyduck.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564089942025'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur6.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur6.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564089978892'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur6.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur6.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564090035300'>
@@ -333,12 +333,12 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564090304375'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/1.png'>
+                        <img class='tn-atom__img t-img' src='/img/1.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564090322320'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/2.png'>
+                        <img class='tn-atom__img t-img' src='/img/2.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564090365565'>
@@ -357,7 +357,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564090402052'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/3.png'>
+                        <img class='tn-atom__img t-img' src='/img/3.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564117132486'>
@@ -371,7 +371,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564117132501'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/4.png'>
+                        <img class='tn-atom__img t-img' src='/img/4.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564117210509'>
@@ -385,7 +385,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564117210523'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/5.png'>
+                        <img class='tn-atom__img t-img' src='/img/5.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564117262553'>
@@ -399,11 +399,11 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564117262565'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/6.png'>
+                        <img class='tn-atom__img t-img' src='/img/6.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564117399646'>
-                    <a class='tn-atom' id="dropdown2" >ЕСТЬ РЕШЕНИЕ</a>
+                    <a class='tn-atom open-order' data-product="300" >ЕСТЬ РЕШЕНИЕ</a>
                 </div>
             </div>
         </div>
@@ -426,17 +426,17 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1470210033144'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/aladdin.png'>
+                        <img class='tn-atom__img t-img' src='/img/aladdin.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564139442354'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/blueblur2.png'>
+                        <img class='tn-atom__img t-img' src='/img/blueblur2.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564139467150'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur1.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur1.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564139534978'>
@@ -451,7 +451,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564139605200'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/blueblur1.png'>
+                        <img class='tn-atom__img t-img' src='/img/blueblur1.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564139605207'>
@@ -466,7 +466,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564139685625'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/blueblur4.png'>
+                        <img class='tn-atom__img t-img' src='/img/blueblur4.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564139685632'>
@@ -481,7 +481,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564139748410'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/blueblur3.png'>
+                        <img class='tn-atom__img t-img' src='/img/blueblur3.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564139748417'>
@@ -496,7 +496,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564139841213'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/blueblur6.png'>
+                        <img class='tn-atom__img t-img' src='/img/blueblur6.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564139841222'>
@@ -511,7 +511,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564142163343'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/blueblur5.png'>
+                        <img class='tn-atom__img t-img' src='/img/blueblur5.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564142163353'>
@@ -526,12 +526,12 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564142253265'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur6.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur6.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564142307674'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur6.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur6.png'>
                     </div>
                 </div>
             </div>
@@ -550,27 +550,27 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1470210033144'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/bigblank.png'>
+                        <img class='tn-atom__img t-img' src='/img/bigblank.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564143789930'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/SpiderManlittle.png'>
+                        <img class='tn-atom__img t-img' src='/img/SpiderManlittle.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564143811725'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur6.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur6.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564143881017'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur6.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur6.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564143904798'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/cup.png'>
+                        <img class='tn-atom__img t-img' src='/img/cup.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564143930214'>
@@ -585,7 +585,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564144046881'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/big1.png'>
+                        <img class='tn-atom__img t-img' src='/img/big1.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564144072922'>
@@ -595,12 +595,12 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564144078246'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/big2.png'>
+                        <img class='tn-atom__img t-img' src='/img/big2.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564144092172'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/disney-infinity-iron.png'>
+                        <img class='tn-atom__img t-img' src='/img/disney-infinity-iron.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564144166964'>
@@ -610,7 +610,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564144189599'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/big3.png'>
+                        <img class='tn-atom__img t-img' src='/img/big3.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564144233083'>
@@ -620,7 +620,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564144248452'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/big4.png'>
+                        <img class='tn-atom__img t-img' src='/img/big4.png'>
                     </div>
                 </div>
             </div>
@@ -642,7 +642,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1470210033144'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/purple.png'>
+                        <img class='tn-atom__img t-img' src='/img/purple.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564145516221'>
@@ -652,12 +652,12 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564145549919'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/orangeblur2.png'>
+                        <img class='tn-atom__img t-img' src='/img/orangeblur2.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564145587130'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/gin.png'>
+                        <img class='tn-atom__img t-img' src='/img/gin.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1470210011265'>
@@ -687,7 +687,7 @@ use yii\helpers\Html;
             Оставьте данные для оформления заказа
         </div>
         <div class="modalimg">
-            <img src="img/Modalpicture.png"/>
+            <img src="/img/Modalpicture.png"/>
         </div>
         <?php $form = ActiveForm::begin(['id' => 'contact-form','options'=>['name'=>'calculator']]); ?>
 <!--        <div class="container">-->
@@ -707,7 +707,7 @@ use yii\helpers\Html;
                 </div>
                 <div class="col-md-3">
                     <div class="form-group-minus">
-                        <img src="img/arrows_circle_minus.svg" name = "contact-button", id = "minus", onclick ='calculate()'>
+                        <img src="/img/arrows_circle_minus.svg" name="contact-button" id="minus" onclick ='calculate()'>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -715,7 +715,7 @@ use yii\helpers\Html;
                 </div>
                 <div class="col-md-3">
                     <div class="form-group-plus">
-                        <img src="img/arrows_circle_plus.svg" name = "contact-button", id = "plus", onclick ='calculate()'>
+                        <img src="/img/arrows_circle_plus.svg" name = "contact-button", id = "plus", onclick ='calculate()'>
                     </div>
                 </div>
             </div>
@@ -797,7 +797,7 @@ use yii\helpers\Html;
     ]);
     ?>
     <div class="modal-body">
-        <img src="img/ok.png"/>
+        <img src="/img/ok.png"/>
         <p>Ваш заказ принят</p>
     </div>
     <div class="modal-footer">
@@ -823,6 +823,6 @@ use yii\helpers\Html;
     <div class="modal-footer">
         <button type="button"  class="btn btn-secondary" data-dismiss="modal"  data-toggle="modal" data-target="backmodal">Close</button>
     </div>
-    <?php Modal::end();?>
+    <?php Modal::end(); ?>
 </div>
 

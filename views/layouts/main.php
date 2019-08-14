@@ -36,7 +36,7 @@ NavBar::begin([
 echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
     'items' => [
-        ['label' => 'Заказать', 'options' => ['class' => 'dropdown']],
+        ['label' => 'Заказать', 'options' => ['class'=>'open-order' ,'data-product'=>"300"]],
         ['label' => 'О нас', 'url' => ['/#about']],
         ['label' => 'Польза', 'url' => ['/#profits']],
         ['label' => 'Контакты', 'url' => ['/#contacts']],
@@ -65,7 +65,7 @@ Breadcrumbs::widget([
                 <div class="main-inform-container__filter"></div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564148014957'>
                     <a class='tn-atom' href="https://t.me/maldivesdreams" target="_blank" >
-                        <img class='tn-atom__img t-img' src='img/telegram.png'>
+                        <img class='tn-atom__img t-img' src='/img/telegram.png'>
                     </a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564148014969'>
@@ -75,17 +75,17 @@ Breadcrumbs::widget([
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564148026022'>
                     <a class='tn-atom' href="https://wa.me/380672452010" target="_blank">
-                        <img class='tn-atom__img t-img' src='img/whatsapp.png' imgfield='tn_img_1564148026022'>
+                        <img class='tn-atom__img t-img' src='/img/whatsapp.png' imgfield='tn_img_1564148026022'>
                     </a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564148123704'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/visa.png' imgfield='tn_img_1564148123704'>
+                        <img class='tn-atom__img t-img' src='/img/visa.png' imgfield='tn_img_1564148123704'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564148141593'>
                     <div class='tn-atom' >
-                        <img class='tn-atom__img t-img' src='img/mastercard.png' imgfield='tn_img_1564148141593'>
+                        <img class='tn-atom__img t-img' src='/img/mastercard.png' imgfield='tn_img_1564148141593'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564148165275'>
