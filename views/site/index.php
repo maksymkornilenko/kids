@@ -92,12 +92,11 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564002925381'>
-                    <a class='tn-atom t-bgimg' id="t-bgimg2" src="/img/purpleblock.png">
-                    </a>
+                    <a id="order300uah" class='tn-atom open-order' data-product="300">300грн</a>
                 </div>
 
                 <div class='main-inform-container__elem tn-elem' elem-id='1564002969763'>
-                    <a id="order300uah" class='tn-atom open-order' data-product="300">300грн</a>
+
                 </div>
 
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003025781'>
@@ -114,11 +113,7 @@ use yii\helpers\Html;
                         18 батончиков<br>+ 2 упак. вафель
                     </div>
                 </div>
-                <div class='main-inform-container__elem tn-elem' elem-id='1564003055711'>
-                    <a class='tn-atom t-bgimg' id="t-bgimg4" src="/img/purpleblock.png">
-                    </a>
-                </div>
-                <div class="t396__elem tn-elem tn-elem__1180726281564002969763" data-elem-id="1564002969763">
+                <div class="t396__elem tn-elem" data-elem-id="1564003055711">
                     <div class='main-inform-container__elem tn-elem' elem-id='1564003055718'>
                         <a class='tn-atom open-order' id="order500uah" data-product="500">500грн</a>
                     </div>
@@ -138,8 +133,6 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003092944'>
-                </div>
-                <div class='main-inform-container__elem tn-elem' elem-id='1564003092950'>
                     <a class='tn-atom open-order' id="order600uah" data-product="600" >600грн</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003092955'>
@@ -157,8 +150,6 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003136573'>
-                </div>
-                <div class='main-inform-container__elem tn-elem' elem-id='1564003136580'>
                     <a class='tn-atom open-order' id="order900uah" data-product="900">900грн</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003136584'>
@@ -711,7 +702,7 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <?= $form->field($model, 'count',[])->textInput(['value'=>1,"max"=>250])?>
+                    <?= $form->field($model, 'count',[])->textInput(['type' => 'number', 'value'=>1, "min" => 1, "max"=>250])?>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group-plus">
@@ -824,5 +815,14 @@ use yii\helpers\Html;
         <button type="button"  class="btn btn-secondary" data-dismiss="modal"  data-toggle="modal" data-target="backmodal">Close</button>
     </div>
     <?php Modal::end(); ?>
+<?php Modal::begin([
+        'header'=>'<h2>Корзина</h2>',
+        'id'=>'cart',
+        'size'=>'model-lg',
+        'footer'=>'<a href="#" class="btn btn-success">Оформить заказ</a>
+        <button type="button" class="btn btn-danger clearCart">Очистить корзину</button>'
+]);
+Modal::end();
+?>
 </div>
 

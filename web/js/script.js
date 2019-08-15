@@ -1,26 +1,27 @@
-function getChar(event) {
-    if (event.which == null) {
-        if (event.keyCode < 32) return null;
-        return String.fromCharCode(event.keyCode) // IE
-    }
-
-    if (event.which != 0 && event.charCode != 0) {
-        if (event.which < 32) return null;
-        return String.fromCharCode(event.which) // остальные
-    }
-
-    return null; // специальная клавиша
-}
-
+var countElem = $('#form-count'),
+    priceElem = $('#form-list');
+countElem.on('change', function(){
+    calculate();
+});
+priceElem.on('change', function(){
+    calculate();
+});
+$(document).ready(function ($) {
+    $("#form-tel").mask('8(099)999-99-99');
+});
 function calculate() {
-    var sum = +countElem.value;
-    if (countElem == 0 || priceElem == 0 || countElem == null || priceElem == null) {
-        sum = 0;
-        document.getElementById('form-sum').value = sum;
+    var sum = 0,
+        countVal = countElem.val(),
+        priceVal = priceElem.val();
+    if (countVal === undefined || countVal === NaN) {
+        countVal = 1;
+    }
+    if (countVal === 0 || priceVal === 0 || countVal === null || priceVal === null) {
+        $('#form-sum').val(sum);
     } else {
-        sum = sum * (priceElem.value);
-        document.getElementById('form-price').value = priceElem.value;
-        document.getElementById('form-sum').value = sum;
+        sum = countVal * priceVal;
+        $('#form-price').val(priceVal);
+        $('#form-sum').val(sum);
     }
 }
 
@@ -46,52 +47,40 @@ function sendForm() {
         },
     });
 }
-
-$("#plus").click(function () {
-    var $count = $("#form-count");
-    if (isNaN($count.val())) {
-        $count.val(parseInt(1));
-        $count.change();
-        calculate();
-    }
-    $count.val(parseInt($count.val()) + 1);
-    $count.change();
-    calculate();
-});
-$("#form-count").blur(function () {
-    if ($(this).val() == '') {
-        $(this).val(parseInt(1)).change();
-        calculate();
-    }
+countElem.blur(function () {
+   if ($(this).val() == '') {
+       $(this).val(parseInt(1)).change();
+       calculate();
+   }
 });
 $('.open-order').click(function () {
-    product = $(this).data('product');
+    var product = $(this).data('product');
     $('#form-modal').modal('show');
-    res = $('#form-list').val(product);
-    console.log(res.val());
+    var res = $('#form-list').val(product);
     $('#form-price').val(res.val());
     calculate();
 });
 $("#minus").click(function () {
-    var $count = $("#form-count");
-    if (isNaN($count.val())) {
-        $count.val(parseInt(1));
-        $count.change();
+    if (isNaN(countElem.val())) {
+        countElem.val(parseInt(1));
         calculate();
     }
-    if ($count.val() <= 1) {
-        $count.val(parseInt(1));
-        $count.change();
+    if (countElem.val() <= 1) {
+        countElem.val(1);
         calculate();
     } else {
-        $count.val(parseInt($count.val()) - 1);
-        $count.change();
+        countElem.val(parseInt(countElem.val()) - 1);
         calculate();
     }
 });
-$(document).ready(function ($) {
-    $("#form-tel").mask('8(099)999-99-99');
+$("#plus").click(function () {
+    if (isNaN(countElem.val())) {
+        countElem.val(parseInt(1));
+    }
+    countElem.val(parseInt(countElem.val()) + 1);
+    calculate();
 });
+
 $("#nextmodal").click(function () {
     var formName = $('#form-name').val();
     var tel = $('#form-tel').val();
@@ -100,21 +89,13 @@ $("#nextmodal").click(function () {
         sendForm();
     }
 });
-var countElem;
-countElem = document.getElementById('form-count');
-if (countElem + ".value" == undefined || countElem + ".value" == NaN) {
-    document.getElementById('form-count').value = 1;
+
+/**
+ * функция для вызова модального окна
+ * @param cart
+ */
+function showCart(cart) {
+    $('#cart.modal-body').html(cart);
+    $('#cart').modal();
 }
-countElem.onkeyup = calculate;
-countElem.oninput = calculate;
-var priceElem = document.getElementById('form-list');
-priceElem.onchange = calculate;
-countElem.onkeypress = function (e) {
-    e = e || event;
-    var chr = getChar(e);
-    if (e.ctrlKey || e.altKey || chr == null) return; // специальная клавиша
-    if (chr < '0' || chr > '9') {
-        return false;
-    }
-};
 

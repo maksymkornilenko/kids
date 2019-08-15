@@ -42,6 +42,7 @@ echo Nav::widget([
         ['label' => 'Контакты', 'url' => ['/#contacts']],
         ['label' => '+38 067 245-20-10', 'url' => 'https://wa.me/380672452010','template'=> '<a href="{url}" target="_blank">{label}</a>'],
         ['label' => '+38 067 404 66 01', 'url' => 'https://wa.me/380674046601','template'=> '<a href="{url}" target="_blank">{label}</a>'],
+        ['label' => 'Корзина','options' => ['class'=>'shopping-cart']],
     ],
 ]);
 NavBar::end();
