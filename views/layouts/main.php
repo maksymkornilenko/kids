@@ -3,7 +3,7 @@
 /* @var $content string */
 
 use app\widgets\Alert;
-use yii\helpers\Html;
+use yii\bootstrap\Modal;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -55,6 +55,15 @@ Breadcrumbs::widget([
 ?>
 <?= Alert::widget() ?>
 <?= $content ?>
+<?php Modal::begin([
+    'header' => '<h2>Корзина</h2>',
+    'id' => 'cart',
+    'size' => 'model-lg',
+    'footer' => '<a href="#" class="btn btn-success">Оформить заказ</a>
+            <button type="button" class="btn btn-danger clearCart">Очистить корзину</button>'
+]);
+Modal::end();
+?>
 <?php $this->endBody() ?>
 <!--/footer-->
 <div id="t-footer" class="t-records">

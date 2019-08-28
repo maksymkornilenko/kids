@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Form;
+use app\models\ListDb;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Json;
@@ -64,13 +65,15 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = new Form();
-
+        $list= new ListDb();
 
 //        if($model->load(Yii::$app->request->post())&&$model->validate()){
 //            Yii::$app->session->setFlash('sendForm','success');
 //
 //        }
-        return $this->render('index', ['model'=>$model]);
+        return $this->render('index', ['model'=>$model,
+            'list'=>$list->getList(),
+            ]);
     }
 
     /**
