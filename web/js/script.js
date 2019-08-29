@@ -187,11 +187,31 @@ $('#cart .modal-body').on('click', '#plus-cart', function (e) {
         }
     });
 });
+$('#cart .modal-body').on('change', '.cart-count', function (e) {
+    e.preventDefault();
+    var id=$(this).data('id');
+    var count=$(this).val();
+    if(count<0){
+        count=1;
+    }
+    $.ajax({
+        url:'/cart/change',
+        data:{id:id, count:count},
+        type:'get',
+        success:function (res) {
+            if (!res) res = 'cart empty';
+            showCart(res);
+        },
+        error:function (res) {
+            res='error';
+            showCart(res);
+        }
+    });
+});
 $('#cart .modal-body').on('click', '#minus-cart', function (e) {
     e.preventDefault();
     var id=$(this).data('id');
     var count=$(this).data('count');
-    console.log(id);
     $.ajax({
         url:'/cart/remove',
         data:{id:id, count:count},

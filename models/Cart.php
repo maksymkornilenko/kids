@@ -23,6 +23,23 @@ class Cart extends ActiveRecord
         $_SESSION['cart.count'] = isset($_SESSION['cart.count']) ? $_SESSION['cart.count'] + $count : $count;
         $_SESSION['cart.sum'] = isset($_SESSION['cart.sum']) ? $_SESSION['cart.sum'] + $count * $model['price'] : $count * $model['price'];
     }
+    public function changeInCart($model, $count = 1)
+    {
+
+        if (isset($_SESSION['cart'][$model['id']])) {
+            $_SESSION['cart'][$model['id']]['count'] = $count;
+        } else {
+            $_SESSION['cart'][$model['id']] = [
+                'count' => $count,
+                'name' => $model['name'],
+                'price' => $model['price'],
+            ];
+        }
+        $minusCount=$_SESSION['cart.count']-$_SESSION['cart'][$model['id']]['count'];
+        $minusSum=$_SESSION['cart.sum']-$_SESSION['cart'][$model['id']]['count']* $_SESSION['cart'][$model['id']]['price'];
+        $_SESSION['cart.count'] = isset($_SESSION['cart.count']) ? $_SESSION['cart.count'] + $count : $count;
+        $_SESSION['cart.sum'] = isset($_SESSION['cart.sum']) ? $_SESSION['cart.sum'] + $count * $model['price'] : $count * $model['price'];
+    }
     public function removeFromCart($model, $count = 1)
     {
 
