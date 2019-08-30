@@ -39,8 +39,10 @@ use yii\bootstrap\ActiveForm;
                     <img src="https://static.tildacdn.com/lib/linea/1bec3cd7-e9d1-2879-5880-19b597ef9f1a/arrows_circle_remove.svg" class="del-item" data-id="<?= $id ?>" style="width:20px;height:20px;border:0;">
                 </div>
             </div>
+                <?php var_dump($id);?>
             <?php endforeach;?>
         </div>
+
         <div class="t706__cartwin-bottom">
             <div class="t706__cartwin-prodamount-wrap t-descr t-descr_sm" style="display: block;">
                 <span class="t706__cartwin-prodamount-label">Сумма:&nbsp;</span>

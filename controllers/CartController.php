@@ -23,7 +23,7 @@ class CartController extends Controller
         $session->open();
         $cart = new Cart();
         $contactForm = new Form();
-        $cart->addToCart($model[0], $count, $gender);
+        $cart->addToCart($model[0], $count);
         $this->layout = false;
         return $this->render('cart-modal',['session'=>$session,'model'=>$contactForm]);
     }
@@ -48,7 +48,7 @@ class CartController extends Controller
         $id = (int)Yii::$app->request->get('id');
         $count = (int)Yii::$app->request->get('count');
         $count = !$count ? 1 : $count;
-        $model = Yii::$app->db->createCommand("SELECT * FROM `system_products` where `id`=$id")->queryAll();
+        $model = Yii::$app->db->createCommand("SELECT system_products_genders.id, system_products_genders.gender_id, system_products_genders.system_products_id, gender.name, system_products.body,system_products.price FROM `system_products_genders` LEFT JOIN gender on system_products_genders.gender_id=gender.id LEFT JOIN system_products on system_products_genders.system_products_id=system_products.id WHERE gender_id=$gender AND system_products_id=$id")->queryAll();
         if (empty($model)) return false;
         $contactForm = new Form();
         $session = Yii::$app->session;
