@@ -697,7 +697,25 @@ use yii\helpers\Html;
         Modal::begin([
             'header' => '<h2>Набор продукции DISNEY Kitchen</h2>',
             'options' => ['id' => 'form-modal'],
-            'footer' => 'Низ окна',
+            'footer' => '<div class="t766__bottom-wrapper">
+                <div class="t766__price-wrapper">
+                    <div class="t766__price t766__price-item t-name t-name_xl" style="color:#ff5805;">
+                        <div class="t766__price-value price-value" field="price" data-redactor-toolbar="no" data-product-price-def="300" data-product-price-def-str="300">300</div>
+                        <div class="t766__price-currency">грн</div>
+                    </div>
+                </div>
+                <div class="t766__btn-wrapper t766__btn-bottom">
+                    <span target="" class="t766__btn t-btn t-btn_sm add-to-cart" style="color:#ffffff;background-color:#ff8800;border-radius:15px; -moz-border-radius:15px; -webkit-border-radius:15px;font-family:HelveticaNeueCyr;font-weight:400;text-transform:uppercase;box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);">
+                        <table style="width:100%; height:100%;">
+                            <tbody>
+                            <tr>
+                                <td>Купить</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </span>
+                </div>
+            </div>',
         ]);
         ?>
         <div class="t706__cartwin-heading t-name t-name_xl">
@@ -706,104 +724,37 @@ use yii\helpers\Html;
         <div class="modalimg">
             <img src="/img/Modalpicture.png"/>
         </div>
-        <?php $form = ActiveForm::begin(['id' => 'contact-form', 'options' => ['name' => 'calculator']]); ?>
-        <!--        <div class="container">-->
-        <div class="row">
-            <div class="col-md-12">
-                <?= $form->field($model, 'list')->dropDownList(
-                    ['300' => '9 батончиков + 1 упак. вафель',
-                        "500" => '18 батончиков + 2 упак. вафель',
-                        "600" => '27 батончиков + 3 упак. вафель',
-                        '900' => '54 батончика + 6 упак. вафель']) ?>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <?= $form->field($model, 'price')->textInput(['value' => 0,
-                    'readonly' => true]) ?>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group-minus">
-                    <img src="/img/arrows_circle_minus.svg" name="contact-button" id="minus" onclick='calculate()'>
+        <div class="t766__wrapper t-align_left">
+            <div class="t766__title-wrapper">
+                <div class="t766__title t-heading t-heading_lg js-product-name" style="color:#621dd1;font-size:20px;font-weight:600;font-family:'HelveticaNeueCyr';text-transform:uppercase;">
+                    Набор продукции DISNEY Kitchen
+                </div>
+                <div class="t766__title_small t-descr t-descr_sm js-product-sku" style="color:#621dd1;">
+                    Батончики и вафли Disney Kitchen - отличный перекус, который можно взять с собой
                 </div>
             </div>
-            <div class="col-md-3">
-                <?= $form->field($model, 'count', [])->textInput(['type' => 'number', 'value' => 1, "min" => 1, "max" => 250]) ?>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group-plus">
-                    <img src="/img/arrows_circle_plus.svg" name="contact-button" , id="plus" , onclick='calculate()'>
+            <div class="t766__options-wrapper">
+                <div class="t-product__option js-product-option">
+                    <div class="t-product__option-title t-descr t-descr_xxs js-product-option-name" style="color:#31007a;">
+                        Выберите для кого этот набор
+                    </div> <div class="t-product__option-variants">
+                        <select class="t-product__option-select t-descr t-descr_xxs gender">
+                            <option value="мальчик" data-id="1">мальчик</option>
+                            <option value="девочка" data-id="2">девочка</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="t-product__option js-product-option">
+                    <div class="t-product__option-title t-descr t-descr_xxs js-product-option-name" style="color:#31007a;">Набор</div>
+                    <div class="t-product__option-variants"> <select class="t-product__option-select t-descr t-descr_xxs js-product-option-variants dropdown-list">
+                            <?php foreach ($list as $droplist) : ?>
+                                <option data-id="<?php echo $droplist['id'] ?>" data-count=1 value="<?= $droplist['price'] ?>"><?= $droplist['name'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <?= $form->field($model, 'sum')->textInput(['readonly' => true]) ?>
-            </div>
-        </div>
-    </div>
-    <!--        </div>-->
-    <?= $form->field($model, 'name') ?>
-
-    <?= $form->field($model, 'tel') ?>
-
-    <?= $form->field($model, 'city', ['options' => ['placefolder' => 'Выберите город']])->dropDownList([
-        "" => "Выберите город",
-        "Киев" => "Киев",
-        "Харьков" => "Харьков",
-        "Одесса" => "Одесса",
-        "Днепр" => "Днепр",
-        "Донецк" => "Донецк",
-        "Запорожье" => "Запорожье",
-        "Львов" => "Львов",
-        "Кривой Рог" => "Кривой Рог",
-        "Николаев" => "Николаев",
-        "Севастополь" => "Севастополь",
-        "Мариуполь" => "Мариуполь",
-        "Луганск" => "Луганск",
-        "Винница" => "Винница",
-        "Макеевка" => "Макеевка",
-        "Симферополь" => "Симферополь",
-        "Херсон" => "Херсон",
-        "Полтава" => "Полтава",
-        "Чернигов" => "Чернигов",
-        "Черкассы" => "Черкассы",
-        "Хмельницкий" => "Хмельницкий",
-        "Черновцы" => "Черновцы",
-        "Житомир" => "Житомир",
-        "Сумы" => "Сумы",
-        "Ровно" => "Ровно",
-        "Горловка" => "Горловка",
-        "Ивано-Франковск" => "Ивано-Франковск",
-        "Каменское" => "Каменское",
-        "Кропивницкий" => "Кропивницкий",
-        "Тернополь" => "Тернополь",
-        "Кременчуг" => "Кременчуг",
-        "Луцк" => "Луцк",
-        "Белая Церковь" => "Белая Церковь",
-        "Краматорск" => "Краматорск",
-        "Мелитополь" => "Мелитополь",
-        "Керчь" => "Керчь",
-        "Ужгород" => "Ужгород",
-        "Славянск" => "Славянск",
-        "Никополь" => "Никополь",
-        "Бердянск" => "Бердянск",
-        "Алчевск" => "Алчевск",
-        "Евпатория" => "Евпатория",
-        "Бровары" => "Бровары",
-        "Павлоград" => "Павлоград",
-        "Северодонецк" => "Северодонецк",
-    ]); ?>
-    <div class="form-group">
-        <span class="btn btn-primary" id="nextmodal">Купить</span>
-    </div>
-    <?php ActiveForm::end(); ?>
-    <select class="dropdown-list">
-        <?php foreach ($list as $droplist) : ?>
-                <option data-id="<?php echo $droplist['id'] ?>" data-count=1 value="<?= $droplist['price'] ?>"><?= $droplist['name'] ?></option>
-        <?php endforeach; ?>
-    </select>
-    <span class="btn btn-sm btn-success add-to-cart">Добавить в корзину</span>
     <?php Modal::end(); ?>
 </div>
 <!-- Modal 2 -->

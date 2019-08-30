@@ -56,13 +56,18 @@ Breadcrumbs::widget([
 <?= Alert::widget() ?>
 <?= $content ?>
 <?php Modal::begin([
-    'header' => '<h2>Корзина</h2>',
+    'header' => '<div class="t706__cartwin-heading t-name t-name_xl">Оставьте данные для оформления заказа</div>',
     'id' => 'cart',
     'size' => 'model-lg',
     'footer' => '<a href="#" class="btn btn-success">Оформить заказ</a>
             <button type="button" class="btn btn-danger clearCart">Очистить корзину</button>'
-]);
-Modal::end();
+]);?>
+<div>
+        <h3>
+            <p>Корзина пуста</p>
+        </h3>
+    </div>
+<?php Modal::end();
 ?>
 <?php $this->endBody() ?>
 <!--/footer-->
