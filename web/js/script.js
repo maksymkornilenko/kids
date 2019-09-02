@@ -272,13 +272,29 @@ $("#plus-cart").click(function () {
     countElem.val(parseInt(countElem.val()) + 1);
     calculate();
 });
-$('.sendOrder').on('click', function (e) {
-    e.preventDefault();
-    console.log(1)
-    $.ajax({
-        url: '/cart/view',
-        type: 'get',
-    });
-});
+// $('.sendOrder').on('click', function (e) {
+//     var name = $('#orders-name').val();
+//     var phone = $('#orders-phone').val();
+//     var mail = $('#orders-email').val();
+//     var city = $('#orders-city').find(":selected").val();
+//     console.log(name);
+//     console.log(phone);
+//     console.log(mail);
+//     console.log(city);
+//     e.preventDefault();
+//     $.ajax({
+//         url: '/cart/save',
+//         data: {name: name, phone: phone, mail: mail, city: city},
+//         type: 'get',
+//         success: function (res) {
+//             if (!res) res = 'cart empty';
+//             showCart(res);
+//         },
+//         error: function (res) {
+//             res = 'error';
+//             showCart(res);
+//         }
+//     });
+// });
 //==================================================================================================
 
