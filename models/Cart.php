@@ -19,6 +19,8 @@ class Cart extends ActiveRecord
                 'name' => $model['body'],
                 'price' => $model['price'],
                 'gender' => $model['name'],
+                'gender_id' => $model['gender_id'],
+                'system_products_id' => $model['system_products_id'],
             ];
         }
         $_SESSION['cart.count'] = isset($_SESSION['cart.count']) ? $_SESSION['cart.count'] + $count : $count;

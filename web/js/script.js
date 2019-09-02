@@ -131,7 +131,9 @@ $('.add-to-cart').on('click', function (e) {
     var id = $(".dropdown-list").find(":selected").data("id"),
         count = $(".dropdown-list").find(":selected").data('count'),
         gender = $(".gender").find(":selected").data('id');
+    console.log(id);
     console.log(count);
+    console.log(gender);
     $.ajax({
         url: '/cart/add',
         data: {id: id, count: count, gender: gender},
@@ -190,12 +192,15 @@ $('.clearCart').on('click', function (e) {
 });
 $('#cart .modal-body').on('click', '#plus-cart', function (e) {
     e.preventDefault();
-    var id = $(this).data('id');
-    var count = $(this).data('count');
+    var id = $(this).data("id"),
+        count = $(this).data('count'),
+        gender = $(this).data('gender');
     console.log(id);
+    console.log(count);
+    console.log(gender);
     $.ajax({
         url: '/cart/add',
-        data: {id: id, count: count},
+        data: {id: id, count: count, gender: gender},
         type: 'get',
         success: function (res) {
             if (!res) res = 'cart empty';
@@ -232,9 +237,10 @@ $('#cart .modal-body').on('click', '#minus-cart', function (e) {
     e.preventDefault();
     var id = $(this).data('id');
     var count = $(this).data('count');
+    var gender = $(this).data('gender');
     $.ajax({
         url: '/cart/remove',
-        data: {id: id, count: count},
+        data: {id: id, count: count, gender: gender},
         type: 'get',
         success: function (res) {
             if (!res) res = 'cart empty';
@@ -265,6 +271,14 @@ $("#plus-cart").click(function () {
     }
     countElem.val(parseInt(countElem.val()) + 1);
     calculate();
+});
+$('.sendOrder').on('click', function (e) {
+    e.preventDefault();
+    console.log(1)
+    $.ajax({
+        url: '/cart/view',
+        type: 'get',
+    });
 });
 //==================================================================================================
 
