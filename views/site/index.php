@@ -690,12 +690,11 @@ use yii\helpers\Html;
         <a name="contacts" style="font-size:0;"></a>
     </div>
 </div>
-</div>
 <div class="modals-for-site">
     <div>
         <?php
         Modal::begin([
-            'header' => '<h2>Набор продукции DISNEY Kitchen</h2>',
+            'header' => '',
             'options' => ['id' => 'form-modal'],
             'footer' => '<div class="t766__bottom-wrapper">
                 <div class="t766__price-wrapper">
@@ -718,15 +717,13 @@ use yii\helpers\Html;
             </div>',
         ]);
         ?>
-        <div class="t706__cartwin-heading t-name t-name_xl">
-            Оставьте данные для оформления заказа
-        </div>
         <div class="modalimg">
             <img src="/img/Modalpicture.png"/>
         </div>
         <div class="t766__wrapper t-align_left">
             <div class="t766__title-wrapper">
-                <div class="t766__title t-heading t-heading_lg js-product-name" style="color:#621dd1;font-size:20px;font-weight:600;font-family:'HelveticaNeueCyr';text-transform:uppercase;">
+                <div class="t766__title t-heading t-heading_lg js-product-name"
+                     style="color:#621dd1;font-size:20px;font-weight:600;font-family:'HelveticaNeueCyr';text-transform:uppercase;">
                     Набор продукции DISNEY Kitchen
                 </div>
                 <div class="t766__title_small t-descr t-descr_sm js-product-sku" style="color:#621dd1;">
@@ -735,9 +732,11 @@ use yii\helpers\Html;
             </div>
             <div class="t766__options-wrapper">
                 <div class="t-product__option js-product-option">
-                    <div class="t-product__option-title t-descr t-descr_xxs js-product-option-name" style="color:#31007a;">
+                    <div class="t-product__option-title t-descr t-descr_xxs js-product-option-name"
+                         style="color:#31007a;">
                         Выберите для кого этот набор
-                    </div> <div class="t-product__option-variants">
+                    </div>
+                    <div class="t-product__option-variants">
                         <select class="t-product__option-select t-descr t-descr_xxs gender">
                             <option value="мальчик" data-id="1">мальчик</option>
                             <option value="девочка" data-id="2">девочка</option>
@@ -745,62 +744,21 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class="t-product__option js-product-option">
-                    <div class="t-product__option-title t-descr t-descr_xxs js-product-option-name" style="color:#31007a;">Набор</div>
-                    <div class="t-product__option-variants"> <select class="t-product__option-select t-descr t-descr_xxs js-product-option-variants dropdown-list">
+                    <div class="t-product__option-title t-descr t-descr_xxs js-product-option-name"
+                         style="color:#31007a;">Набор
+                    </div>
+                    <div class="t-product__option-variants">
+                        <select class="t-product__option-select t-descr t-descr_xxs js-product-option-variants dropdown-list">
                             <?php foreach ($list as $droplist) : ?>
-                                <option data-id="<?php echo $droplist['id'] ?>" data-count=1 value="<?= $droplist['price'] ?>"><?= $droplist['name'] ?></option>
+                                <option data-id="<?php echo $droplist['id'] ?>" data-count=1
+                                        value="<?= $droplist['price'] ?>"><?= $droplist['name'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
             </div>
         </div>
-    <?php Modal::end(); ?>
-</div>
-<!-- Modal 2 -->
-<?php
-Modal::begin([
-    'header' => '<h2>Набор продукции DISNEY Kitchen</h2>',
-    'options' => ['id' => 'answer-modal',
-        'class' => "modal fade",
-        'tabindex' => "-1",
-        'role' => "dialog",
-        'aria-labelledby' => "exampleModalLabel",
-        'aria-hidden' => "true"],
-    'footer' => 'Низ окна',
-]);
-?>
-<div class="modal-body">
-    <img src="/img/ok.png"/>
-    <p>Ваш заказ принят</p>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal"
-            data-target="#exampleModal">Close
-    </button>
-</div>
-<?php Modal::end(); ?>
-
-<?php
-Modal::begin([
-    'header' => '<h2>ОШИБКА</h2>',
-    'options' => ['id' => 'error-modal',
-        'class' => "modal fade",
-        'tabindex' => "-1",
-        'role' => "dialog",
-        'aria-labelledby' => "exampleModalLabel",
-        'aria-hidden' => "true"],
-    'footer' => 'Низ окна',
-]);
-?>
-<div class="modal-body">
-    <p>Пожалуйста введите значения</p>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="backmodal">
-        Close
-    </button>
-</div>
-<?php Modal::end(); ?>
+        <?php Modal::end(); ?>
+    </div>
 </div>
 

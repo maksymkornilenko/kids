@@ -86,45 +86,29 @@ class CartController extends Controller
         $this->layout = false;
         return $this->render('cart-modal',['session'=>$session]);
     }
-//    public function actionSave(){
-//        $name = Yii::$app->request->get('name');
-//        $phone = Yii::$app->request->get('phone');
-//        $mail = Yii::$app->request->get('mail');
-//        $city = Yii::$app->request->get('city');
-//        $session=Yii::$app->session;
-//        $session->open();
-//        $this->layout = false;
-//        $contactForm = new Orders();
-//        $contactForm->count=$session['cart.count'];
-//        $contactForm->sum=$session['cart.sum'];
-//        $model= new Cart();
-//        $model->addToOrder($contactForm->count,$contactForm->sum,$name,$mail,$city);
-//        $this->layout = false;
-//        return $this->render('view',['session'=>$session,'model'=>$contactForm]);
-//    }
     public function actionView(){
         $session=Yii::$app->session;
         $session->open();
         $contactForm = new Orders();
-        if($contactForm->load(Yii::$app->request->post())){
-            $contactForm->count=$session['cart.count'];
-            $contactForm->sum=$session['cart.sum'];
+        $contactForm->name=Yii::$app->request->post('name');
+        $contactForm->phone=Yii::$app->request->post('phone');
+        $contactForm->email=Yii::$app->request->post('mail');
+        $contactForm->city=Yii::$app->request->post('city');
+        $contactForm->count=$session['cart.count'];
+        $contactForm->sum=$session['cart.sum'];
 
             if($contactForm->save()){
                 $this->saveOrderItems($session['cart'], $contactForm->id);
-                Yii::$app->session->setFlash('success','Your order success');
+                Yii::$app->session->setFlash('success',"Ваш заказ номер №$contactForm->id получен менеджер в ближайшее время с вами свяжется");
                 $session->remove('cart');
                 $session->remove('cart.count');
                 $session->remove('cart.sum');
 
             }else{
-                Yii::$app->session->setFlash('error','Your order error');
+                Yii::$app->session->setFlash('error','Ваш заказ не получен');
             }
-        }
-        $model= new Cart();
         $this->layout = false;
-        return $this->render('view',['session'=>$session,'model'=>$contactForm]);
-        header('Location: http://kids/');
+        return $this->render('cart-modal',['session'=>$session,'model'=>$contactForm,'order'=>$contactForm->id]);
     }
     protected function saveOrderItems($items, $order_id){
         foreach ($items as $id=>$item){
@@ -136,7 +120,6 @@ class CartController extends Controller
             $order_items->count_item=$item['count'];
             $order_items->sum_item=$item['count']*$item['price'];
             $order_items->save();
-            header('Location: http://kids/');
         }
 
     }

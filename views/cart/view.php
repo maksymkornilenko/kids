@@ -3,18 +3,6 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 ?>
-<?php
-if(Yii::$app->session->hasFlash('success')):
-?>
-<?php echo Yii::$app->session->getFlash('success');?>
-<?php endif;?>
-
-<?php
-if(Yii::$app->session->hasFlash('error')):
-?>
-<?php echo Yii::$app->session->getFlash('error');?>
-<?php endif;?>
-
 <div class="container" id="order">
     <?php if (!empty($session['cart'])): ?>
     <div class="t706__cartwin-products">
@@ -54,69 +42,5 @@ if(Yii::$app->session->hasFlash('error')):
     </div>
     <?php endif;?>
 
-    <div class="t706__cartwin-bottom">
-        <div class="t706__cartwin-prodamount-wrap t-descr t-descr_sm" style="display: block;">
-            <span class="t706__cartwin-prodamount-label">Сумма:&nbsp;</span>
-            <span class="t706__cartwin-prodamount"><?= $session['cart.sum'] ?>&nbsp;грн</span>
-            <?php $form = ActiveForm::begin(['id' => 'contact-form', 'options' => ['name' => 'calculator']]); ?>
-            <?= $form->field($model, 'name') ?>
 
-            <?= $form->field($model, 'phone') ?>
-
-            <?= $form->field($model, 'email') ?>
-
-            <?= $form->field($model, 'city', ['options' => ['placefolder' => 'Выберите город']])->dropDownList([
-                "" => "Выберите город",
-                "Киев" => "Киев",
-                "Харьков" => "Харьков",
-                "Одесса" => "Одесса",
-                "Днепр" => "Днепр",
-                "Донецк" => "Донецк",
-                "Запорожье" => "Запорожье",
-                "Львов" => "Львов",
-                "Кривой Рог" => "Кривой Рог",
-                "Николаев" => "Николаев",
-                "Севастополь" => "Севастополь",
-                "Мариуполь" => "Мариуполь",
-                "Луганск" => "Луганск",
-                "Винница" => "Винница",
-                "Макеевка" => "Макеевка",
-                "Симферополь" => "Симферополь",
-                "Херсон" => "Херсон",
-                "Полтава" => "Полтава",
-                "Чернигов" => "Чернигов",
-                "Черкассы" => "Черкассы",
-                "Хмельницкий" => "Хмельницкий",
-                "Черновцы" => "Черновцы",
-                "Житомир" => "Житомир",
-                "Сумы" => "Сумы",
-                "Ровно" => "Ровно",
-                "Горловка" => "Горловка",
-                "Ивано-Франковск" => "Ивано-Франковск",
-                "Каменское" => "Каменское",
-                "Кропивницкий" => "Кропивницкий",
-                "Тернополь" => "Тернополь",
-                "Кременчуг" => "Кременчуг",
-                "Луцк" => "Луцк",
-                "Белая Церковь" => "Белая Церковь",
-                "Краматорск" => "Краматорск",
-                "Мелитополь" => "Мелитополь",
-                "Керчь" => "Керчь",
-                "Ужгород" => "Ужгород",
-                "Славянск" => "Славянск",
-                "Никополь" => "Никополь",
-                "Бердянск" => "Бердянск",
-                "Алчевск" => "Алчевск",
-                "Евпатория" => "Евпатория",
-                "Бровары" => "Бровары",
-                "Павлоград" => "Павлоград",
-                "Северодонецк" => "Северодонецк",
-            ]); ?>
-            <input type="submit" class="btn btn-success" value="send">
-            <?php ActiveForm::end() ?>
-            <div class="t706__form-bottom-text t-text t-text_xs">Нажимая кнопку отправить, я соглашаюсь с
-                <a href="/official" style="">политикой конфиденциальности.</a>
-            </div>
-        </div>
-    </div>
 </div>

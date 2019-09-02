@@ -6,9 +6,6 @@ countElem.on('change', function () {
 priceElem.on('change', function () {
     calculate();
 });
-$(document).ready(function ($) {
-    $("#form-tel").mask('8(099)999-99-99');
-});
 
 function calculate() {
     var sum = 0,
@@ -58,9 +55,10 @@ countElem.blur(function () {
 });
 $('.open-order').click(function () {
     var product = $(this).data('product');
+    console.log(product);
     $('#form-modal').modal('show');
-    var res = $('#form-list').val(product);
-    $('#form-price').val(res.val());
+    var res = $('.dropdown-list').val(product);
+    $('.price-value').text(res.val());
     calculate();
 });
 // $("#minus").click(function () {
@@ -131,9 +129,6 @@ $('.add-to-cart').on('click', function (e) {
     var id = $(".dropdown-list").find(":selected").data("id"),
         count = $(".dropdown-list").find(":selected").data('count'),
         gender = $(".gender").find(":selected").data('id');
-    console.log(id);
-    console.log(count);
-    console.log(gender);
     $.ajax({
         url: '/cart/add',
         data: {id: id, count: count, gender: gender},
@@ -154,10 +149,15 @@ $('.add-to-cart').on('click', function (e) {
 /**
  * удаление одной позиции из корзины
  */
+$('#cart .modal-body').on('click',function (e) {
+    $(document).ready(function ($) {
+        $("#orders-phone").mask('8(099)999-99-99');
+    });
+});
+
 $('#cart .modal-body').on('click', '.del-item', function (e) {
     e.preventDefault();
     var id = $(this).data('id');
-    console.log(id);
     $.ajax({
         url: '/cart/delete',
         data: {id: id},
@@ -195,9 +195,6 @@ $('#cart .modal-body').on('click', '#plus-cart', function (e) {
     var id = $(this).data("id"),
         count = $(this).data('count'),
         gender = $(this).data('gender');
-    console.log(id);
-    console.log(count);
-    console.log(gender);
     $.ajax({
         url: '/cart/add',
         data: {id: id, count: count, gender: gender},
@@ -252,49 +249,26 @@ $('#cart .modal-body').on('click', '#minus-cart', function (e) {
         }
     });
 });
-$("#minus-cart").click(function () {
-    if (isNaN(countElem.val())) {
-        countElem.val(parseInt(1));
-        calculate();
-    }
-    if (countElem.val() <= 1) {
-        countElem.val(1);
-        calculate();
-    } else {
-        countElem.val(parseInt(countElem.val()) - 1);
-        calculate();
-    }
+$('.sendOrder').on('click', function (e) {
+    var name = $('#orders-name').val();
+    var phone = $('#orders-phone').val();
+    var mail = $('#orders-email').val();
+    var city = $('#orders-city').find(":selected").val();
+    e.preventDefault();
+    $.ajax({
+        url: '/cart/view',
+        data: {name: name, phone: phone, mail: mail, city: city},
+        type: 'post',
+        success: function (res) {
+            if (!res) res = 'cart empty';
+            showCart(res);
+
+        },
+        error: function (res) {
+            res = 'error';
+            showCart(res);
+        }
+    });
 });
-$("#plus-cart").click(function () {
-    if (isNaN(countElem.val())) {
-        countElem.val(parseInt(1));
-    }
-    countElem.val(parseInt(countElem.val()) + 1);
-    calculate();
-});
-// $('.sendOrder').on('click', function (e) {
-//     var name = $('#orders-name').val();
-//     var phone = $('#orders-phone').val();
-//     var mail = $('#orders-email').val();
-//     var city = $('#orders-city').find(":selected").val();
-//     console.log(name);
-//     console.log(phone);
-//     console.log(mail);
-//     console.log(city);
-//     e.preventDefault();
-//     $.ajax({
-//         url: '/cart/save',
-//         data: {name: name, phone: phone, mail: mail, city: city},
-//         type: 'get',
-//         success: function (res) {
-//             if (!res) res = 'cart empty';
-//             showCart(res);
-//         },
-//         error: function (res) {
-//             res = 'error';
-//             showCart(res);
-//         }
-//     });
-// });
 //==================================================================================================
 

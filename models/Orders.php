@@ -38,8 +38,10 @@ class Orders extends ActiveRecord
         return [
             [['name', 'email', 'phone','city'], 'required'],
             [['created_at'], 'safe'],
+            ['phone', 'match', 'pattern' => '/^(8)[(](\d{3})[)](\d{3})[-](\d{2})[-](\d{2})/', 'message' => 'Телефон, должно быть в формате 8(XXX)XXX-XX-XX'],
             [['count'], 'integer'],
             [['sum'], 'number'],
+            ['email', 'email'],
             [['name', 'email', 'phone'], 'string', 'max' => 255],
         ];
     }
