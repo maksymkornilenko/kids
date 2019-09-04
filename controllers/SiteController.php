@@ -66,16 +66,30 @@ class SiteController extends Controller
     {
         $model = new Form();
         $list= new ListDb();
-
+        $session=Yii::$app->session;
+        $session->open();
+        $areas=Yii::$app->db->createCommand("SELECT * from areas")->queryAll();
 //        if($model->load(Yii::$app->request->post())&&$model->validate()){
 //            Yii::$app->session->setFlash('sendForm','success');
 //
 //        }
         return $this->render('index', ['model'=>$model,
             'list'=>$list->getList(),
+            'session'=>$session
             ]);
     }
-
+    public function actionOfficial()
+    {
+        return $this->render('official');
+    }
+    public function actionOferta()
+    {
+        return $this->render('oferta');
+    }
+    public function actionPravila()
+    {
+        return $this->render('pravila');
+    }
     /**
      * 3213
      */

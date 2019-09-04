@@ -57,4 +57,17 @@ class OrderItems extends ActiveRecord
     {
         return $this->hasOne(SystemProducts::className(), ['id' => 'system_product_id']);
     }
+    public function saveOrderItems($items, $order_id){
+        foreach ($items as $id=>$item){
+            $order_items= new OrderItems();
+            $order_items->order_id=$order_id;
+            $order_items->system_product_id=$item['system_products_id'];
+            $order_items->name=$item['name'];
+            $order_items->price=$item['price'];
+            $order_items->count_item=$item['count'];
+            $order_items->sum_item=$item['count']*$item['price'];
+            $order_items->save();
+        }
+
+    }
 }

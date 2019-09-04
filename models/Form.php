@@ -11,6 +11,7 @@ class Form extends Model
     public $tel;
     public $city;
     public $list;
+    public $area;
     public $count;
     public $sum;
     public $price;
@@ -19,7 +20,7 @@ class Form extends Model
     {
         return [
             // username and password are both required
-            [['name', 'tel','city','list','count','sum','price'], 'required'],
+            [['name', 'tel','city','list','count','sum','price','area'], 'required'],
             [['list','count','sum','price'], 'required'],
             // tel must be a telephone value
             ['tel', 'match', 'pattern' => '/^(8)[(](\d{3})[)](\d{3})[-](\d{2})[-](\d{2})/', 'message' => 'Телефон, должно быть в формате 8(XXX)XXX-XX-XX'],

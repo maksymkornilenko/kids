@@ -1,6 +1,8 @@
 <?php
 
 use yii\bootstrap\ActiveForm;
+use yii\helpers\ArrayHelper;
+use app\models\Orders;
 
 ?>
 <?php if (!empty($session['cart'])): ?>
@@ -47,71 +49,33 @@ use yii\bootstrap\ActiveForm;
             </div>
         <?php endforeach; ?>
     </div>
-
+    <div class="cartwin-prodamount-wrap t-descr t-descr_sm" style="display: block;">
+        <span class="t706__cartwin-prodamount-label">Сумма:&nbsp;</span>
+        <span class="t706__cartwin-prodamount"><?= $session['cart.sum'] ?>&nbsp;грн</span>
+        <span class="t706__cartwin-count"><?= $session['cart.count'] ?></span>
+    </div>
     <div class="t706__cartwin-bottom">
-        <div class="cartwin-prodamount-wrap t-descr t-descr_sm" style="display: block;">
-            <span class="t706__cartwin-prodamount-label">Сумма:&nbsp;</span>
-            <span class="t706__cartwin-prodamount"><?= $session['cart.sum'] ?>&nbsp;грн</span>
-        </div>
         <div class="t706__cartwin-prodamount-wrap t-descr t-descr_sm" style="display: block;">
             <?php $form = ActiveForm::begin(['id' => '1contact-form', 'options' => ['name' => 'calculator1']]); ?>
             <?= $form->field($model, 'name') ?>
-            <div class="errorName"></div>
             <?= $form->field($model, 'phone') ?>
-            <div class="errorPhone"></div>
             <?= $form->field($model, 'email') ?>
-            <div class="errorEmail"></div>
-            <?= $form->field($model, 'city', ['options' => ['placefolder' => 'Выберите город']])->dropDownList([
-                "" => "Выберите город",
-                "Киев" => "Киев",
-                "Харьков" => "Харьков",
-                "Одесса" => "Одесса",
-                "Днепр" => "Днепр",
-                "Донецк" => "Донецк",
-                "Запорожье" => "Запорожье",
-                "Львов" => "Львов",
-                "Кривой Рог" => "Кривой Рог",
-                "Николаев" => "Николаев",
-                "Севастополь" => "Севастополь",
-                "Мариуполь" => "Мариуполь",
-                "Луганск" => "Луганск",
-                "Винница" => "Винница",
-                "Макеевка" => "Макеевка",
-                "Симферополь" => "Симферополь",
-                "Херсон" => "Херсон",
-                "Полтава" => "Полтава",
-                "Чернигов" => "Чернигов",
-                "Черкассы" => "Черкассы",
-                "Хмельницкий" => "Хмельницкий",
-                "Черновцы" => "Черновцы",
-                "Житомир" => "Житомир",
-                "Сумы" => "Сумы",
-                "Ровно" => "Ровно",
-                "Горловка" => "Горловка",
-                "Ивано-Франковск" => "Ивано-Франковск",
-                "Каменское" => "Каменское",
-                "Кропивницкий" => "Кропивницкий",
-                "Тернополь" => "Тернополь",
-                "Кременчуг" => "Кременчуг",
-                "Луцк" => "Луцк",
-                "Белая Церковь" => "Белая Церковь",
-                "Краматорск" => "Краматорск",
-                "Мелитополь" => "Мелитополь",
-                "Керчь" => "Керчь",
-                "Ужгород" => "Ужгород",
-                "Славянск" => "Славянск",
-                "Никополь" => "Никополь",
-                "Бердянск" => "Бердянск",
-                "Алчевск" => "Алчевск",
-                "Евпатория" => "Евпатория",
-                "Бровары" => "Бровары",
-                "Павлоград" => "Павлоград",
-                "Северодонецк" => "Северодонецк",
+            <?= $form->field($model, 'area')->dropDownList(ArrayHelper::map($areas, 'ref', 'description_ru'),[
+                'prompt' => 'Выберите область...'
             ]); ?>
-            <div class="errorCity"></div>
+            <?php if (!empty($cities)): ?>
+                <?= $form->field($model, 'city')->dropDownList(ArrayHelper::map($cities, 'ref', 'description_ru'),['prompt' => 'Выберите город...']); ?>
+            <?php elseif (!empty($areas) && empty($cities)): ?>
+                <?= $form->field($model, 'city')->dropDownList(['' => 'Выберите сначала область']); ?>
+            <?php endif; ?>
+            <?php if (!empty($warehouse)): ?>
+                <?= $form->field($model, 'warehouse')->dropDownList(ArrayHelper::map($warehouse, 'ref', 'description_ru'),['prompt' => 'Выберите отделение Новой почты...']); ?>
+            <?php else: ?>
+                <?= $form->field($model, 'warehouse')->dropDownList(['' => 'Введите сначала город']); ?>
+            <?php endif; ?>
             <?php ActiveForm::end() ?>
             <div class="t706__form-bottom-text t-text t-text_xs">Нажимая кнопку отправить, я соглашаюсь с
-                <a href="/official" style="">политикой конфиденциальности.</a>
+                <a href="site/official" style="">политикой конфиденциальности.</a>
             </div>
         </div>
     </div>

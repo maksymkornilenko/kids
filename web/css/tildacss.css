@@ -3593,15 +3593,10 @@ img:not([src]) {
 }
 
 .t706__carticon {
-    display: none;
     position: fixed;
     top: 100px;
     right: 50px;
     z-index: 4000
-}
-
-.t706__carticon_showed {
-    display: block
 }
 
 .t706__carticon_neworder .t706__carticon-text {

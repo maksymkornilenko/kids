@@ -17,6 +17,9 @@ use yii\db\Expression;
  * @property string $name
  * @property string $email
  * @property string $phone
+ * @property string $area
+ * @property string $city
+ * @property string $warehouse
  *
  * @property OrderItems[] $orderItems
  */
@@ -36,13 +39,13 @@ class Orders extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'phone','city'], 'required'],
+            [['name', 'email', 'phone','area','city','warehouse'], 'required'],
             [['created_at'], 'safe'],
             ['phone', 'match', 'pattern' => '/^(8)[(](\d{3})[)](\d{3})[-](\d{2})[-](\d{2})/', 'message' => 'Телефон, должно быть в формате 8(XXX)XXX-XX-XX'],
             [['count'], 'integer'],
             [['sum'], 'number'],
             ['email', 'email'],
-            [['name', 'email', 'phone'], 'string', 'max' => 255],
+            [['name', 'email', 'phone','area','city','warehouse'], 'string', 'max' => 255],
         ];
     }
 
@@ -55,7 +58,9 @@ class Orders extends ActiveRecord
             'name' => 'Полное Имя',
             'email' => 'Email',
             'phone' => 'Телефон',
+            'area' => 'Область',
             'city' => 'Город',
+            'warehouse' => 'Выберите отделение новой почты',
         ];
     }
     public function behaviors()
@@ -64,7 +69,7 @@ class Orders extends ActiveRecord
             [
                 'class' => TimestampBehavior::className(),
                 'attributes' => [
-                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at','updated_at'],
                     ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
                 ],
                 // если вместо метки времени UNIX используется datetime:

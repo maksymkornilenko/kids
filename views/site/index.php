@@ -6,9 +6,11 @@ $this->title = 'My Yii Application';
 
 use yii\bootstrap\Modal;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 ?>
+
 <!--allrecords-->
 <div id="allrecords"><!--header-->
     <!--/header-->
@@ -22,9 +24,35 @@ use yii\helpers\Html;
                 <div class="main-inform-container__filter">
 
                 </div>
+                <?php if (!empty($session['cart.count'])): ?>
+                <div class="t706__carticon t706__carticon_showed shopping-cart">
+                    <div class="t706__carticon-text t-name t-name_xs">=&nbsp;<?php echo $session['cart.sum']?> &nbsp;грн</div>
+                    <div class="t706__carticon-wrapper">
+                        <div class="t706__carticon-imgwrap">
+                            <img class="cart-icon" src="/img/cart.png"/>
+                        </div>
+                        <div class="t706__carticon-counter t706__carticon-imgwrap" style="background-color:#f86d0c;"><?php echo $session['cart.count']?></div>
+                    </div>
+                </div>
+                <?php else :?>
+                    <div class="t706__carticon t706__carticon_showed shopping-cart">
+                        <div class="t706__carticon-text t-name t-name_xs">Ваша корзина пуста</div>
+                        <div class="t706__carticon-wrapper">
+                            <div class="t706__carticon-imgwrap">
+                                <img class="cart-icon" src="/img/cart.png"/>
+                            </div>
+                            <div class="t706__carticon-counter t706__carticon-imgwrap" style="background-color:#f86d0c;">0</div>
+                        </div>
+                    </div>
+                <?php endif;?>
                 <div class='main-inform-container__elem tn-elem' elem-id='1563999965486'>
                     <div class='tn-atom'>
                         <img class='tn-atom__img t-img' src='/img/orangeblur3.png'>
+                    </div>
+                </div>
+                <div class='main-inform-container__elem tn-elem' elem-id='1564000031057'>
+                    <div class='tn-atom'>
+                        <img class="tn-atom__img t-img loaded" data-original="https://static.tildacdn.com/tild3562-6338-4566-a263-383332393732/__.png" imgfield="tn_img_1564000031057" src="https://static.tildacdn.com/tild3562-6338-4566-a263-383332393732/__.png">
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564000058158'>
@@ -167,7 +195,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003233740'>
                     <div class='tn-atom'>
-                        <img class='tn-atom__img t-img' src='/img/orangeblur6.png'>
+                        <img class='tn-atom__img t-img' src='/img/verybigorangeblur.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564003254227'>
@@ -304,7 +332,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564089978892'>
                     <div class='tn-atom'>
-                        <img class='tn-atom__img t-img' src='/img/orangeblur6.png'>
+                        <img class='tn-atom__img t-img' src='/img/verybigorangeblur.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564090035300'>
@@ -571,7 +599,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564143881017'>
                     <div class='tn-atom'>
-                        <img class='tn-atom__img t-img' src='/img/orangeblur6.png'>
+                        <img class='tn-atom__img t-img' src='/img/verybigorangeblur.png'>
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564143904798'>
@@ -694,7 +722,9 @@ use yii\helpers\Html;
     <div>
         <?php
         Modal::begin([
-            'header' => '',
+            'header' => '<div class="modalimg">
+            <img src="/img/Modalpicture.png"/>
+        </div>',
             'options' => ['id' => 'form-modal'],
             'footer' => '<div class="t766__bottom-wrapper">
                 <div class="t766__price-wrapper">
@@ -717,9 +747,6 @@ use yii\helpers\Html;
             </div>',
         ]);
         ?>
-        <div class="modalimg">
-            <img src="/img/Modalpicture.png"/>
-        </div>
         <div class="t766__wrapper t-align_left">
             <div class="t766__title-wrapper">
                 <div class="t766__title t-heading t-heading_lg js-product-name"
@@ -743,6 +770,8 @@ use yii\helpers\Html;
                         </select>
                     </div>
                 </div>
+                <br>
+                <br>
                 <div class="t-product__option js-product-option">
                     <div class="t-product__option-title t-descr t-descr_xxs js-product-option-name"
                          style="color:#31007a;">Набор
