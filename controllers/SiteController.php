@@ -80,15 +80,27 @@ class SiteController extends Controller
     }
     public function actionOfficial()
     {
-        return $this->render('official');
+        $list= new ListDb();
+        $session=Yii::$app->session;
+        $session->open();
+        return $this->render('official',['list'=>$list->getList(),
+            'session'=>$session]);
     }
     public function actionOferta()
     {
-        return $this->render('oferta');
+        $list= new ListDb();
+        $session=Yii::$app->session;
+        $session->open();
+        return $this->render('oferta',['list'=>$list->getList(),
+            'session'=>$session]);
     }
     public function actionPravila()
     {
-        return $this->render('pravila');
+        $list= new ListDb();
+        $session=Yii::$app->session;
+        $session->open();
+        return $this->render('pravila',['list'=>$list->getList(),
+            'session'=>$session]);
     }
     /**
      * 3213

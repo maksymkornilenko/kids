@@ -30,7 +30,7 @@ AppAsset::register($this);
 <body class="t-body">
 <?php
 NavBar::begin([
-    'brandLabel' => Yii::$app->name,
+    'brandLabel' => '<img src="/img/Disney.png";>',
     'brandUrl' => Yii::$app->homeUrl,
     'options' => [
         'class' => 'navbar-inverse navbar-fixed-top',
@@ -137,17 +137,17 @@ Breadcrumbs::widget([
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564148426747'>
-                    <a class='tn-atom' href="site/oferta">
+                    <a class='tn-atom' href="/site/oferta">
                         Договор публичной оферты
                     </a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564148446454'>
-                    <a class='tn-atom' href="site/official">
+                    <a class='tn-atom' href="/site/official">
                         Политика конфиденциальности
                     </a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564148453195'>
-                    <a class='tn-atom' href="site/pravila">Правила оплаты, доставки, возврата</a>
+                    <a class='tn-atom' href="/site/pravila">Правила оплаты, доставки, возврата</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564732440140'>
                     <a class='tn-atom' href="tel:+380674046601">+38 067 404 66 01<br></a>

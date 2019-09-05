@@ -12,7 +12,7 @@ use app\models\Orders;
             <div class="t706__product">
                 <div class="t706__product-thumb">
                     <div class="t706__product-imgdiv"
-                         style="background-image:url(https://static.tildacdn.com/tild6237-6563-4463-a234-383537663339/photo.png);">
+                         style="background-image:url(/img/photo.png);">
 
                     </div>
                 </div>
@@ -33,7 +33,7 @@ use app\models\Orders;
                              data-id="<?= $item['system_products_id'] ?>" data-gender="<?= $item['gender_id'] ?>"
                              data-count="1" id="minus-cart">
                     </span>
-                    <span class="t706__product-quantity cart-count" data-id="<?= $id ?>"><?= $item['count'] ?></span>
+                    <span class="t706__product-quantity cart-count" id='message' data-gender="<?= $item['gender_id'] ?>" data-id="<?= $item['system_products_id'] ?>"><?= $item['count'] ?></span>
                     <span class="t706__product-plus">
                         <img src="/img/arrows_circle_plus.svg" data-id="<?= $item['system_products_id'] ?>"
                              data-gender="<?= $item['gender_id'] ?>" data-count="1" id="plus-cart"
@@ -58,20 +58,28 @@ use app\models\Orders;
         <div class="t706__cartwin-prodamount-wrap t-descr t-descr_sm" style="display: block;">
             <?php $form = ActiveForm::begin(['id' => '1contact-form', 'options' => ['name' => 'calculator1']]); ?>
             <?= $form->field($model, 'name') ?>
+            <p class="error-name"></p>
             <?= $form->field($model, 'phone') ?>
+            <p class="error-phone"></p>
             <?= $form->field($model, 'email') ?>
+            <p class="error-email"></p>
             <?= $form->field($model, 'area')->dropDownList(ArrayHelper::map($areas, 'ref', 'description_ru'),[
                 'prompt' => 'Выберите область...'
             ]); ?>
+            <p class="error-area"></p>
             <?php if (!empty($cities)): ?>
                 <?= $form->field($model, 'city')->dropDownList(ArrayHelper::map($cities, 'ref', 'description_ru'),['prompt' => 'Выберите город...']); ?>
+                <p class="error-city"></p>
             <?php elseif (!empty($areas) && empty($cities)): ?>
                 <?= $form->field($model, 'city')->dropDownList(['' => 'Выберите сначала область']); ?>
+                <p class="error-city"></p>
             <?php endif; ?>
             <?php if (!empty($warehouse)): ?>
                 <?= $form->field($model, 'warehouse')->dropDownList(ArrayHelper::map($warehouse, 'ref', 'description_ru'),['prompt' => 'Выберите отделение Новой почты...']); ?>
+                <p class="error-warehouse"></p>
             <?php else: ?>
                 <?= $form->field($model, 'warehouse')->dropDownList(['' => 'Введите сначала город']); ?>
+                <p class="error-warehouse"></p>
             <?php endif; ?>
             <?php ActiveForm::end() ?>
             <div class="t706__form-bottom-text t-text t-text_xs">Нажимая кнопку отправить, я соглашаюсь с

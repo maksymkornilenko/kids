@@ -52,7 +52,7 @@ use yii\helpers\Html;
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564000031057'>
                     <div class='tn-atom'>
-                        <img class="tn-atom__img t-img loaded" data-original="https://static.tildacdn.com/tild3562-6338-4566-a263-383332393732/__.png" imgfield="tn_img_1564000031057" src="https://static.tildacdn.com/tild3562-6338-4566-a263-383332393732/__.png">
+                        <img class="tn-atom__img t-img loaded" src="/img/__.png">
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564000058158'>
@@ -779,7 +779,7 @@ use yii\helpers\Html;
                     <div class="t-product__option-variants">
                         <select class="t-product__option-select t-descr t-descr_xxs js-product-option-variants dropdown-list">
                             <?php foreach ($list as $droplist) : ?>
-                                <option data-id="<?php echo $droplist['id'] ?>" data-count=1
+                                <option data-id="<?php echo $droplist['id'] ?>" data-count=1 data-product="<?= $droplist['price'] ?>"
                                         value="<?= $droplist['price'] ?>"><?= $droplist['name'] ?></option>
                             <?php endforeach; ?>
                         </select>

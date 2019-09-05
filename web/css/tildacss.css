@@ -3881,6 +3881,8 @@ img:not([src]) {
 .t706__product-plus, .t706__product-minus {
     cursor: pointer;
     opacity: .4
+    position: relative;
+    left: 3px;
 }
 
 .t706__product-amount {
