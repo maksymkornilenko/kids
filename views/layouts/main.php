@@ -59,11 +59,8 @@ Breadcrumbs::widget([
 <?= Alert::widget() ?>
 <?= $content ?>
 <?php Modal::begin([
-    'header' => '<div class="t706__cartwin-heading t-name t-name_xl">Оставьте данные для оформления заказа</div>',
     'id' => 'cart',
     'size' => 'model-lg',
-    'footer' => '<a href="/cart/view" class="btn btn-success sendOrder">Оформить заказ</a>
-            <button type="button" class="btn btn-danger clearCart">Очистить корзину</button>'
 ]); ?>
 <div>
     <h3>

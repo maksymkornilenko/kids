@@ -7,6 +7,7 @@ use app\models\Orders;
 ?>
 <?php if (!empty($session['cart'])): ?>
     <!--версия 2.0-->
+    <div class="t706__cartwin-heading t-name t-name_xl">Оставьте данные для оформления заказа</div>
     <div class="t706__cartwin-products">
         <?php foreach ($session['cart'] as $id => $item): ?>
             <div class="t706__product">
@@ -85,6 +86,8 @@ use app\models\Orders;
             <div class="t706__form-bottom-text t-text t-text_xs">Нажимая кнопку отправить, я соглашаюсь с
                 <a href="site/official" style="">политикой конфиденциальности.</a>
             </div>
+            <a href="/cart/view" class="btn btn-success sendOrder">Оформить заказ</a>
+            <button type="button" class="btn btn-danger clearCart">Очистить корзину</button>
         </div>
     </div>
 <?php elseif (Yii::$app->session->hasFlash('success')): ?>
@@ -100,10 +103,10 @@ use app\models\Orders;
         </h3>
     </div>
 <?php else: ?>
-    <div>
-        <h3>
+    <div style="text-align: center">
+        <h2>
             <p>Корзина пуста</p>
-        </h3>
+        </h2>
     </div>
 <?php endif; ?>
 

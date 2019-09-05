@@ -196,7 +196,7 @@ $('#cart .modal-body').on('click', '.del-item', function (e) {
 /**
  * очистка корзины
  */
-$('.clearCart').on('click', function (e) {
+$('#cart .modal-body').on('click','.clearCart',function (e) {
     e.preventDefault();
     $.ajax({
         url: '/cart/clear',
@@ -431,7 +431,7 @@ $('#cart .modal-body').on('change', '#orders-email', function (e) {
 
     }
 });
-$('.sendOrder').on('click', function (e) {
+$('#cart .modal-body').on('click','.sendOrder' ,function (e) {
 
     var name = $('#orders-name').val();
     var phone = $('#orders-phone').val();
