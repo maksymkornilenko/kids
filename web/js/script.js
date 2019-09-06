@@ -103,6 +103,7 @@ $('.dropdown-list').change(function () {
     $('.price-value').text(res.val());
     $(".t706__carticon-imgwrap").css({display: 'none'});
 });
+
 /**
  * функция отображения корзины
  * @param cart
@@ -196,7 +197,7 @@ $('#cart .modal-body').on('click', '.del-item', function (e) {
 /**
  * очистка корзины
  */
-$('#cart .modal-body').on('click','.clearCart',function (e) {
+$('#cart .modal-body').on('click', '.clearCart', function (e) {
     e.preventDefault();
     $.ajax({
         url: '/cart/clear',
@@ -222,36 +223,39 @@ $('#cart .modal-body').on('click', '#plus-cart', function (e) {
     var name = $('#orders-name').val();
     var phone = $('#orders-phone').val();
     var mail = $('#orders-email').val();
-    $.ajax({
-        url: '/cart/add',
-        data: {id: id, count: count, gender: gender},
-        type: 'get',
-        success: function (res) {
-            if (!res) res = 'cart empty';
-            showCart(res);
-            $('#orders-name').val(name);
-            $('#orders-phone').val(phone);
-            $('#orders-email').val(mail);
-        },
-        error: function (res) {
-            res = 'error';
-            showCart(res);
-        }
-    });
+    var $link = $(e.target);
+    if (!$link.data('lockedAt') || +new Date() - $link.data('lockedAt') > 190) {
+        $.ajax({
+            url: '/cart/add',
+            data: {id: id, count: count, gender: gender},
+            type: 'get',
+            success: function (res) {
+                if (!res) res = 'cart empty';
+                showCart(res);
+                $('#orders-name').val(name);
+                $('#orders-phone').val(phone);
+                $('#orders-email').val(mail);
+            },
+            error: function (res) {
+                res = 'error';
+                showCart(res);
+            }
+        });
+    }
 });
 /**
  *
  */
 $('#cart .modal-body').on('click', '.cart-count', function (e) {
-    $(this).replaceWith("<input class='t706__product-quantity .cart-count' type='number'data-id="+$(this).data('id')+" data-gender="+$(this).data('gender')+" id='message' name='message' autofocus class='manFl' value="+$(this).text()+">");
+    $(this).replaceWith("<input class='t706__product-quantity .cart-count' type='number'data-id=" + $(this).data('id') + " data-gender=" + $(this).data('gender') + " id='message' name='message' autofocus class='manFl' value=" + $(this).text() + ">");
     $('.t706__product-plusminus').css({position: 'relative'});
     $('.t706__product-plusminus').css({left: '-36px'});
 });
 $('#cart .modal-body').on('change', '#message', function (e) {
-    $(this).replaceWith("<span class='t706__product-quantity cart-count' data-id="+$(this).data("id")+" data-gender="+$(this).data("gender")+">"+$(this).val()+"</span>");
+    $(this).replaceWith("<span class='t706__product-quantity cart-count' data-id=" + $(this).data("id") + " data-gender=" + $(this).data("gender") + ">" + $(this).val() + "</span>");
     $('.t706__product-plusminus').css({position: 'relative'});
     $('.t706__product-plusminus').css({left: '0px'});
-    var count=$(this).val();
+    var count = $(this).val();
     var id = $(this).data('id');
     var gender = $(this).data('gender');
     console.log(count);
@@ -279,7 +283,7 @@ $('#cart .modal-body').on('change', '#message', function (e) {
 
 });
 $('#cart .modal-body').on('blur', '#message', function (e) {
-    $(this).replaceWith("<span class='t706__product-quantity cart-count' data-id="+$(this).data("id")+" data-gender="+$(this).data("gender")+">"+$(this).val()+"</span>");
+    $(this).replaceWith("<span class='t706__product-quantity cart-count' data-id=" + $(this).data("id") + " data-gender=" + $(this).data("gender") + ">" + $(this).val() + "</span>");
     $('.t706__product-plusminus').css({position: 'relative'});
     $('.t706__product-plusminus').css({left: '0px'});
 });
@@ -295,24 +299,28 @@ $('#cart .modal-body').on('click', '#minus-cart', function (e) {
     var phone = $('#orders-phone').val();
     var mail = $('#orders-email').val();
     var city = $('#orders-city').find(":selected").val();
-    $.ajax({
-        url: '/cart/remove',
-        data: {id: id, count: count, gender: gender},
-        type: 'get',
-        success: function (res) {
-            if (!res) res = 'cart empty';
-            showCart(res);
-            $('#orders-name').val(name);
-            $('#orders-phone').val(phone);
-            $('#orders-email').val(mail);
-            $
-            $('#orders-city').val(city);
-        },
-        error: function (res) {
-            res = 'error';
-            showCart(res);
-        }
-    });
+    var $link = $(e.target);
+    if (!$link.data('lockedAt') || +new Date() - $link.data('lockedAt') > 190) {
+        $.ajax({
+            url: '/cart/remove',
+            data: {id: id, count: count, gender: gender},
+            type: 'get',
+            success: function (res) {
+                if (!res) res = 'cart empty';
+                showCart(res);
+                $('#orders-name').val(name);
+                $('#orders-phone').val(phone);
+                $('#orders-email').val(mail);
+                $
+                $('#orders-city').val(city);
+            },
+            error: function (res) {
+                res = 'error';
+                showCart(res);
+            }
+        });
+    }
+    $link.data('lockedAt', +new Date());
 });
 /**
  * функция для выбора области и города
@@ -323,10 +331,10 @@ $('#cart .modal-body').on('change', '#orders-area', function (e) {
     var name = $('#orders-name').val();
     var phone = $('#orders-phone').val();
     var mail = $('#orders-email').val();
-    if ($(this).find(":selected").text()=='АРК'){
+    if ($(this).find(":selected").text() == 'АРК') {
         $('.error-area').text('Данная область не обслуживается Новой почтой, выберите другую область');
         $(".error-area").css({color: 'red'});
-    }else {
+    } else {
         $.ajax({
             url: '/cart/area',
             data: {value: area, name: name, phone: phone, mail: mail},
@@ -431,7 +439,7 @@ $('#cart .modal-body').on('change', '#orders-email', function (e) {
 
     }
 });
-$('#cart .modal-body').on('click','.sendOrder' ,function (e) {
+$('#cart .modal-body').on('click', '.sendOrder', function (e) {
 
     var name = $('#orders-name').val();
     var phone = $('#orders-phone').val();
@@ -448,10 +456,10 @@ $('#cart .modal-body').on('click','.sendOrder' ,function (e) {
     } else if (phone.length == 0) {
         $('.error-phone').text('Введите пожалуйста номер телефона');
         $(".error-phone").css({color: 'red'});
-    }else if(!validatePhone(phone)){
+    } else if (!validatePhone(phone)) {
         $('.error-phone').text('Телефон, должно быть в формате 8(XXX)XXX-XX-XX');
         $(".error-phone").css({color: 'red'});
-    }else if(!validateEmail(mail)){
+    } else if (!validateEmail(mail)) {
         $('.error-email').text('Введённое в поле значение не отвечает характеристикам e-mail, пожалуста введите корректный e-mail');
         $(".error-email").css({color: 'red'});
     } else if (mail.length == 0) {
@@ -460,7 +468,7 @@ $('#cart .modal-body').on('click','.sendOrder' ,function (e) {
     } else if ($('#orders-area').find(":selected").val() == '') {
         $('.error-area').text('Введите пожалуйста область');
         $(".error-area").css({color: 'red'});
-    }else if ($('#orders-area').find(":selected").text() == 'АРК') {
+    } else if ($('#orders-area').find(":selected").text() == 'АРК') {
         $('.error-area').text('Данная область не обслуживается Новой почтой, выберите другую область');
         $(".error-area").css({color: 'red'});
     } else if ($('#orders-city').find(":selected").val() == '') {
@@ -504,6 +512,7 @@ $("#cart").on("hidden.bs.modal", function () {
 $("#form-modal").on("hidden.bs.modal", function () {
     $(".t706__carticon-imgwrap").css({display: 'block'});
 });
+
 // $(".gender").on('change',function () {
 //     var gender = $(".gender").find(":selected").data('id');
 //     if(gender==1){
