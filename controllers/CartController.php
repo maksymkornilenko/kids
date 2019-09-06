@@ -163,41 +163,4 @@ class CartController extends Controller
         $this->layout = false;
         return $this->render('cart-modal');
     }
-//    public function actionView(){
-//        $session=Yii::$app->session;
-//        $session->open();
-//        $contactForm = new Orders();
-//        $contactForm->name=Yii::$app->request->post('name');
-//        $contactForm->phone=Yii::$app->request->post('phone');
-//        $contactForm->email=Yii::$app->request->post('mail');
-//        $contactForm->city=Yii::$app->request->post('city');
-//        $contactForm->count=$session['cart.count'];
-//        $contactForm->sum=$session['cart.sum'];
-//
-//        if($contactForm->save()){
-//            $this->saveOrderItems($session['cart'], $contactForm->id);
-//            Yii::$app->session->setFlash('success',"Ваш заказ номер №$contactForm->id получен менеджер в ближайшее время с вами свяжется");
-//            $session->remove('cart');
-//            $session->remove('cart.count');
-//            $session->remove('cart.sum');
-//
-//        }else{
-//            Yii::$app->session->setFlash('error','Ваш заказ не получен');
-//        }
-//        $this->layout = false;
-//        return $this->render('cart-modal',['session'=>$session,'model'=>$contactForm,'order'=>$contactForm->id]);
-//    }
-//    protected function saveOrderItems($items, $order_id){
-//        foreach ($items as $id=>$item){
-//            $order_items= new OrderItems();
-//            $order_items->order_id=$order_id;
-//            $order_items->system_product_id=$item['system_products_id'];
-//            $order_items->name=$item['name'];
-//            $order_items->price=$item['price'];
-//            $order_items->count_item=$item['count'];
-//            $order_items->sum_item=$item['count']*$item['price'];
-//            $order_items->save();
-//        }
-//
-//    }
 }

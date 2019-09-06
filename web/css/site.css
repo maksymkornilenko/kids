@@ -7768,6 +7768,7 @@ input::-webkit-inner-spin-button {
 #rec118417775 .main-inform-container__artboard {
     height: 190px;
     background-color: #ffffff;
+    top: 812px;
 }
 
 #rec118417775 .main-inform-container__filter {
@@ -7789,6 +7790,7 @@ input::-webkit-inner-spin-button {
     #rec118417775 .main-inform-container__artboard {
         height: 160px;
         width: 100%;
+        top: 216px;
     }
 
     #rec118417775 .main-inform-container__filter {
@@ -7806,6 +7808,7 @@ input::-webkit-inner-spin-button {
         height: 250px;
         background-color: #ffffff;
         width: 100%;
+        top: 72px;
     }
 
     #rec118417775 .main-inform-container__filter {

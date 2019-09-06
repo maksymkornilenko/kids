@@ -21,6 +21,7 @@ class Cart extends ActiveRecord
                 'gender' => $model['name'],
                 'gender_id' => $model['gender_id'],
                 'system_products_id' => $model['system_products_id'],
+                'countchange' => $count,
             ];
         }
         $_SESSION['cart.count'] = isset($_SESSION['cart.count']) ? $_SESSION['cart.count'] + $count : $count;
@@ -34,6 +35,7 @@ class Cart extends ActiveRecord
             $_SESSION['cart'][$model['id']]['count']=$count;
         } else {
             $_SESSION['cart'][$model['id']] = [
+                'count' => $count,
                 'countchange' => $count,
                 'name' => $model['body'],
                 'price' => $model['price'],

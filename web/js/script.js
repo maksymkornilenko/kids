@@ -243,45 +243,58 @@ $('#cart .modal-body').on('click', '#plus-cart', function (e) {
         });
     }
 });
+
 /**
  *
  */
-$('#cart .modal-body').on('click', '.cart-count', function (e) {
-    $(this).replaceWith("<input class='t706__product-quantity .cart-count' type='number'data-id=" + $(this).data('id') + " data-gender=" + $(this).data('gender') + " id='message' name='message' autofocus class='manFl' value=" + $(this).text() + ">");
-    $('.t706__product-plusminus').css({position: 'relative'});
-    $('.t706__product-plusminus').css({left: '-36px'});
-});
-$('#cart .modal-body').on('change', '#message', function (e) {
-    $(this).replaceWith("<span class='t706__product-quantity cart-count' data-id=" + $(this).data("id") + " data-gender=" + $(this).data("gender") + ">" + $(this).val() + "</span>");
-    $('.t706__product-plusminus').css({position: 'relative'});
-    $('.t706__product-plusminus').css({left: '0px'});
-    var count = $(this).val();
-    var id = $(this).data('id');
-    var gender = $(this).data('gender');
-    console.log(count);
-    console.log(id);
-    console.log(gender);
+function inputCount() {
+    var count = $('#message').val();
+    var id = $('#message').data('id');
+    var gender = $('#message').data('gender');
     var name = $('#orders-name').val();
     var phone = $('#orders-phone').val();
     var mail = $('#orders-email').val();
-    $.ajax({
-        url: '/cart/change',
-        data: {id: id, count: count, gender: gender},
-        type: 'get',
-        success: function (res) {
-            if (!res) res = 'cart empty';
-            showCart(res);
-            $('#orders-name').val(name);
-            $('#orders-phone').val(phone);
-            $('#orders-email').val(mail);
-        },
-        error: function (res) {
-            res = 'error';
-            showCart(res);
-        }
-    });
+    console.log(count);
+    console.log(id);
+    console.log(gender);
+    if (count <= 0) {
+        count = 1;
+    }
+    if (count == undefined || id == undefined || gender == undefined) {
+        return false;
+    } else {
+        $.ajax({
+            url: '/cart/change',
+            data: {id: id, count: count, gender: gender},
+            type: 'get',
+            success: function (res) {
+                if (!res) res = 'cart empty';
+                showCart(res);
+                $('#orders-name').val(name);
+                $('#orders-phone').val(phone);
+                $('#orders-email').val(mail);
+                $(this).replaceWith("<span class='t706__product-quantity cart-count' data-id=" + $('#message').data("id") + " data-gender=" + $('#message').data("gender") + ">" + $('#message').val() + "</span>");
+            },
+            error: function (res) {
+                res = 'error';
+                showCart(res);
+            }
+        });
+    }
 
+}
+
+$('#cart .modal-body').on('change', '#message', function (e) {
+    $('.t706__product-plusminus').css({position: 'relative'});
+    $('.t706__product-plusminus').css({left: '-30px'});
+    inputCount();
 });
+$('#cart .modal-body').on('click', '.cart-count', function (e) {
+    $(this).replaceWith("<input class='t706__product-quantity cartcount' min='1' type='number'data-id=" + $(this).data('id') + " data-gender=" + $(this).data('gender') + " id='message' name='message' autofocus class='manFl' value=" + $(this).text() + ">");
+    $('.t706__product-plusminus').css({position: 'relative'});
+    $('.t706__product-plusminus').css({left: '-36px'});
+});
+
 $('#cart .modal-body').on('blur', '#message', function (e) {
     $(this).replaceWith("<span class='t706__product-quantity cart-count' data-id=" + $(this).data("id") + " data-gender=" + $(this).data("gender") + ">" + $(this).val() + "</span>");
     $('.t706__product-plusminus').css({position: 'relative'});
@@ -393,9 +406,11 @@ $('#cart .modal-body').on('change', '#orders-name', function (e) {
         $('.error-name').text('Введите пожалуйста имя');
         $(".error-name").css({color: 'red'});
     } else if (name.trim().length == 0) {
+        $('#orders-name').val(name.trim());
         $('.error-name').text('Введите пожалуйста имя');
         $(".error-name").css({color: 'red'});
     } else {
+        $('#orders-name').val(name.trim());
         $('.error-name').text('');
     }
 
@@ -410,7 +425,7 @@ $('#cart .modal-body').on('change', '#orders-phone', function (e) {
     e.preventDefault();
     var phone = $('#orders-phone').val();
     if (phone.length == 0) {
-        $('.error-phone').text('Введите пожалуйста телефон');
+        $('.error-phone').text('Введите пожалуйста номер телефона');
         $(".error-phone").css({color: 'red'});
     } else if (!validatePhone(phone)) {
         $('.error-phone').text('Телефон, должно быть в формате 8(XXX)XXX-XX-XX');
@@ -494,7 +509,8 @@ $('#cart .modal-body').on('click', '.sendOrder', function (e) {
         });
     }
 });
-$("#cart").on("hidden.bs.modal", function () {
+$("#cart").on("hidden.bs.modal", function (e) {
+    e.preventDefault();
     var sum = $(".t706__cartwin-prodamount").text();
     var count = $(".t706__cartwin-count").text();
 
@@ -507,10 +523,12 @@ $("#cart").on("hidden.bs.modal", function () {
         $(".t706__carticon-counter").text("0");
         $(".t706__carticon_showed").css({display: 'block'});
     }
-
+    $('#cart').modal('hide');
+    $("div.modal-backdrop").remove()
 });
 $("#form-modal").on("hidden.bs.modal", function () {
     $(".t706__carticon-imgwrap").css({display: 'block'});
+
 });
 
 // $(".gender").on('change',function () {

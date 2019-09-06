@@ -34,7 +34,7 @@ use app\models\Orders;
                              data-id="<?= $item['system_products_id'] ?>" data-gender="<?= $item['gender_id'] ?>"
                              data-count="1" id="minus-cart">
                     </span>
-                    <span class="t706__product-quantity cart-count" id='message' data-gender="<?= $item['gender_id'] ?>" data-id="<?= $item['system_products_id'] ?>"><?= $item['count'] ?></span>
+                    <span class="t706__product-quantity cart-count" data-gender="<?= $item['gender_id'] ?>" data-id="<?= $item['system_products_id'] ?>"><?= $item['count'] ?></span>
                     <span class="t706__product-plus">
                         <img src="/img/arrows_circle_plus.svg" data-id="<?= $item['system_products_id'] ?>"
                              data-gender="<?= $item['gender_id'] ?>" data-count="1" id="plus-cart"

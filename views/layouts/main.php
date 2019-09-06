@@ -114,7 +114,7 @@ Breadcrumbs::widget([
                     </div>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564148277932'>
-                    <a class='tn-atom' href="tel:+380672452010">+38 067 245-20-10</a>
+                    <a class='tn-atom' href="tel:+380672452010" target="_blank">+38 067 245-20-10</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564148296760'>
                     <a class='tn-atom' href="mailto:disneykitchen.for.kids@gmail.com" target="_blank">disneykitchen.for.kids@gmail.com</a>
@@ -147,7 +147,7 @@ Breadcrumbs::widget([
                     <a class='tn-atom' href="/site/pravila">Правила оплаты, доставки, возврата</a>
                 </div>
                 <div class='main-inform-container__elem tn-elem' elem-id='1564732440140'>
-                    <a class='tn-atom' href="tel:+380674046601">+38 067 404 66 01<br></a>
+                    <a class='tn-atom' href="tel:+380674046601" >+38 067 404 66 01<br></a>
                 </div>
             </div>
         </div>

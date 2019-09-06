@@ -1,3 +1,36 @@
+<div id="allrecords" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="1512102"
+     data-tilda-page-id="6707587" data-tilda-page-alias="official"
+     data-tilda-formskey="1d4ea27a866eee81264047165332dad0" style="overflow: hidden;">
+    <div id="rec118407609" class="r t-rec t-rec_pt_210 t-rec_pb_15 r_showed r_anim"><!-- T017 -->
+        <div class="t017">
+            <div class="t-container t-align_center">
+                <div class="t-col t-col_10 t-prefix_1">
+                    <div class="t017__title t-title t-title_xxs" field="title" style="color:#501bb3;">Правила оплаты и доставки
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="rec118407610" class="r t-rec t-rec_pt_15 t-rec_pb_60 r_showed r_anim"><!-- T004 -->
+        <div class="t004">
+            <div class="t-container ">
+                <div class="t-col t-col_10 t-prefix_1">
+                    <div field="text" class="t-text t-text_md "
+                         style="color:#220061;font-weight:100;font-family:'HelveticaNeueCyr';">
+                        <div class="t396__elem tn-elem tn-elem__1184079341564148770389" data-elem-id="1564148770389">
+                            <div class="tn-atom" field="tn_text_1564148770389">
+                                Мы обрабатываем ваши заказы с понедельника по пятницу, с 9:00 до 18:00 и в субботу с 9:00 до 12:00.<br><br>
+                                Отправляем как вам будет удобно, наложенным платежом или по полной предоплате. Отправка производиться курьерской компанией Новая почта.
+                                Доставку оплачивает получатель согласно тарифам компании перевозчика.<br><br>
+                                Если заказ сделан до 12:00 в рабочий день, то мы отправим его в этот же день, если после 12:00, то отправим на следующий рабочий день.<br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modals-for-site">
     <div>
         <?php
