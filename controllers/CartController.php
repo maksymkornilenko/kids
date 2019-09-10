@@ -12,6 +12,7 @@ use http\Header;
 use Yii;
 use yii\base\Controller;
 use app\models\OrderItems;
+use yii\helpers\Json;
 use yii\helpers\Url;
 
 class CartController extends Controller
@@ -94,7 +95,10 @@ class CartController extends Controller
         $session->open();
         $contactForm = new Orders();
         $this->layout = false;
-        return $this->render('cart-modal', ['session' => $session, 'areas' => $areas, 'model' => $contactForm, 'cities' => $city]);
+        foreach ($city as $cities){
+            $answer[]='<option value="' . $cities['ref'] . '">' . $cities['description_ru'] . '</option>';
+        }
+        return Json::encode($answer) ;
     }
 
     public function actionCity()
@@ -109,7 +113,10 @@ class CartController extends Controller
         $session->open();
         $contactForm = new Orders();
         $this->layout = false;
-        return $this->render('cart-modal', ['session' => $session, 'areas' => $areas, 'model' => $contactForm, 'cities' => $city, 'warehouse' => $warehouse,]);
+        foreach ($warehouse as $warehouses){
+            $answer[]='<option value="' . $warehouses['ref'] . '">' . $warehouses['description_ru'] . '</option>';
+        }
+        return Json::encode($answer) ;
     }
 
     public function actionShow()
@@ -163,4 +170,98 @@ class CartController extends Controller
         $this->layout = false;
         return $this->render('cart-modal');
     }
+    public function actionRedirect(){
+        return Yii::$app->response->redirect(Url::to('/site/index'));
+    }
+
+
+    public function actionGetSelectOption($deliveryId, $type, $code = '', $orderId = 0)
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        $answer = ['options' => [], 'success' => false];
+        if ($orderId != 0) {
+            $order = CRMOrder::find()->select(['delivery_region_title', 'delivery_city', 'delivery_department_id', 'delivery_region_code', 'delivery_city_code', 'delivery_department_code'])->where(['id' => $orderId])->one();
+        }
+        if ($deliveryId == CRMDelivery::NOVAPOSHTA) {
+            switch ($type) {
+                case CRMNovaposhta::TYPE_AREA:
+                    $regionSelected = false;
+                    $isSelected = false;
+                    $data = NPAreas::find()->select(['ref', 'description_ru'])->orderBy('description_ru')->all();
+                    if ($order->delivery_region_title == '') {
+                        $dataCity = NPCities::find()->select(['area_ref'])->where(['description_ru' => $order->delivery_city])->one();
+                        $dataArea = NPAreas::find()->select(['ref', 'description_ru'])->where(['ref' => $dataCity->area_ref])->one();
+                        $order->delivery_region_title = $dataArea->description_ru;
+                    }
+                    if ($data) {
+                        $answer['success'] = true;
+                        $answer['options'][] = '<option value="" selected>Пусто</option>';
+                        foreach ($data as $value) {
+                            if ($order && $order->delivery_region_title == $value['description_ru'] || $order->delivery_region_code == $value['ref'] || $order->delivery_region_code == $value['description_ru']) {
+                                $regionSelected = true;
+                                $isSelected = true;
+                            }
+                            $answer['options'][] =  '<option value="' . $value['description_ru'] . '" ' . ($regionSelected ? 'selected' : '') . '>' . $value['description_ru'] . '</option>';
+                            $regionSelected = false;
+                        }
+                        if ($isSelected == false) {
+                            $answer['options'][] =  '<option value="' . $order->delivery_region_title . '" selected>' . $order->delivery_region_title . ' (Нет в базе)</option>';
+                        }
+                    }
+                    break;
+                case CRMNovaposhta::TYPE_CITY:
+                    if ($code) {
+                        $npRegion = NPAreas::find()->select(['ref', 'description_ru'])->where(['description_ru' => $code])->one();
+                        $data = NPCities::find()->select(['ref', 'description_ru'])->where(['area_ref' => $npRegion->ref])->orderBy('description_ru')->all();
+                    }
+
+                    if ($order->delivery_city && !$data) {
+                        $data = NPCities::find()->select(['ref', 'description_ru'])->where(['description_ru' => $order->delivery_city])->orderBy('description_ru')->all();
+                    }
+
+                    if ($data) {
+                        $answer['success'] = true;
+                        $answer['options'][] = '<option value="">Пусто</option>';
+                        foreach ($data as $value) {
+                            if ($order && $order->delivery_city == $value['description_ru'] || $order->delivery_city_code == $value['ref']) {
+                                $citySelected = true;
+                                $isSelected = true;
+                            }
+                            $answer['options'][] =  '<option value="' . $value['description_ru'] . '" ' . ($citySelected ? 'selected' : '') . '>' . $value['description_ru'] . '</option>';
+                            $citySelected = false;
+                        }
+                        if ($isSelected == false) {
+                            $answer['options'][] =  '<option value="' . $order->delivery_city . '" selected>' . $order->delivery_city . ' (Нет в базе)</option>';
+                        }
+                    } else {
+                        $answer['options'][] =  '<option value="' . $order->delivery_city . '" selected>' . $order->delivery_city . ' (Нет в базе)</option>';
+                    }
+                    break;
+                case CRMNovaposhta::TYPE_WAREHOUSE:
+                    $warehouseSelected = false;
+                    $isSelected = false;
+                    $npCity = NPCities::find()->select(['ref', 'description_ru'])->where(['description_ru' => $code])->one();
+                    $data = NPWarehouses::find()->select(['ref', 'description_ru', 'number'])->where(['city_ref' => $npCity->ref])->orWhere(['description_ru' => $code])->orderBy('number')->all();
+                    if ($data) {
+                        $answer['success'] = true;
+                        $answer['options'][] = '<option value="">Пусто</option>';
+                        foreach ($data as $value) {
+                            if ($order && ($order->delivery_department_code == $value['ref']) || $order->delivery_department_id == $value['number']) {
+                                $warehouseSelected = true;
+                                $isSelected = true;
+                            }
+                            $answer['options'][] =  '<option value="' . $value['number'] . '" ' . ($warehouseSelected ? 'selected' : '') . '>' . $value['description_ru'] . '</option>';
+                            $warehouseSelected = false;
+                        }
+                        if ($isSelected == false) {
+                            $answer['options'][] =  '<option value="' . $order->delivery_department_id . '" selected>' . $order->delivery_department_id . ' (Нет в базе)</option>';
+                        }
+                    }
+                    break;
+            }
+        }
+        return $answer;
+    }
 }
+
+//============================================================================================

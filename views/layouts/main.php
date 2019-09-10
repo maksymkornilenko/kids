@@ -4,12 +4,15 @@
 /* @var $content string */
 
 use app\widgets\Alert;
+use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Modal;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\ArrayHelper;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use yii\helpers\Html;
+use kartik\select2\Select2;
 
 AppAsset::register($this);
 ?>
@@ -58,17 +61,6 @@ Breadcrumbs::widget([
 ?>
 <?= Alert::widget() ?>
 <?= $content ?>
-<?php Modal::begin([
-    'id' => 'cart',
-    'size' => 'model-lg',
-]); ?>
-<div>
-    <h3>
-        <p>Корзина пуста</p>
-    </h3>
-</div>
-<?php Modal::end();
-?>
 <?php $this->endBody() ?>
 <!--/footer-->
 <div id="t-footer" class="t-records">

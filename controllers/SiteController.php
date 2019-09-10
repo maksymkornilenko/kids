@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Form;
 use app\models\ListDb;
+use app\models\Orders;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Json;
@@ -64,7 +65,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new Form();
+        $model = new Orders();
         $list= new ListDb();
         $session=Yii::$app->session;
         $session->open();
@@ -75,7 +76,8 @@ class SiteController extends Controller
 //        }
         return $this->render('index', ['model'=>$model,
             'list'=>$list->getList(),
-            'session'=>$session
+            'session'=>$session,
+            'areas'=>$areas,
             ]);
     }
     public function actionOfficial()

@@ -8,6 +8,7 @@ use yii\bootstrap\Modal;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use kartik\select2\Select2;
 
 ?>
 
@@ -788,6 +789,57 @@ use yii\helpers\Html;
             </div>
         </div>
         <?php Modal::end(); ?>
+        <?php Modal::begin([
+            'id' => 'cart',
+            'size' => 'model-lg',
+            'options' => [
+                'tabindex' => false
+            ]]); ?>
+        <div class="modal-body2">
+            <h3>
+                <p>Корзина пуста</p>
+            </h3>
+        </div>
+        <div class="t706__cartwin-bottom">
+            <div class="t706__cartwin-prodamount-wrap t-descr t-descr_sm">
+                <?php $form = ActiveForm::begin(['id' => '1contact-form', 'options' => ['name' => 'calculator1']]); ?>
+                <?= $form->field($model, 'name') ?>
+                <p class="error-name"></p>
+                <?= $form->field($model, 'phone') ?>
+                <p class="error-phone"></p>
+                <?= $form->field($model, 'email') ?>
+                <p class="error-email"></p>
+                <?= $form->field($model, 'area')->widget(Select2::classname(), [
+                    'data' => ArrayHelper::map($areas, 'ref', 'description_ru'),
+                    'options' => ['placeholder' => 'Выберите область ...'],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
+                ]); ?>
+                    <?= $form->field($model, 'city')->widget(Select2::classname(), [
+                        'data' => [],
+                        'options' => ['placeholder' => 'Выберите  город ...'],
+                        'pluginOptions' => [
+                            'allowClear' => true
+                        ],
+                    ]); ?>
+                    <?= $form->field($model, 'warehouse')->widget(Select2::classname(), [
+                        'data' => [],
+                        'options' => ['placeholder' => 'Выберите  отделение Новой почты ...'],
+                        'pluginOptions' => [
+                            'allowClear' => true
+                        ],
+                    ]); ?>
+                <?php ActiveForm::end() ?>
+                <div class="t706__form-bottom-text t-text t-text_xs">Нажимая кнопку отправить, я соглашаюсь с
+                    <a href="site/official" style="">политикой конфиденциальности.</a>
+                </div>
+                <a href="/cart/view" class="btn btn-success sendOrder">Оформить заказ</a>
+                <button type="button" class="btn btn-danger clearCart">Очистить корзину</button>
+            </div>
+        </div>
+        <?php Modal::end();
+        ?>
     </div>
 </div>
 

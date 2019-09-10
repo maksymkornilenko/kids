@@ -8755,3 +8755,6 @@ input::-webkit-inner-spin-button {
     position: relative;
     width: 70%;
 }
+.t706__cartwin-bottom{
+    display: none;
+}

@@ -62,6 +62,7 @@ class OrderItems extends ActiveRecord
             $order_items= new OrderItems();
             $order_items->order_id=$order_id;
             $order_items->system_product_id=$item['system_products_id'];
+            $order_items->gender_id=$item['gender_id'];
             $order_items->name=$item['name'];
             $order_items->price=$item['price'];
             $order_items->count_item=$item['count'];
