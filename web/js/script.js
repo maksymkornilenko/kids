@@ -6,7 +6,7 @@
 // priceElem.on('change', function () {
 //     calculate();
 // });
-
+//
 // function calculate() {
 //     var sum = 0,
 //         countVal = countElem.val(),
@@ -22,7 +22,7 @@
 //         $('#form-sum').val(sum);
 //     }
 // }
-
+//
 // function sendForm() {
 //     var form = $("#contact-form").serialize();
 //
@@ -73,7 +73,7 @@
 //     countElem.val(parseInt(countElem.val()) + 1);
 //     calculate();
 // });
-
+//
 // $("#nextmodal").click(function () {
 //     var formName = $('#form-name').val();
 //     var tel = $('#form-tel').val();
@@ -104,7 +104,6 @@ $('.dropdown-list').change(function () {
     $('.price-value').text(res.val());
     $(".t706__carticon-imgwrap").css({display: 'none'});
 });
-
 /**
  * функция отображения корзины
  * @param cart
@@ -127,10 +126,10 @@ $('.shopping-cart').on('click', function (e) {
             if (!res) res = 'cart empty';
             $("#form-modal").modal('hide');
             showCart(res);
-            if($('.t706__cartwin-count').text()==''){
-                $('.t706__cartwin-bottom').css({display:'none'});
-            }else{
-                $('.t706__cartwin-bottom').css({display:'block'});
+            if ($('.t706__cartwin-count').text() == '') {
+                $('.t706__cartwin-bottom').css({display: 'none'});
+            } else {
+                $('.t706__cartwin-bottom').css({display: 'block'});
             }
         },
         error: function (res) {
@@ -157,24 +156,22 @@ $('.add-to-cart').on('click', function (e) {
             if (!res) res = 'cart empty';
             $("#form-modal").modal('hide');
             showCart(res);
-            $('.t706__cartwin-bottom').css({display:'block'});
+            $('.t706__cartwin-bottom').css({display: 'block'});
         },
         error: function (res) {
             res = 'error';
             $("#form-modal").modal('hide');
             showCart(res);
-            $('.t706__cartwin-bottom').css({display:'none'});
+            $('.t706__cartwin-bottom').css({display: 'none'});
         }
     });
 });
 
 /**
- * удаление одной позиции из корзины
+ * маска для телефона
  */
-$('#cart .modal-body').on('click', function (e) {
-    $(document).ready(function ($) {
-        $("#orders-phone").mask('8(099)999-99-99');
-    });
+$(document).ready(function ($) {
+    $("#orders-phone").mask('8(099)999-99-99');
 });
 /**
  * функция удаления одной позиции товара при нажатии на крестик
@@ -189,16 +186,16 @@ $('#cart .modal-body').on('click', '.del-item', function (e) {
         success: function (res) {
             if (!res) res = 'cart empty';
             showCart(res);
-            if($('.t706__cartwin-count').text()==''){
-                $('.t706__cartwin-bottom').css({display:'none'});
+            if ($('.t706__cartwin-count').text() == '') {
+                $('.t706__cartwin-bottom').css({display: 'none'});
                 $("#cart").on("hidden.bs.modal", function (e) {
                     e.preventDefault();
                     $.ajax({
                         url: '/cart/redirect',
                     });
                 });
-            }else{
-                $('.t706__cartwin-bottom').css({display:'block'});
+            } else {
+                $('.t706__cartwin-bottom').css({display: 'block'});
             }
         },
         error: function (res) {
@@ -224,12 +221,12 @@ $('#cart .modal-body').on('click', '.clearCart', function (e) {
                     url: '/cart/redirect',
                 });
             });
-            $('.t706__cartwin-bottom').css({display:'none'});
+            $('.t706__cartwin-bottom').css({display: 'none'});
         },
         error: function (res) {
             res = 'error';
             showCart(res);
-            $('.t706__cartwin-bottom').css({display:'none'});
+            $('.t706__cartwin-bottom').css({display: 'none'});
         }
     });
 });
@@ -241,9 +238,6 @@ $('#cart .modal-body').on('click', '#plus-cart', function (e) {
     var id = $(this).data("id"),
         count = $(this).data('count'),
         gender = $(this).data('gender');
-    var name = $('#orders-name').val();
-    var phone = $('#orders-phone').val();
-    var mail = $('#orders-email').val();
     var $link = $(e.target);
     if (!$link.data('lockedAt') || +new Date() - $link.data('lockedAt') > 190) {
         $.ajax({
@@ -253,9 +247,6 @@ $('#cart .modal-body').on('click', '#plus-cart', function (e) {
             success: function (res) {
                 if (!res) res = 'cart empty';
                 showCart(res);
-                $('#orders-name').val(name);
-                $('#orders-phone').val(phone);
-                $('#orders-email').val(mail);
             },
             error: function (res) {
                 res = 'error';
@@ -272,12 +263,6 @@ function inputCount() {
     var count = $('#message').val();
     var id = $('#message').data('id');
     var gender = $('#message').data('gender');
-    var name = $('#orders-name').val();
-    var phone = $('#orders-phone').val();
-    var mail = $('#orders-email').val();
-    console.log(count);
-    console.log(id);
-    console.log(gender);
     if (count <= 0) {
         count = 1;
     }
@@ -291,9 +276,6 @@ function inputCount() {
             success: function (res) {
                 if (!res) res = 'cart empty';
                 showCart(res);
-                $('#orders-name').val(name);
-                $('#orders-phone').val(phone);
-                $('#orders-email').val(mail);
                 $(this).replaceWith("<span class='t706__product-quantity cart-count' data-id=" + $('#message').data("id") + " data-gender=" + $('#message').data("gender") + ">" + $('#message').val() + "</span>");
             },
             error: function (res) {
@@ -304,6 +286,7 @@ function inputCount() {
     }
 
 }
+
 /**
  * вызов функции inputCount при изменении кол-ва товара
  */
@@ -336,10 +319,6 @@ $('#cart .modal-body').on('click', '#minus-cart', function (e) {
     var id = $(this).data('id');
     var count = $(this).data('count');
     var gender = $(this).data('gender');
-    var name = $('#orders-name').val();
-    var phone = $('#orders-phone').val();
-    var mail = $('#orders-email').val();
-    var city = $('#orders-city').find(":selected").val();
     var $link = $(e.target);
     if (!$link.data('lockedAt') || +new Date() - $link.data('lockedAt') > 190) {
         $.ajax({
@@ -349,16 +328,16 @@ $('#cart .modal-body').on('click', '#minus-cart', function (e) {
             success: function (res) {
                 if (!res) res = 'cart empty';
                 showCart(res);
-                if($('.t706__cartwin-count').text()==''){
+                if ($('.t706__cartwin-count').text() == '') {
                     $("#cart").on("hidden.bs.modal", function (e) {
                         e.preventDefault();
                         $.ajax({
                             url: '/cart/redirect',
                         });
                     });
-                    $('.t706__cartwin-bottom').css({display:'none'});
-                }else{
-                    $('.t706__cartwin-bottom').css({display:'block'});
+                    $('.t706__cartwin-bottom').css({display: 'none'});
+                } else {
+                    $('.t706__cartwin-bottom').css({display: 'block'});
                 }
             },
             error: function (res) {
@@ -382,10 +361,8 @@ $('#cart .modal-body').on('change', '#orders-area', function (e) {
         success: function (res) {
             if (!res) res = 'cart empty';
             res = JSON.parse(res);
-            $('#orders-city').empty().append('<option value=" ">Выберите город...</option>'+res);
-            console.log($('#orders-city').val());
-            console.log($('#orders-area').val());
-            if($('#orders-area').val()==''){
+            $('#orders-city').empty().append('<option value=" ">Выберите город...</option>' + res);
+            if ($('#orders-area').val() == '') {
                 $('#orders-warehouse').empty();
                 $('#orders-city').empty();
             }
@@ -401,18 +378,17 @@ $('#cart .modal-body').on('change', '#orders-area', function (e) {
  */
 $('#cart .modal-body').on('change', '#orders-city', function (e) {
     e.preventDefault();
-    var area = $('#orders-area').find(":selected").val();
     var city = $(this).find(":selected").val();
     $.ajax({
         url: '/cart/city',
-        data: {value: area, city: city,},
+        data: {city: city},
         type: 'get',
         success: function (res) {
             console.log($('#orders-city').val());
             if (!res) res = 'cart empty';
             res = JSON.parse(res);
-            $('#orders-warehouse').empty().append('<option value=" ">Выберите отделение Новой почты...</option>'+res);
-            if($('#orders-city').val()==null){
+            $('#orders-warehouse').empty().append('<option value=" ">Выберите отделение Новой почты...</option>' + res);
+            if ($('#orders-city').val() == null) {
                 $('#orders-warehouse').empty();
             }
         },
@@ -435,11 +411,10 @@ $('#cart .modal-body').on('click', '.sendOrder', function (e) {
     name = name.trim();
     mail = mail.trim();
     e.preventDefault();
-    if ($('.help-block-error').text().length!=0) {
-       return false;
-    } else if($('#orders-name').val().length==0||$('#orders-phone').val().length==0||$('#orders-email').val().length==0||$('#orders-area').val().length==0||$('#orders-city').val().length==0||$('#orders-warehouse').val().length==0){
-        return false;
-    }else {
+    if ($('#orders-name').val().length == 0 || $('#orders-phone').val().length == 0 || $('#orders-email').val().length == 0 || $('#orders-area').val().length == 0 || $('#orders-city').val().length == 0 || $('#orders-warehouse').val().length == 0) {
+        $('.error-send').text('Заполните все поля перед оформлением заказа.');
+        $('.error-send').css({color: '#a94442'});
+    } else {
         $.ajax({
             url: '/cart/view',
             data: {name: name, phone: phone, mail: mail, area: area, city: city, warehouse: warehouse},
@@ -447,12 +422,12 @@ $('#cart .modal-body').on('click', '.sendOrder', function (e) {
             success: function (res) {
                 if (!res) res = 'cart empty';
                 showCart(res);
-                $('.t706__cartwin-bottom').css({display:'none'});
+                $('.t706__cartwin-bottom').css({display: 'none'});
                 $("#cart").on("hidden.bs.modal", function (e) {
-                        e.preventDefault();
-                        $.ajax({
-                            url: '/cart/redirect',
-                        });
+                    e.preventDefault();
+                    $.ajax({
+                        url: '/cart/redirect',
+                    });
                 });
             },
             error: function (res) {

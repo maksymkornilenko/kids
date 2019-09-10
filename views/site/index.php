@@ -831,9 +831,11 @@ use kartik\select2\Select2;
                         ],
                     ]); ?>
                 <?php ActiveForm::end() ?>
+
                 <div class="t706__form-bottom-text t-text t-text_xs">Нажимая кнопку отправить, я соглашаюсь с
-                    <a href="site/official" style="">политикой конфиденциальности.</a>
+                    <a href="/site/official" style="">политикой конфиденциальности.</a>
                 </div>
+                <div class="error-send"></div>
                 <a href="/cart/view" class="btn btn-success sendOrder">Оформить заказ</a>
                 <button type="button" class="btn btn-danger clearCart">Очистить корзину</button>
             </div>

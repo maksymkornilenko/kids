@@ -3596,7 +3596,7 @@ img:not([src]) {
     position: fixed;
     top: 100px;
     right: 50px;
-    z-index: 4000
+    z-index: 1000;
 }
 
 .t706__carticon_neworder .t706__carticon-text {

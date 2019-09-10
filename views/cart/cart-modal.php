@@ -7,7 +7,6 @@ use kartik\select2\Select2;
 ?>
 <?php if (!empty($session['cart'])): ?>
     <!--версия 2.0-->
-<?php var_dump($session['cart']);?>
     <div class="t706__cartwin-heading t-name t-name_xl">Оставьте данные для оформления заказа</div>
     <div class="t706__cartwin-products">
         <?php foreach ($session['cart'] as $id => $item): ?>
