@@ -7768,7 +7768,7 @@ input::-webkit-inner-spin-button {
 #rec118417775 .main-inform-container__artboard {
     height: 190px;
     background-color: #ffffff;
-    top: 812px;
+    top: 50px;
 }
 
 #rec118417775 .main-inform-container__filter {
@@ -8751,10 +8751,67 @@ input::-webkit-inner-spin-button {
     }
 }
 
+@media (max-width: 479px) {
+    .tel-2 {
+        height: 20px;
+        top: 11px;
+        left: 0px;
+    }
+}
+
 #message {
     position: relative;
     width: 70%;
 }
-.t706__cartwin-bottom{
+
+.t706__cartwin-bottom {
     display: none;
+}
+
+.tel-1 {
+    height: 19px;
+    top: 6px;
+}
+
+.tel-1 > a {
+    height: 19px;
+    top: -15px;
+}
+
+.tel-2 {
+    height: 20px;
+    top: 23px;
+    left: -148px;
+}
+
+@media (max-width: 479px) {
+    .tel-1 {
+        height: 27px;
+        top: 0px
+    }
+
+    .tel-1 > a {
+        height: 41px;
+        top: -7px;
+    }
+
+    .tel-2 {
+        height: 26px;
+        top: 9px;
+        left: 0px;
+    }
+}
+
+.tel-2 > a {
+    top: -13px;
+}
+
+.cart-nav {
+    left: -139px;
+}
+
+@media (max-width: 479px) {
+    .cart-nav {
+        left: 0px;
+    }
 }
