@@ -15,6 +15,7 @@ use yii\helpers\Url;
 
 class CartController extends Controller
 {
+
     public function actionAdd()
     {
         $id = (int)Yii::$app->request->get('id');

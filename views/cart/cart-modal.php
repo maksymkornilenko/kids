@@ -19,7 +19,7 @@ use kartik\select2\Select2;
                 </div>
                 <div class="t706__product-title t-descr t-descr_sm">Набор продукции DISNEY Kitchen
                     <div style="opacity:0.7;font-size:12px;font-weight:400;">
-                        <div><?= $item['gender'] ?></div>
+                        <div>Выберите для кого этот набор:<br><?= $item['gender'] ?></div>
                         <div><?= $item['name'] ?></div>
 
                     </div>

@@ -8833,11 +8833,13 @@ input::-webkit-inner-spin-button {
         top: 49px;
         left: 65%;
     }
+    .icon-nav > img {
+        width: 4%;
+    }
 }
 @media (max-width: 425px) {
     .icon-nav{
-        left: 36%;
-        top: -10px;
+        position: static;
     }
     .icon-nav > img{
         width: 10%;

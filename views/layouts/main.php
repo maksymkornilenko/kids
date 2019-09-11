@@ -48,7 +48,7 @@ AppAsset::register($this);
             ['label' => 'Контакты', 'url' => ['/#contacts']],
             ['label' => '+38 067 245-20-10', 'options' => ['class' => 'tel-1'], 'url' => 'https://wa.me/380672452010','linkOptions' => ['target'=>'_blank'], 'template' => '<a class="href-tel-1" href="{url}">{label}</a>'],
             ['label' => '+38 067 404-66-01','options' => ['class' => 'tel-2'], 'url' => 'https://wa.me/380674046601', 'linkOptions' => ['target'=>'_blank'], 'template' => '<a class="href-tel-2" href="{url}">{label}</a>'],
-            ['label' => 'Корзина', 'options' => ['class' => 'shopping-cart cart-nav']],
+            //['label' => 'Корзина', 'options' => ['class' => 'shopping-cart cart-nav']],
 
         ],
         'encodeLabels' => false,
@@ -59,7 +59,6 @@ AppAsset::register($this);
     <?php
     NavBar::end();
     ?>
-
     <?php $this->beginBody() ?>
     <?= Alert::widget() ?>
     <?= $content ?>

@@ -85,7 +85,7 @@
 
 //Фрагмент кода для работы с корзиной
 /**
- * функция открытия корзины
+ * function for open cart
  */
 $('.open-order').click(function () {
     var product = $(this).data('product');
@@ -95,7 +95,7 @@ $('.open-order').click(function () {
     $(".t706__carticon-imgwrap").css({display: 'none'});
 });
 /**
- * функция изменения товара и его цены внутри модального окна выбора товара
+ *function for change product and them price inside modal window
  */
 $('.dropdown-list').change(function () {
     var product = $(".dropdown-list").find(":selected").data("product");
@@ -104,7 +104,7 @@ $('.dropdown-list').change(function () {
     $(".t706__carticon-imgwrap").css({display: 'none'});
 });
 /**
- * функция отображения корзины
+ * function for show cart
  * @param cart
  */
 function showCart(cart) {
@@ -113,7 +113,7 @@ function showCart(cart) {
 }
 
 /**
- * вызов модального окна корзины при нажатии на корзину
+ * function for show cart in modal window when click on cart picture
  */
 $('.shopping-cart').on('click', function (e) {
     $(".t706__carticon_showed").css({display: 'none'});
@@ -139,7 +139,7 @@ $('.shopping-cart').on('click', function (e) {
     });
 });
 /**
- * добавление в корзину
+ * function for add product to cart
  */
 $('.add-to-cart').on('click', function (e) {
     e.preventDefault();
@@ -167,13 +167,13 @@ $('.add-to-cart').on('click', function (e) {
 });
 
 /**
- * маска для телефона
+ * mask for phone
  */
 $(document).ready(function ($) {
     $("#orders-phone").mask('8(099)999-99-99');
 });
 /**
- * функция удаления одной позиции товара при нажатии на крестик
+ * function for delete one product position when clickon chest
  */
 $('#cart .modal-body').on('click', '.del-item', function (e) {
     e.preventDefault();
@@ -193,6 +193,12 @@ $('#cart .modal-body').on('click', '.del-item', function (e) {
                         url: '/cart/redirect',
                     });
                 });
+                $("#cart").on(".close", function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: '/cart/redirect',
+                    });
+                });
             } else {
                 $('.t706__cartwin-bottom').css({display: 'block'});
             }
@@ -204,7 +210,7 @@ $('#cart .modal-body').on('click', '.del-item', function (e) {
     });
 });
 /**
- * очистка корзины
+ * function for clear cart from all products
  */
 $('#cart .modal-body').on('click', '.clearCart', function (e) {
     e.preventDefault();
@@ -220,6 +226,12 @@ $('#cart .modal-body').on('click', '.clearCart', function (e) {
                     url: '/cart/redirect',
                 });
             });
+            $("#cart").on(".close", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/cart/redirect',
+                });
+            });
             $('.t706__cartwin-bottom').css({display: 'none'});
         },
         error: function (res) {
@@ -230,7 +242,7 @@ $('#cart .modal-body').on('click', '.clearCart', function (e) {
     });
 });
 /**
- * функция добавления единицы товара при клике на плюс
+ * function for add to cart when click on plus
  */
 $('#cart .modal-body').on('click', '#plus-cart', function (e) {
     e.preventDefault();
@@ -256,7 +268,7 @@ $('#cart .modal-body').on('click', '#plus-cart', function (e) {
 });
 
 /**
- * функция для ввода колличества товара вручную
+ * function for input count of products
  */
 function inputCount() {
     var count = $('#message').val();
@@ -287,7 +299,7 @@ function inputCount() {
 }
 
 /**
- * вызов функции inputCount при изменении кол-ва товара
+ * callback function inputCount when change count of products
  */
 $('#cart .modal-body').on('change', '#message', function (e) {
     $('.t706__product-plusminus').css({position: 'relative'});
@@ -295,7 +307,7 @@ $('#cart .modal-body').on('change', '#message', function (e) {
     inputCount();
 });
 /**
- * вызов поля ввода для изменения кол-ва товара
+ * callback input field for change count of products
  */
 $('#cart .modal-body').on('click', '.cart-count', function (e) {
     $(this).replaceWith("<input class='t706__product-quantity cartcount' min='1' type='number'data-id=" + $(this).data('id') + " data-gender=" + $(this).data('gender') + " id='message' name='message' autofocus class='manFl' value=" + $(this).text() + ">");
@@ -303,7 +315,7 @@ $('#cart .modal-body').on('click', '.cart-count', function (e) {
     $('.t706__product-plusminus').css({left: '-36px'});
 });
 /**
- * возврат тега span после ввода кол-ва товара
+ * return span tag after change
  */
 $('#cart .modal-body').on('blur', '#message', function (e) {
     $(this).replaceWith("<span class='t706__product-quantity cart-count' data-id=" + $(this).data("id") + " data-gender=" + $(this).data("gender") + ">" + $(this).val() + "</span>");
@@ -311,7 +323,7 @@ $('#cart .modal-body').on('blur', '#message', function (e) {
     $('.t706__product-plusminus').css({left: '0px'});
 });
 /**
- * функция удаления единицы товара при клике на минус
+ * function for remove and delete product when click on minus
  */
 $('#cart .modal-body').on('click', '#minus-cart', function (e) {
     e.preventDefault();
@@ -334,6 +346,12 @@ $('#cart .modal-body').on('click', '#minus-cart', function (e) {
                             url: '/cart/redirect',
                         });
                     });
+                    $("#cart").on(".close", function (e) {
+                        e.preventDefault();
+                        $.ajax({
+                            url: '/cart/redirect',
+                        });
+                    });
                     $('.t706__cartwin-bottom').css({display: 'none'});
                 } else {
                     $('.t706__cartwin-bottom').css({display: 'block'});
@@ -348,7 +366,7 @@ $('#cart .modal-body').on('click', '#minus-cart', function (e) {
     $link.data('lockedAt', +new Date());
 });
 /**
- * функция для выбора области и города
+ * function for choice area and city of this area
  */
 $('#cart .modal-body').on('change', '#orders-area', function (e) {
     e.preventDefault();
@@ -377,7 +395,7 @@ $('#cart .modal-body').on('change', '#orders-area', function (e) {
     });
 });
 /**
- * функция для выбора города и отделения
+ * function for choice city and warehouse of Nova Poshta
  */
 $('#cart .modal-body').on('change', '#orders-city', function (e) {
     e.preventDefault();
@@ -402,7 +420,7 @@ $('#cart .modal-body').on('change', '#orders-city', function (e) {
 });
 
 /**
- * функция отправки заказа
+ *function for send order
  */
 $('#cart .modal-body').on('click', '.sendOrder', function (e) {
     var name = $('#orders-name').val();
@@ -432,6 +450,12 @@ $('#cart .modal-body').on('click', '.sendOrder', function (e) {
                         url: '/cart/redirect',
                     });
                 });
+                $("#cart").on(".close", function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: '/cart/redirect',
+                    });
+                });
             },
             error: function (res) {
                 res = 'error';
@@ -441,7 +465,7 @@ $('#cart .modal-body').on('click', '.sendOrder', function (e) {
     }
 });
 /**
- * функция отображения картинки корзины после закрытия модального окна корзины
+ * function for show picture of cart after close modal window of order
  */
 $("#cart").on("hidden.bs.modal", function (e) {
     e.preventDefault();
@@ -460,7 +484,7 @@ $("#cart").on("hidden.bs.modal", function (e) {
     $("div.modal-backdrop").remove()
 });
 /**
- * функция отображения картинки корзины после закрытия модального окна выбора товара
+ * function for show picture of cart after close modal window of product
  */
 $("#form-modal").on("hidden.bs.modal", function () {
     $(".t706__carticon-imgwrap").css({display: 'block'});
