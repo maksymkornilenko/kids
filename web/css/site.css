@@ -8780,7 +8780,7 @@ input::-webkit-inner-spin-button {
 
 .tel-2 {
     height: 20px;
-    top: 23px;
+    top: 29px;
     left: -148px;
 }
 
@@ -8814,4 +8814,54 @@ input::-webkit-inner-spin-button {
     .cart-nav {
         left: 0px;
     }
+}
+.icon-nav{
+    position: relative;
+    top: 10px;
+    left: 79%;
+}
+.icon-nav > img{
+    width: 3%;
+}
+@media (max-width: 1024px) {
+    .icon-nav{
+        left: 72%;
+    }
+}
+@media (max-width: 768px) {
+    .icon-nav{
+        top: 49px;
+        left: 65%;
+    }
+}
+@media (max-width: 425px) {
+    .icon-nav{
+        left: 36%;
+        top: -10px;
+    }
+    .icon-nav > img{
+        width: 10%;
+    }
+}
+#button {
+    display: inline-block;
+    background-color: #FF9800;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 30px;
+    margin: 30px;
+    position: fixed;
+    bottom: 30px;
+    right: -20px;
+    transition: background-color .3s;
+    z-index: 1000;
+}
+#button > img{
+    width: 80%;
+    color: #ffffff;
+}
+#button:hover {
+    cursor: pointer;
+    background-color: #5b882c;
 }

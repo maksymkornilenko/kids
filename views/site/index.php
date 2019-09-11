@@ -26,26 +26,32 @@ use kartik\select2\Select2;
 
                 </div>
                 <?php if (!empty($session['cart.count'])): ?>
-                <div class="t706__carticon t706__carticon_showed shopping-cart">
-                    <div class="t706__carticon-text t-name t-name_xs">=&nbsp;<?php echo $session['cart.sum']?> &nbsp;грн</div>
-                    <div class="t706__carticon-wrapper">
-                        <div class="t706__carticon-imgwrap">
-                            <img class="cart-icon" src="/img/cart.png"/>
+                    <div class="t706__carticon t706__carticon_showed shopping-cart">
+                        <div class="t706__carticon-text t-name t-name_xs">=&nbsp;<?php echo $session['cart.sum'] ?>
+                            &nbsp;грн
                         </div>
-                        <div class="t706__carticon-counter t706__carticon-imgwrap" style="background-color:#f86d0c;"><?php echo $session['cart.count']?></div>
+                        <div class="t706__carticon-wrapper">
+                            <div class="t706__carticon-imgwrap">
+                                <img class="cart-icon" src="/img/cart.png"/>
+                            </div>
+                            <div class="t706__carticon-counter t706__carticon-imgwrap"
+                                 style="background-color:#f86d0c;"><?php echo $session['cart.count'] ?></div>
+                        </div>
                     </div>
-                </div>
-                <?php else :?>
+                <?php else : ?>
+                    <a id="button"><img src="/img/arrow-up-solid.svg"></a>
                     <div class="t706__carticon t706__carticon_showed shopping-cart">
                         <div class="t706__carticon-text t-name t-name_xs">Ваша корзина пуста</div>
                         <div class="t706__carticon-wrapper">
                             <div class="t706__carticon-imgwrap">
                                 <img class="cart-icon" src="/img/cart.png"/>
                             </div>
-                            <div class="t706__carticon-counter t706__carticon-imgwrap" style="background-color:#f86d0c;">0</div>
+                            <div class="t706__carticon-counter t706__carticon-imgwrap"
+                                 style="background-color:#f86d0c;">0
+                            </div>
                         </div>
                     </div>
-                <?php endif;?>
+                <?php endif; ?>
                 <div class='main-inform-container__elem tn-elem' elem-id='1563999965486'>
                     <div class='tn-atom'>
                         <img class='tn-atom__img t-img' src='/img/orangeblur3.png'>
@@ -780,7 +786,8 @@ use kartik\select2\Select2;
                     <div class="t-product__option-variants">
                         <select class="t-product__option-select t-descr t-descr_xxs js-product-option-variants dropdown-list">
                             <?php foreach ($list as $droplist) : ?>
-                                <option data-id="<?php echo $droplist['id'] ?>" data-count=1 data-product="<?= $droplist['price'] ?>"
+                                <option data-id="<?php echo $droplist['id'] ?>" data-count=1
+                                        data-product="<?= $droplist['price'] ?>"
                                         value="<?= $droplist['price'] ?>"><?= $droplist['name'] ?></option>
                             <?php endforeach; ?>
                         </select>
@@ -816,20 +823,20 @@ use kartik\select2\Select2;
                         'allowClear' => true
                     ],
                 ]); ?>
-                    <?= $form->field($model, 'city')->widget(Select2::classname(), [
-                        'data' => [],
-                        'options' => ['placeholder' => 'Выберите  город ...'],
-                        'pluginOptions' => [
-                            'allowClear' => true
-                        ],
-                    ]); ?>
-                    <?= $form->field($model, 'warehouse')->widget(Select2::classname(), [
-                        'data' => [],
-                        'options' => ['placeholder' => 'Выберите  отделение Новой почты ...'],
-                        'pluginOptions' => [
-                            'allowClear' => true
-                        ],
-                    ]); ?>
+                <?= $form->field($model, 'city')->widget(Select2::classname(), [
+                    'data' => [],
+                    'options' => ['placeholder' => 'Выберите  город ...'],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
+                ]); ?>
+                <?= $form->field($model, 'warehouse')->widget(Select2::classname(), [
+                    'data' => [],
+                    'options' => ['placeholder' => 'Выберите  отделение Новой почты ...'],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
+                ]); ?>
                 <?php ActiveForm::end() ?>
 
                 <div class="t706__form-bottom-text t-text t-text_xs">Нажимая кнопку отправить, я соглашаюсь с

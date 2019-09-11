@@ -89,7 +89,6 @@
  */
 $('.open-order').click(function () {
     var product = $(this).data('product');
-    console.log(product);
     $('#form-modal').modal('show');
     var res = $('.dropdown-list').val(product);
     $('.price-value').text(res.val());
@@ -365,7 +364,11 @@ $('#cart .modal-body').on('change', '#orders-area', function (e) {
             if ($('#orders-area').val() == '') {
                 $('#orders-warehouse').empty();
                 $('#orders-city').empty();
+                $('.control-label').css({color: '#000'})
+                $('.select2-selection').css({borderColor: '#ccc'})
             }
+            $('#orders-warehouse').empty();
+            $('.control-label').css({color: '#000'})
         },
         error: function (res) {
             res = 'error';
@@ -384,7 +387,6 @@ $('#cart .modal-body').on('change', '#orders-city', function (e) {
         data: {city: city},
         type: 'get',
         success: function (res) {
-            console.log($('#orders-city').val());
             if (!res) res = 'cart empty';
             res = JSON.parse(res);
             $('#orders-warehouse').empty().append('<option value=" ">Выберите отделение Новой почты...</option>' + res);
@@ -398,6 +400,7 @@ $('#cart .modal-body').on('change', '#orders-city', function (e) {
         }
     });
 });
+
 /**
  * функция отправки заказа
  */
@@ -461,6 +464,15 @@ $("#cart").on("hidden.bs.modal", function (e) {
  */
 $("#form-modal").on("hidden.bs.modal", function () {
     $(".t706__carticon-imgwrap").css({display: 'block'});
+
+});
+$(document).ready(function() {
+
+    var btn = $('#button');
+    btn.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop:0}, '30');
+    });
 
 });
 //==================================================================================================
