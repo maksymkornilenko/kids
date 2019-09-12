@@ -95,6 +95,12 @@ $('.open-order').click(function () {
     $(".t706__carticon-imgwrap").css({display: 'none'});
 });
 /**
+ *
+ */
+$('.phoneicon').click(function () {
+    $('#callback-modal').modal('show');
+});
+/**
  *function for change product and them price inside modal window
  */
 $('.dropdown-list').change(function () {
@@ -110,6 +116,10 @@ $('.dropdown-list').change(function () {
 function showCart(cart) {
     $('#cart .modal-body2').html(cart);
     $('#cart').modal();
+}
+function showAnswer(callback) {
+    $('#answer-callback-modal .modal-body2').html(callback);
+    $('#answer-callback-modal').modal();
 }
 
 /**
@@ -171,6 +181,7 @@ $('.add-to-cart').on('click', function (e) {
  */
 $(document).ready(function ($) {
     $("#orders-phone").mask('8(099)999-99-99');
+    $("#callback-phone").mask('8(099)999-99-99');
 });
 /**
  * function for delete one product position when clickon chest
@@ -499,6 +510,46 @@ $(document).ready(function() {
         $('html, body').animate({scrollTop:0}, '30');
     });
 
+});
+
+$('.sendCallbackForm').on('click', function (e) {
+    var name = $('#callback-name').val();
+    var phone = $('#callback-phone').val();
+    console.log(name);
+    console.log(phone);
+    name = name.trim();
+    e.preventDefault();
+    if ($('#callback-name').val().length == 0 || $('#callback-phone').val().length == 0) {
+        return false;
+    } else {
+        $.ajax({
+            url: '/site/callback',
+            data: {name: name, phone: phone},
+            type: 'post',
+            success: function (res) {
+                if (!res) res = 'empty';
+                $('#callback-modal').modal('hide');
+                showAnswer(res);
+                $("#answer-callback-modal").on("hidden.bs.modal", function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: '/cart/redirect',
+                    });
+                });
+                $("#answer-callback-modal").on(".close", function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: '/cart/redirect',
+                    });
+                });
+            },
+            error: function (res) {
+                res = 'error';
+                $('#callback-modal').modal('hide');
+                showAnswer(res);
+            }
+        });
+    }
 });
 //==================================================================================================
 // var textWait = "Подождите! Выполняется загрузка...";

@@ -58,13 +58,13 @@ use kartik\select2\Select2;
 <?php elseif (Yii::$app->session->hasFlash('success')): ?>
     <div>
         <h3>
-            <p><?php echo Yii::$app->session->getFlash('success'); ?></p>
+            <div class="js-successbox t-form__successbox t-text t-text_md" style=""><?php echo Yii::$app->session->getFlash('success'); ?></div>
         </h3>
     </div>
 <?php elseif (Yii::$app->session->hasFlash('error')): ?>
     <div>
         <h3>
-            <p><?php echo Yii::$app->session->getFlash('error'); ?></p>
+            <div class="js-successbox t-form__errorbox t-text t-text_md" style=""><?php echo Yii::$app->session->getFlash('error'); ?></div>
         </h3>
     </div>
 <?php else: ?>

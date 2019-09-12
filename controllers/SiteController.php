@@ -2,9 +2,12 @@
 
 namespace app\controllers;
 
+use app\models\Areas;
+use app\models\Callback;
 use app\models\Form;
 use app\models\ListDb;
 use app\models\Orders;
+use app\models\SqlRequests;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Json;
@@ -69,7 +72,8 @@ class SiteController extends Controller
         $list= new ListDb();
         $session=Yii::$app->session;
         $session->open();
-        $areas=Yii::$app->db->createCommand("SELECT * from areas")->queryAll();
+        $callback= new Callback();
+        $areas=Areas::find()->all();
 //        if($model->load(Yii::$app->request->post())&&$model->validate()){
 //            Yii::$app->session->setFlash('sendForm','success');
 //
@@ -78,6 +82,7 @@ class SiteController extends Controller
             'list'=>$list->getList(),
             'session'=>$session,
             'areas'=>$areas,
+            'callback'=>$callback,
             ]);
     }
     public function actionOfficial()
@@ -185,5 +190,17 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    public function actionCallback(){
+        $callbackForm = new Callback();
+        $callbackForm->name = Yii::$app->request->post('name');
+        $callbackForm->phone = Yii::$app->request->post('phone');
+        if ($callbackForm->save()) {
+            Yii::$app->session->setFlash('successAnswer', "Спасибо, скоро мы с вами свяжемся");
+        }else{
+            Yii::$app->session->setFlash('errorAnswer', "Ошибка");
+        }
+        $this->layout = false;
+        return $this->render('answer-callback');
     }
 }
