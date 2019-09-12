@@ -371,9 +371,10 @@ $('#cart .modal-body').on('click', '#minus-cart', function (e) {
 $('#cart .modal-body').on('change', '#orders-area', function (e) {
     e.preventDefault();
     var area = $(this).find(":selected").val();
+    var areatext = $(this).find(":selected").text();
     $.ajax({
         url: '/cart/area',
-        data: {value: area},
+        data: {value: area, text:areatext},
         type: 'get',
         success: function (res) {
             if (!res) res = 'cart empty';

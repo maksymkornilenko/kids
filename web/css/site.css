@@ -8620,7 +8620,7 @@ input::-webkit-inner-spin-button {
 }
 
 .form-control {
-    text-align: center;
+    text-align: left;
 }
 
 #form-count {
@@ -8650,7 +8650,7 @@ input::-webkit-inner-spin-button {
 }
 
 .form-group {
-    text-align: center;
+    text-align: left;
     border: 0px solid rgba(0, 0, 0, 0);
 
 }

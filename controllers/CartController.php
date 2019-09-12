@@ -83,10 +83,13 @@ class CartController extends Controller
         $areasRef = (string)Yii::$app->request->get('value');
         $requests = new SqlRequests();
         $city = $requests->showCities($areasRef);
-        foreach ($city as $cities){
-            $answer[]='<option value="' . $cities['ref'] . '">' . $cities['description_ru'] . '</option>';
+
+        foreach ($city as $cities) {
+            $answer[] = '<option value="' . $cities['ref'] . '">' . $cities['description_ru'] . '</option>';
         }
-        return Json::encode($answer) ;
+        return Json::encode($answer);
+
+
     }
 
     public function actionCity()
@@ -94,10 +97,10 @@ class CartController extends Controller
         $cityRef = (string)Yii::$app->request->get('city');
         $requests = new SqlRequests();
         $warehouse = $requests->showWarehouses($cityRef);
-        foreach ($warehouse as $warehouses){
-            $answer[]='<option value="' . $warehouses['ref'] . '">' . $warehouses['description_ru'] . '</option>';
+        foreach ($warehouse as $warehouses) {
+            $answer[] = '<option value="' . $warehouses['ref'] . '">' . $warehouses['description_ru'] . '</option>';
         }
-        return Json::encode($answer) ;
+        return Json::encode($answer);
     }
 
     public function actionShow()
@@ -145,7 +148,9 @@ class CartController extends Controller
         $this->layout = false;
         return $this->render('cart-modal');
     }
-    public function actionRedirect(){
+
+    public function actionRedirect()
+    {
         return Yii::$app->response->redirect(Url::to('/'));
     }
 
