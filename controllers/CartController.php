@@ -5,6 +5,7 @@ namespace app\controllers;
 
 
 use app\models\Cart;
+use app\models\ClientsSec;
 use app\models\Orders;
 use app\models\SqlRequests;
 use Yii;
@@ -127,23 +128,44 @@ class CartController extends Controller
         $session = Yii::$app->session;
         $session->open();
         $contactForm = new Orders();
-        $contactForm->name = Yii::$app->request->post('name');
-        $contactForm->phone = Yii::$app->request->post('phone');
-        $contactForm->email = Yii::$app->request->post('mail');
+        $clientForm= new ClientsSec();
+        $requests= new SqlRequests();
+        $clientForm->name = Yii::$app->request->post('name');
+        $clientForm->phone = Yii::$app->request->post('phone');
+        $clientForm->phone_raw = preg_replace('/[^0-9]/', '',  $clientForm->phone);
+        $clientForm->email = Yii::$app->request->post('mail');
         $contactForm->area = Yii::$app->request->post('area');
         $contactForm->city = Yii::$app->request->post('city');
         $contactForm->warehouse = Yii::$app->request->post('warehouse');
         $contactForm->count = $session['cart.count'];
         $contactForm->sum = $session['cart.sum'];
-        if ($contactForm->save()) {
-            $saveItems = new OrderItems();
-            $saveItems->saveOrderItems($session['cart'], $contactForm->id);
-            Yii::$app->session->setFlash('success', "Ваш заказ номер №$contactForm->id получен, менеджер в ближайшее время с вами свяжется");
-            $session->remove('cart');
-            $session->remove('cart.count');
-            $session->remove('cart.sum');
-        } else {
-            Yii::$app->session->setFlash('error', 'Ваш заказ не получен');
+        $sqlclients=$requests->showClient($clientForm->phone_raw);
+        if(empty($sqlclients)){
+            if($clientForm->save()){
+                $contactForm->client_id=$clientForm->id;
+                if ($contactForm->save()) {
+                    $saveItems = new OrderItems();
+                    $saveItems->saveOrderItems($session['cart'], $contactForm->id);
+                    Yii::$app->session->setFlash('success', "Ваш заказ номер №$contactForm->id получен, менеджер в ближайшее время с вами свяжется");
+                    $session->remove('cart');
+                    $session->remove('cart.count');
+                    $session->remove('cart.sum');
+                } else {
+                    Yii::$app->session->setFlash('error', 'Ваш заказ не получен');
+                }
+            }
+        }else{
+            $contactForm->client_id=$sqlclients['0']['id'];
+            if ($contactForm->save()) {
+                $saveItems = new OrderItems();
+                $saveItems->saveOrderItems($session['cart'], $contactForm->id);
+                Yii::$app->session->setFlash('success', "Ваш заказ номер №$contactForm->id получен, менеджер в ближайшее время с вами свяжется");
+                $session->remove('cart');
+                $session->remove('cart.count');
+                $session->remove('cart.sum');
+            } else {
+                Yii::$app->session->setFlash('error', 'Ваш заказ не получен');
+            }
         }
         $this->layout = false;
         return $this->render('cart-modal');

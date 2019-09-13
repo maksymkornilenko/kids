@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Areas;
 use app\models\Callback;
+use app\models\ClientsSec;
 use app\models\Form;
 use app\models\ListDb;
 use app\models\Orders;
@@ -69,6 +70,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = new Orders();
+        $client= new ClientsSec();
         $list= new ListDb();
         $session=Yii::$app->session;
         $session->open();
@@ -83,6 +85,7 @@ class SiteController extends Controller
             'session'=>$session,
             'areas'=>$areas,
             'callback'=>$callback,
+            'client'=>$client,
             ]);
     }
     public function actionOfficial()

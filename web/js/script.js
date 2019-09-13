@@ -180,7 +180,7 @@ $('.add-to-cart').on('click', function (e) {
  * mask for phone
  */
 $(document).ready(function ($) {
-    $("#orders-phone").mask('8(099)999-99-99');
+    $("#clientssec-phone").mask('8(099)999-99-99');
     $("#callback-phone").mask('8(099)999-99-99');
 });
 /**
@@ -196,6 +196,7 @@ $('#cart .modal-body').on('click', '.del-item', function (e) {
         success: function (res) {
             if (!res) res = 'cart empty';
             showCart(res);
+            console.log('del-item');
             if ($('.t706__cartwin-count').text() == '') {
                 $('.t706__cartwin-bottom').css({display: 'none'});
                 $("#cart").on("hidden.bs.modal", function (e) {
@@ -230,6 +231,7 @@ $('#cart .modal-body').on('click', '.clearCart', function (e) {
         type: 'get',
         success: function (res) {
             if (!res) res = 'cart empty';
+            console.log('clearcart');
             showCart(res);
             $("#cart").on("hidden.bs.modal", function (e) {
                 e.preventDefault();
@@ -435,46 +437,49 @@ $('#cart .modal-body').on('change', '#orders-city', function (e) {
  *function for send order
  */
 $('#cart .modal-body').on('click', '.sendOrder', function (e) {
-    var name = $('#orders-name').val();
-    var phone = $('#orders-phone').val();
-    var mail = $('#orders-email').val();
+    var name = $('#clientssec-name').val();
+    var phone = $('#clientssec-phone').val();
+    var mail = $('#clientssec-email').val();
     var area = $('#orders-area').find(":selected").text();
     var city = $('#orders-city').find(":selected").text();
     var warehouse = $('#orders-warehouse').find(":selected").text();
     name = name.trim();
     mail = mail.trim();
     e.preventDefault();
-    if ($('#orders-name').val().length == 0 || $('#orders-phone').val().length == 0 || $('#orders-email').val().length == 0 || $('#orders-area').val().length == 0 || $('#orders-city').val().length == 0 || $('#orders-warehouse').val().length == 0) {
-        $('.error-send').text('Заполните все поля перед оформлением заказа.');
-        $('.error-send').css({color: '#a94442'});
-    } else {
-        $.ajax({
-            url: '/cart/view',
-            data: {name: name, phone: phone, mail: mail, area: area, city: city, warehouse: warehouse},
-            type: 'post',
-            success: function (res) {
-                if (!res) res = 'cart empty';
-                showCart(res);
-                $('.t706__cartwin-bottom').css({display: 'none'});
-                $("#cart").on("hidden.bs.modal", function (e) {
-                    e.preventDefault();
-                    $.ajax({
-                        url: '/cart/redirect',
-                    });
-                });
-                $("#cart").on(".close", function (e) {
-                    e.preventDefault();
-                    $.ajax({
-                        url: '/cart/redirect',
-                    });
-                });
-            },
-            error: function (res) {
-                res = 'error';
-                showCart(res);
-            }
-        });
-    }
+     if ($('#clientssec-phone').val().length == 0 || $('#clientssec-phone').val().length == 0 || $('#clientssec-phone').val().length == 0 || $('#orders-area').val().length == 0 || $('#orders-city').val().length == 0 || $('#orders-warehouse').val().length == 0) {
+         $('.error-send').text('Заполните все поля перед оформлением заказа.');
+         $('.error-send').css({color: '#a94442'});
+     }else if($('.help-block').text()!=''){
+         $('.error-send').text('Заполните все поля перед оформлением заказа.');
+         $('.error-send').css({color: '#a94442'});
+     } else {
+         $.ajax({
+             url: '/cart/view',
+             data: {name: name, phone: phone, mail: mail, area: area, city: city, warehouse: warehouse},
+             type: 'post',
+             success: function (res) {
+                 if (!res) res = 'cart empty';
+                 showCart(res);
+                 $('.t706__cartwin-bottom').css({display: 'none'});
+                 $("#cart").on("hidden.bs.modal", function (e) {
+                     e.preventDefault();
+                     $.ajax({
+                         url: '/cart/redirect'
+                     });
+                 });
+                 $("#cart").on(".close", function (e) {
+                     e.preventDefault();
+                     $.ajax({
+                         url: '/cart/redirect'
+                     });
+                 });
+             },
+             error: function (res) {
+                 res = 'error';
+                 showCart(res);
+             }
+         });
+     }
 });
 /**
  * function for show picture of cart after close modal window of order

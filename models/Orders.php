@@ -39,18 +39,18 @@ class Orders extends ActiveRecord
     public function rules()
     {
         return [
-            ['name','required', 'message' => 'Укажите пожалуйста ваше имя'],
-            ['email','required', 'message' => 'Укажите пожалуйста ваш E-mail'],
-            ['phone','required', 'message' => 'Укажите пожалуйста ваш телефон'],
+            //['name','required', 'message' => 'Укажите пожалуйста ваше имя'],
+            //['email','required', 'message' => 'Укажите пожалуйста ваш E-mail'],
+            //['phone','required', 'message' => 'Укажите пожалуйста ваш телефон'],
 //            ['area','required', 'message' => 'Укажите пожалуйста вашу область'],
 //            ['city','required', 'message' => 'Укажите пожалуйста ваш город'],
 //            ['warehouse','required', 'message' => 'Укажите пожалуйста отделение Новой почты'],
             [['created_at'], 'safe'],
-            ['phone', 'match', 'pattern' => '/^(8)[(](\d{3})[)](\d{3})[-](\d{2})[-](\d{2})/', 'message' => 'Телефон, должно быть в формате 8(XXX)XXX-XX-XX'],
             [['count'], 'integer'],
             [['sum'], 'number'],
-            ['email', 'email'],
-            [['name', 'email', 'phone','area','city','warehouse'], 'string', 'max' => 255],
+            //['email', 'email'],
+            [['client_id'], 'exist', 'skipOnError' => true, 'targetClass' => ClientsSec::className(), 'targetAttribute' => ['client_id' => 'id']],
+            [['area','city','warehouse'], 'string', 'max' => 255],
         ];
     }
 
@@ -60,9 +60,9 @@ class Orders extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'name' => 'Полное имя',
-            'email' => 'Email',
-            'phone' => 'Телефон',
+//            'name' => 'Полное имя',
+//            'email' => 'Email',
+//            'phone' => 'Телефон',
             'area' => 'Область',
             'city' => 'Город',
             'warehouse' => 'Выберите отделение новой почты',

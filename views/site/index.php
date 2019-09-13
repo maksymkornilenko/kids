@@ -863,11 +863,11 @@ use kartik\select2\Select2;
         <div class="t706__cartwin-bottom">
             <div class="t706__cartwin-prodamount-wrap t-descr t-descr_sm">
                 <?php $form = ActiveForm::begin(['id' => '1contact-form', 'options' => ['name' => 'calculator1']]); ?>
-                <?= $form->field($model, 'name') ?>
+                <?= $form->field($client, 'name') ?>
                 <p class="error-name"></p>
-                <?= $form->field($model, 'phone') ?>
+                <?= $form->field($client, 'phone') ?>
                 <p class="error-phone"></p>
-                <?= $form->field($model, 'email') ?>
+                <?= $form->field($client, 'email') ?>
                 <p class="error-email"></p>
                 <?= $form->field($model, 'area')->widget(Select2::classname(), [
                     'data' => ArrayHelper::map($areas, 'ref', 'description_ru'),
@@ -918,7 +918,7 @@ use kartik\select2\Select2;
                     </div>
                 </div>
                 <div class="error-send"></div>
-                <a href="/cart/view" class="btn btn-success sendOrder">Оформить заказ</a>
+                <a href="/site/view" class="btn btn-success sendOrder">Оформить заказ</a>
                 <button type="button" class="btn btn-danger clearCart">Очистить корзину</button>
             </div>
         </div>
