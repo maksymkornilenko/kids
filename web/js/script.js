@@ -99,6 +99,11 @@ $('.open-order').click(function () {
  */
 $('.phoneicon').click(function () {
     $('#callback-modal').modal('show');
+    $('.t706__carticon').css({display: 'none'});
+});
+$('#callback-modal').on('hidden.bs.modal', function () {
+    $('#callback-modal').modal('hide');
+    $('.t706__carticon').css({display: 'block'});
 });
 /**
  *function for change product and them price inside modal window
@@ -520,8 +525,7 @@ $(document).ready(function() {
 $('.sendCallbackForm').on('click', function (e) {
     var name = $('#callback-name').val();
     var phone = $('#callback-phone').val();
-    console.log(name);
-    console.log(phone);
+    $('.t706__carticon').css({display: 'none'});
     name = name.trim();
     e.preventDefault();
     if ($('#callback-name').val().length == 0 || $('#callback-phone').val().length == 0) {
@@ -551,6 +555,7 @@ $('.sendCallbackForm').on('click', function (e) {
             error: function (res) {
                 res = 'error';
                 $('#callback-modal').modal('hide');
+                $('.t706__carticon').css({display: 'none'});
                 showAnswer(res);
             }
         });
