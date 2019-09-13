@@ -3611,6 +3611,11 @@ img:not([src]) {
         cursor: pointer;
         pointer-events: initial
     }
+    .t706__carticon:hover .t706__phoneicon-text {
+        opacity: 1 !important;
+        cursor: pointer;
+        pointer-events: initial
+    }
 
     .t706__carticon-imgwrap:hover {
         -webkit-transform: scale(1.1);
@@ -3636,8 +3641,38 @@ img:not([src]) {
     opacity: 0;
     pointer-events: none
 }
+.t706__phoneicon-text {
+    position: absolute;
+    -webkit-transform: translateX(0%) translateY(-50%);
+    transform: translateX(0%) translateY(-50%);
+    top: 50%;
+    right: 130%;
+    white-space: nowrap;
+    background: #292929;
+    color: #fff;
+    font-size: 15px;
+    box-sizing: border-box;
+    padding: 9px 13px;
+    border-radius: 3px;
+    -webkit-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+    opacity: 0;
+    pointer-events: none
+}
 
 .t706__carticon-text:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    border-width: 10px;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    border-left-color: #292929
+}
+.t706__phoneicon-text:after {
     content: '';
     position: absolute;
     width: 0;

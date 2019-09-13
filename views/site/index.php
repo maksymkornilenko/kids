@@ -27,7 +27,7 @@ use kartik\select2\Select2;
                 </div>
                 <?php if (!empty($session['cart.count'])): ?>
                     <div class="t706__carticon t706__carticon_showed shopping-cart">
-                        <div class="t706__carticon-text t-name t-name_xs">=&nbsp;<?php echo $session['cart.sum'] ?>
+                        <div class="t706__carticon-text t-name t-name_xs">&nbsp;<?php echo $session['cart.sum'] ?>
                             &nbsp;грн
                         </div>
                         <div class="t706__carticon-wrapper">
@@ -45,11 +45,13 @@ use kartik\select2\Select2;
                             <div class="t706__carticon-imgwrap">
                                 <img class="cart-icon" src="/img/cart.png"/>
                             </div>
+                            <div class="t706__carticon-counter t706__carticon-imgwrap"
+                                 style="background-color:#f86d0c;">0</div>
                         </div>
                     </div>
                 <?php endif; ?>
                 <div class="t706__carticon t706__carticon_showed phoneicon">
-                    <div class="t706__carticon-text t-name t-name_xs">Заказать звонок.
+                    <div class="t706__phoneicon-text t-name t-name_xs">Заказать звонок.
                     </div>
                     <div class="t706__carticon-wrapper phoneicon-wrapper">
                         <div class="t706__carticon-imgwrap">
@@ -481,7 +483,7 @@ use kartik\select2\Select2;
                 </div>
                 <div class='onko__elem tn-elem tn-elem__1225727121566073502758' data-elem-id='1566073502758' data-elem-type='image'	data-field-top-value="285"	data-field-top-res-960-value="235"	data-field-top-res-640-value="315"	data-field-top-res-480-value="310"	data-field-top-res-320-value="490"	data-field-left-value="850"	data-field-left-res-960-value="670"	data-field-left-res-640-value="410"	data-field-left-res-480-value="280"	data-field-left-res-320-value="160"	data-field-width-value="197"	data-field-width-res-480-value="167"	data-field-width-res-320-value="147"	data-field-axisy-value="top"	data-field-axisx-value="left"	data-field-container-value="grid"	data-field-topunits-value=""	data-field-leftunits-value=""	data-field-heightunits-value=""	data-field-widthunits-value="" >
                     <div class='tn-atom' >
-                        <img class="tn-atom__img t-img" src="/img/rapunzelstick.png">
+<!--                        <img class="tn-atom__img t-img" src="/img/rapunzelstick.png">-->
                     </div>
                 </div>
                 <div class='onko__elem tn-elem tn-elem__1225727121566073525477' data-elem-id='1566073525477' data-elem-type='button'	data-field-top-value="365"	data-field-top-res-960-value="315"	data-field-top-res-640-value="350"	data-field-top-res-480-value="405"	data-field-top-res-320-value="525"	data-field-left-value="460"	data-field-left-res-960-value="370"	data-field-left-res-640-value="250"	data-field-left-res-480-value="10"	data-field-left-res-320-value="10"	data-field-height-value="50"	data-field-height-res-640-value="45"	data-field-height-res-480-value="45"	data-field-width-value="200"	data-field-width-res-640-value="150"	data-field-width-res-480-value="160"	data-field-axisy-value="top"	data-field-axisx-value="left"	data-field-container-value="grid"	data-field-topunits-value=""	data-field-leftunits-value=""	data-field-heightunits-value=""	data-field-widthunits-value="" >
@@ -489,7 +491,7 @@ use kartik\select2\Select2;
                 </div>
                 <div class='onko__elem tn-elem tn-elem__1225727121566073609702' data-elem-id='1566073609702' data-elem-type='image'	data-field-top-value="285"	data-field-top-res-960-value="235"	data-field-top-res-640-value="315"	data-field-top-res-480-value="310"	data-field-top-res-320-value="490"	data-field-left-value="900"	data-field-left-res-960-value="720"	data-field-left-res-640-value="470"	data-field-left-res-480-value="320"	data-field-left-res-320-value="200"	data-field-width-value="197"	data-field-width-res-480-value="167"	data-field-width-res-320-value="147"	data-field-axisy-value="top"	data-field-axisx-value="left"	data-field-container-value="grid"	data-field-topunits-value=""	data-field-leftunits-value=""	data-field-heightunits-value=""	data-field-widthunits-value="" >
                     <div class='tn-atom' >
-                        <img class="tn-atom__img t-img" src="/img/ironmanstick.png">
+<!--                        <img class="tn-atom__img t-img" src="/img/ironmanstick.png">-->
                     </div>
                 </div>
             </div>
