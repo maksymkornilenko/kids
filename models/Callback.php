@@ -27,7 +27,8 @@ class Callback extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['phone', 'name'], 'required'],
+            [['phone'], 'required', 'message'=>'Введите пожалуйста ваш телефон'],
+            [['name'], 'required', 'message'=>'Введите пожалуйста ваше имя'],
             [['phone'], 'string', 'max' => 15],
             [['name'], 'string', 'max' => 255],
             ['phone', 'match', 'pattern' => '/^(8)[(](\d{3})[)](\d{3})[-](\d{2})[-](\d{2})/', 'message' => 'Телефон, должно быть в формате 8(XXX)XXX-XX-XX'],

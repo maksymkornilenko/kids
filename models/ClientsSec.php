@@ -31,7 +31,11 @@ class ClientsSec extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'phone', 'phone_raw'], 'required'],
+            [['name'], 'required', 'message'=>'Введите пожалуйста ваше полное имя'],
+            [['email'], 'required', 'message'=>'Введите пожалуйста ваш E-mail'],
+            [['phone'], 'required', 'message'=>'Введите пожалуйста ваш телефон'],
+            [['email'], 'email', 'message'=>'Введите пожалуйста корректный E-mail'],
+            [['phone_raw'], 'required'],
             [['phone_raw'], 'integer'],
             [['name', 'email'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 20],
