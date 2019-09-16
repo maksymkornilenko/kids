@@ -17,6 +17,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\LiqPay;
 
 class SiteController extends Controller
 {
@@ -76,6 +77,7 @@ class SiteController extends Controller
         $session->open();
         $callback= new Callback();
         $areas=Areas::find()->all();
+
 //        if($model->load(Yii::$app->request->post())&&$model->validate()){
 //            Yii::$app->session->setFlash('sendForm','success');
 //
@@ -86,6 +88,7 @@ class SiteController extends Controller
             'areas'=>$areas,
             'callback'=>$callback,
             'client'=>$client,
+            'liqpay'=>$html,
             ]);
     }
     public function actionOfficial()

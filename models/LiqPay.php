@@ -20,13 +20,14 @@
  * LIQPAY API       https://www.liqpay.ua/documentation/en
  *
  */
-
+namespace app\models;
 /**
  * Payment method liqpay process
  *
  * @author      Liqpay <support@liqpay.ua>
  */
-class LiqPay
+use yii\base\Model;
+class LiqPay extends Model
 {
     const CURRENCY_EUR = 'EUR';
     const CURRENCY_USD = 'USD';
@@ -144,10 +145,9 @@ class LiqPay
         $signature = $this->cnb_signature($params);
         
         return sprintf('
-            <form method="POST" action="%s" accept-charset="utf-8">
+            <form method="POST" class="liqpaySend" target="_blank" action="%s" accept-charset="utf-8">
                 %s
                 %s
-                <input type="image" src="//static.liqpay.ua/buttons/p1%s.radius.png" name="btn_text" />
             </form>
             ',
             $this->_checkout_url,

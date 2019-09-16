@@ -59,6 +59,7 @@ use kartik\select2\Select2;
     <div>
         <h3>
             <div class="js-successbox t-form__successbox t-text t-text_md" style=""><?php echo Yii::$app->session->getFlash('success'); ?></div>
+            <?php echo $liqpay?>
         </h3>
     </div>
 <?php elseif (Yii::$app->session->hasFlash('error')): ?>

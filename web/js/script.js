@@ -140,6 +140,7 @@ $('.shopping-cart').on('click', function (e) {
             if (!res) res = 'cart empty';
             $("#form-modal").modal('hide');
             showCart(res);
+            $('.liqpaySend').css({display: "none"});
             if ($('.t706__cartwin-count').text() == '') {
                 $('.t706__cartwin-bottom').css({display: 'none'});
             } else {
@@ -171,6 +172,7 @@ $('.add-to-cart').on('click', function (e) {
             $("#form-modal").modal('hide');
             showCart(res);
             $('.t706__cartwin-bottom').css({display: 'block'});
+            //$('.liqpaySend').css({display: "none"});
         },
         error: function (res) {
             res = 'error';
@@ -202,6 +204,13 @@ $('#cart .modal-body').on('click', '.del-item', function (e) {
             if (!res) res = 'cart empty';
             showCart(res);
             console.log('del-item');
+            if($('input[name=paymentsystem]:checked').val()=='cash'){
+                $('.liqpaySend').css({display: "none"});
+                $('.sendOrder').css({display: "inline-block"});
+            }else{
+                $('.sendOrder').css({display: "none"});
+                $('.liqpaySend').css({display: "inline-block"});
+            }
             if ($('.t706__cartwin-count').text() == '') {
                 $('.t706__cartwin-bottom').css({display: 'none'});
                 $("#cart").on("hidden.bs.modal", function (e) {
@@ -276,6 +285,13 @@ $('#cart .modal-body').on('click', '#plus-cart', function (e) {
             success: function (res) {
                 if (!res) res = 'cart empty';
                 showCart(res);
+                if($('input[name=paymentsystem]:checked').val()=='cash'){
+                    $('.liqpaySend').css({display: "none"});
+                    $('.sendOrder').css({display: "inline-block"});
+                }else{
+                    $('.sendOrder').css({display: "none"});
+                    $('.liqpaySend').css({display: "inline-block"});
+                }
             },
             error: function (res) {
                 res = 'error';
@@ -305,6 +321,16 @@ function inputCount() {
             success: function (res) {
                 if (!res) res = 'cart empty';
                 showCart(res);
+                if($('input[name=paymentsystem]:checked').val()=='cash'){
+                    $('.liqpaySend').css({display: "none"});
+                    $('.sendOrder').css({display: "inline-block"});
+                }else{
+                    $('.sendOrder').css({display: "none"});
+                    $('.liqpaySend').css({display: "inline-block"});
+                    $('.clearCart').css({position: 'relative'});
+                    $('.clearCart').css({left: '157px'});
+                    $('.clearCart').css({top: '3px'});
+                }
                 $(this).replaceWith("<span class='t706__product-quantity cart-count' data-id=" + $('#message').data("id") + " data-gender=" + $('#message').data("gender") + ">" + $('#message').val() + "</span>");
             },
             error: function (res) {
@@ -357,6 +383,19 @@ $('#cart .modal-body').on('click', '#minus-cart', function (e) {
             success: function (res) {
                 if (!res) res = 'cart empty';
                 showCart(res);
+                if($('input[name=paymentsystem]:checked').val()=='cash'){
+                    $('.liqpaySend').css({display: "none"});
+                    $('.sendOrder').css({display: "inline-block"});
+                    $('.clearCart').css({position: 'relative'});
+                    $('.clearCart').css({left: '0px'});
+                    $('.clearCart').css({top: '0px'});
+                }else{
+                    $('.sendOrder').css({display: "none"});
+                    $('.liqpaySend').css({display: "inline-block"});
+                    $('.clearCart').css({position: 'relative'});
+                    $('.clearCart').css({left: '157px'});
+                    $('.clearCart').css({top: '3px'});
+                }
                 if ($('.t706__cartwin-count').text() == '') {
                     $("#cart").on("hidden.bs.modal", function (e) {
                         e.preventDefault();
@@ -448,6 +487,8 @@ $('#cart .modal-body').on('click', '.sendOrder', function (e) {
     var area = $('#orders-area').find(":selected").text();
     var city = $('#orders-city').find(":selected").text();
     var warehouse = $('#orders-warehouse').find(":selected").text();
+    var pay=$('input[name=paymentsystem]:checked').val();
+    console.log(pay);
     name = name.trim();
     mail = mail.trim();
     e.preventDefault();
@@ -460,12 +501,13 @@ $('#cart .modal-body').on('click', '.sendOrder', function (e) {
      } else {
          $.ajax({
              url: '/cart/view',
-             data: {name: name, phone: phone, mail: mail, area: area, city: city, warehouse: warehouse},
+             data: {name: name, phone: phone, mail: mail, area: area, city: city, warehouse: warehouse, pay: pay},
              type: 'post',
              success: function (res) {
                  if (!res) res = 'cart empty';
                  showCart(res);
                  $('.t706__cartwin-bottom').css({display: 'none'});
+                 $('.liqpaySend').submit();
                  $("#cart").on("hidden.bs.modal", function (e) {
                      e.preventDefault();
                      $.ajax({
@@ -486,6 +528,57 @@ $('#cart .modal-body').on('click', '.sendOrder', function (e) {
          });
      }
 });
+// $('#cart .modal-body').on('click', '.liqpayImage', function (e) {
+//     var name = $('#clientssec-name').val();
+//     var phone = $('#clientssec-phone').val();
+//     var mail = $('#clientssec-email').val();
+//     var area = $('#orders-area').find(":selected").text();
+//     var city = $('#orders-city').find(":selected").text();
+//     var warehouse = $('#orders-warehouse').find(":selected").text();
+//     var pay=$('input[name=paymentsystem]:checked').val();
+//     console.log(pay);
+//     name = name.trim();
+//     mail = mail.trim();
+//     e.preventDefault();
+//      if ($('#clientssec-phone').val().length == 0 || $('#clientssec-phone').val().length == 0 || $('#clientssec-phone').val().length == 0 || $('#orders-area').val().length == 0 || $('#orders-city').val().length == 0 || $('#orders-warehouse').val().length == 0) {
+//          $('.error-send').text('Заполните все поля перед оформлением заказа.');
+//          $('.error-send').css({color: '#a94442'});
+//         // $('.liqpayImage').css({top: '829px'});
+//      }else if($('.help-block').text()!=''){
+//          $('.error-send').text('Заполните все поля перед оформлением заказа.');
+//          $('.error-send').css({color: '#a94442'});
+//         // $('.liqpayImage').css({top: '829px'});
+//      } else {
+//          $.ajax({
+//              url: '/cart/view',
+//              data: {name: name, phone: phone, mail: mail, area: area, city: city, warehouse: warehouse, pay: pay},
+//              type: 'post',
+//              success: function (res) {
+//                  if (!res) res = 'cart empty';
+//                  showCart(res);
+//                  $('.liqpaySend').submit;
+//                  $('.t706__cartwin-bottom').css({display: 'none'});
+//
+//                  $("#cart").on("hidden.bs.modal", function (e) {
+//                      e.preventDefault();
+//                      $.ajax({
+//                          url: '/cart/redirect'
+//                      });
+//                  });
+//                  $("#cart").on(".close", function (e) {
+//                      e.preventDefault();
+//                      $.ajax({
+//                          url: '/cart/redirect'
+//                      });
+//                  });
+//              },
+//              error: function (res) {
+//                  res = 'error';
+//                  showCart(res);
+//              }
+//          });
+//      }
+// });
 /**
  * function for show picture of cart after close modal window of order
  */
@@ -561,142 +654,18 @@ $('.sendCallbackForm').on('click', function (e) {
         });
     }
 });
-//==================================================================================================
-// var textWait = "Подождите! Выполняется загрузка...";
-// var orderId = ' . ($model->id ? $model->id : 0) . ';
-// $("document").ready(function() {
-//     ' . ($model->delivery_id == 4 || $model->delivery_id == 2 ? 'getRegionList(' . ($model->id ? $model->id : 0) . ');' : '') . '
-// });
-// $("#js_delivery_region_title").change(function() {
-//     if ($("#crmorder-delivery_id").val() == 4 || $("#crmorder-delivery_id").val() == 2) {
-//         getCityList();
+// $('.t-radio__wrapper').on('change', function() {
+//     if($('input[name=paymentsystem]:checked').val()=='cash'){
+//         $('.liqpaySend').css({display: "none"});
+//         $('.sendOrder').css({display: "inline-block"});
+//         $('.clearCart').css({position: 'relative'});
+//         $('.clearCart').css({left: '0px'});
+//         $('.clearCart').css({top: '0px'});
+//     }else{
+//         $('.sendOrder').css({display: "none"});
+//         $('.liqpaySend').css({display: "inline-block"});
+//         $('.clearCart').css({position: 'relative'});
+//         $('.clearCart').css({left: '157px'});
+//         $('.clearCart').css({top: '3px'});
 //     }
 // });
-//
-// $("#js_delivery_city").change(function() {
-//     if ($("#crmorder-delivery_id").val() == 4 || $("#crmorder-delivery_id").val() == 2) {
-//         getWarehouseList();
-//     }
-// });
-//
-// function resetRegion() {
-//     $("#select2-crmorder-delivery_region_title-container").html(textWait);
-// }
-// function resetCity() {
-//     $("#select2-crmorder-delivery_city-container").html(textWait);
-// }
-// function resetWarehouseField() {
-//     $("#crmorder-delivery_department_id").html(textWait);
-//     $("#select2-crmorder-delivery_department_id-container").html(textWait);
-// }
-//
-// function getWarehouseList(orderId) {
-//     resetWarehouseField();
-//     if ($("#crmorder-delivery_id").val() == 4 || $("#crmorder-delivery_id").val() == 2) {
-//         var url = "/delivery/get-select-option?deliveryId=" + $("#crmorder-delivery_id").val() + "&type=2&code=" + $("#crmorder-delivery_city").val();
-//         if (orderId > 0) {
-//             url += "&orderId=" + orderId;
-//         }
-//         $.ajax({
-//             url: url,
-//             success: function (data) {
-//                 if (data.options) {
-//                     $("#crmorder-delivery_department_id").html(data.options);
-//                 }
-//             }
-//         });
-//     } else {
-//         var url = "/order/get-select-options?type=2";
-//         var cityName = $("#crmorder-delivery_city").val();
-//         if (cityName != "") { url += "&cityName=" + cityName; }
-//         url += "&deliveryId=" + $("#crmorder-delivery_id").val();
-//         $.ajax({
-//             url: url,
-//             success: function (data) {
-//                 if (data.options) {
-//                     $("#crmorder-delivery_department_id").html(data.options);
-//                 }
-//             }
-//         });
-//     }
-// }
-//
-// function getCityList(orderId) {
-//     resetCity();
-//     resetWarehouseField();
-//     if ($("#crmorder-delivery_id").val() == 4 || $("#crmorder-delivery_id").val() == 2) {
-//         var url = "/delivery/get-select-option?deliveryId=" + $("#crmorder-delivery_id").val() + "&type=1&code=" + $("#crmorder-delivery_region_title").val();
-//         if (orderId > 0) {
-//             url += "&orderId=" + orderId;
-//         }
-//         $.ajax({
-//             url: url,
-//             success: function (data) {
-//                 if (data.options) {
-//                     $("#crmorder-delivery_city").html(data.options);
-//                     getWarehouseList(orderId);
-//                 }
-//             },
-//             beforeSend: function() {
-//                 $("#crmorder-delivery_department_id").html("<option value=\"\"></option>");
-//             }
-//         });
-//     } else {
-//         var url = "/order/get-select-options?type=1";
-//         var areaName = $("#crmorder-delivery_region_title").val();
-//         if (areaName != "") { url += "&areaName=" + areaName; }
-//         url += "&deliveryId=" + $("#crmorder-delivery_id").val();
-//         $.ajax({
-//             url: url,
-//             success: function (data) {
-//                 if (data.options) {
-//                     $("#crmorder-delivery_city").html(data.options);
-//                 }
-//             },
-//             beforeSend: function() {
-//                 //$("#crmorder-delivery_department_id").html("<option value=0>Список пуст! Сначала нужно выбрать город!</option>");
-//                 $("#crmorder-delivery_department_id").html("<option value=\"\"></option>");
-//             }
-//         });
-//     }
-// }
-//
-// function getRegionList(orderId) {
-//     if ($("#crmorder-delivery_id").val() == 4 || $("#crmorder-delivery_id").val() == 2) {
-//         var url = "/delivery/get-select-option?deliveryId=" + $("#crmorder-delivery_id").val() + "&type=0";
-//         if (orderId > 0) {
-//             url += "&orderId=" + orderId;
-//         }
-//         $.ajax({
-//             url: url,
-//             success: function (data) {
-//                 if (data.options) {
-//                     $("#crmorder-delivery_region_title").html(data.options);
-//                     getCityList(orderId);
-//                 }
-//             },
-//             beforeSend: function() {
-//                 $("#crmorder-delivery_city").html("<option value=\"\"></option>");
-//                 $("#crmorder-delivery_department_id").html("<option value=\"\"></option>");
-//             }
-//         });
-//     } else {
-//         var url = "/order/get-select-options?type=0&areaName=&cityName=&orderId=0&deliveryId=" + $("#crmorder-delivery_id").val();
-//         //var areaName = $("#crmorder-delivery_region_title").val();
-//         //if (areaName != "") { url += "&areaName=" + areaName; }
-//         $.ajax({
-//             url: url,
-//             success: function (data) {
-//                 if (data.options) {
-//                     $("#crmorder-delivery_region_title").html(data.options);
-//                 }
-//             },
-//             beforeSend: function() {
-//                 //$("#crmorder-delivery_city").html("<option value=0>Список пуст! Сначала нужно выбрать область!</option>");
-//                 //$("#crmorder-delivery_department_id").html("<option value=0>Список пуст! Сначала нужно выбрать город!</option>");
-//                 $("#crmorder-delivery_city").html("<option value=\"\"></option>");
-//                 $("#crmorder-delivery_department_id").html("<option value=\"\"></option>");
-//             }
-//         });
-//     }
-// }

@@ -9,7 +9,7 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use kartik\select2\Select2;
-
+use app\models\LiqPay;
 ?>
 
 <!--allrecords-->
@@ -46,7 +46,8 @@ use kartik\select2\Select2;
                                 <img class="cart-icon" src="/img/cart.png"/>
                             </div>
                             <div class="t706__carticon-counter t706__carticon-imgwrap"
-                                 style="background-color:#f86d0c;">0</div>
+                                 style="background-color:#f86d0c;">0
+                            </div>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -452,46 +453,124 @@ use kartik\select2\Select2;
         </div>
         <!-- /main-inform-container -->
     </div>
-    <div id="onkolids" class="r t-rec" style=" " data-animationappear="off" data-record-type="396" >
+    <div id="onkolids" class="r t-rec" style=" " data-animationappear="off" data-record-type="396">
         <div class='onko'>
-            <div class="onko__artboard" data-artboard-recid="122572712"	data-artboard-height="580"	data-artboard-height-res-960="520"	data-artboard-height-res-640="540"	data-artboard-height-res-480="525"	data-artboard-height-res-320="670"	data-artboard-height_vh=""	data-artboard-valign="center"	data-artboard-ovrflw="visible"	>
+            <div class="onko__artboard" data-artboard-recid="122572712" data-artboard-height="580"
+                 data-artboard-height-res-960="520" data-artboard-height-res-640="540"
+                 data-artboard-height-res-480="525" data-artboard-height-res-320="670" data-artboard-height_vh=""
+                 data-artboard-valign="center" data-artboard-ovrflw="visible">
                 <div class="onko__carrier" data-artboard-recid="122572712"></div>
                 <div class="onko__filter" data-artboard-recid="122572712"></div>
-                <div class='onko__elem tn-elem tn-elem__1225727121565900959976' data-elem-id='1565900959976' data-elem-type='text'	data-field-top-value="30"	data-field-top-res-960-value="15"	data-field-top-res-640-value="25"	data-field-top-res-480-value="20"	data-field-top-res-320-value="5"	data-field-left-value="307"	data-field-left-res-960-value="188"	data-field-left-res-640-value="30"	data-field-left-res-480-value="20"	data-field-left-res-320-value="10"	data-field-width-value="589"	data-field-width-res-480-value="449"	data-field-width-res-320-value="309"	data-field-axisy-value="top"	data-field-axisx-value="left"	data-field-container-value="grid"	data-field-topunits-value=""	data-field-leftunits-value=""	data-field-heightunits-value=""	data-field-widthunits-value="" >
-                    <div class='tn-atom' field='tn_text_1565900959976' >Подарок детям<br>
+                <div class='onko__elem tn-elem tn-elem__1225727121565900959976' data-elem-id='1565900959976'
+                     data-elem-type='text' data-field-top-value="30" data-field-top-res-960-value="15"
+                     data-field-top-res-640-value="25" data-field-top-res-480-value="20"
+                     data-field-top-res-320-value="5" data-field-left-value="307" data-field-left-res-960-value="188"
+                     data-field-left-res-640-value="30" data-field-left-res-480-value="20"
+                     data-field-left-res-320-value="10" data-field-width-value="589"
+                     data-field-width-res-480-value="449" data-field-width-res-320-value="309"
+                     data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid"
+                     data-field-topunits-value="" data-field-leftunits-value="" data-field-heightunits-value=""
+                     data-field-widthunits-value="">
+                    <div class='tn-atom' field='tn_text_1565900959976'>Подарок детям<br>
                     </div>
                 </div>
-                <div class='onko__elem tn-elem tn-elem__1225727121566070775970' data-elem-id='1566070775970' data-elem-type='text'	data-field-top-value="240"	data-field-top-res-960-value="210"	data-field-top-res-640-value="260"	data-field-top-res-480-value="315"	data-field-top-res-320-value="445"	data-field-left-value="450"	data-field-left-res-960-value="370"	data-field-left-res-640-value="260"	data-field-left-res-480-value="10"	data-field-left-res-320-value="10"	data-field-width-value="440"	data-field-width-res-640-value="300"	data-field-width-res-480-value="330"	data-field-width-res-320-value="270"	data-field-axisy-value="top"	data-field-axisx-value="left"	data-field-container-value="grid"	data-field-topunits-value=""	data-field-leftunits-value=""	data-field-heightunits-value=""	data-field-widthunits-value="" >
-                    <div class='tn-atom' field='tn_text_1566070775970' >
+                <div class='onko__elem tn-elem tn-elem__1225727121566070775970' data-elem-id='1566070775970'
+                     data-elem-type='text' data-field-top-value="240" data-field-top-res-960-value="210"
+                     data-field-top-res-640-value="260" data-field-top-res-480-value="315"
+                     data-field-top-res-320-value="445" data-field-left-value="450" data-field-left-res-960-value="370"
+                     data-field-left-res-640-value="260" data-field-left-res-480-value="10"
+                     data-field-left-res-320-value="10" data-field-width-value="440"
+                     data-field-width-res-640-value="300" data-field-width-res-480-value="330"
+                     data-field-width-res-320-value="270" data-field-axisy-value="top" data-field-axisx-value="left"
+                     data-field-container-value="grid" data-field-topunits-value="" data-field-leftunits-value=""
+                     data-field-heightunits-value="" data-field-widthunits-value="">
+                    <div class='tn-atom' field='tn_text_1566070775970'>
                         Купите 1 набор батоничков себе. <br>Еще 1 мы отправим деткам <br>в онкоцентр<br>
                     </div>
                 </div>
-                <div class='onko__elem tn-elem tn-elem__1225727121566070775974' data-elem-id='1566070775974' data-elem-type='text'	data-field-top-value="80"	data-field-top-res-960-value="70"	data-field-top-res-640-value="75"	data-field-top-res-480-value="90"	data-field-top-res-320-value="40"	data-field-left-value="290"	data-field-left-res-960-value="180"	data-field-left-res-640-value="93"	data-field-left-res-480-value="240"	data-field-left-res-320-value="10"	data-field-width-value="615"	data-field-width-res-960-value="605"	data-field-width-res-640-value="455"	data-field-width-res-480-value="225"	data-field-width-res-320-value="295"	data-field-axisy-value="top"	data-field-axisx-value="left"	data-field-container-value="grid"	data-field-topunits-value=""	data-field-leftunits-value=""	data-field-heightunits-value=""	data-field-widthunits-value="" >
-                    <div class='tn-atom' field='tn_text_1566070775974' >
-                        У вас есть шанс не только купить внусные питательные батончики для себя, но и подарить такой же набор детям, которые лечатся в онкоцентрах вашего города и области!<br>
+                <div class='onko__elem tn-elem tn-elem__1225727121566070775974' data-elem-id='1566070775974'
+                     data-elem-type='text' data-field-top-value="80" data-field-top-res-960-value="70"
+                     data-field-top-res-640-value="75" data-field-top-res-480-value="90"
+                     data-field-top-res-320-value="40" data-field-left-value="290" data-field-left-res-960-value="180"
+                     data-field-left-res-640-value="93" data-field-left-res-480-value="240"
+                     data-field-left-res-320-value="10" data-field-width-value="615"
+                     data-field-width-res-960-value="605" data-field-width-res-640-value="455"
+                     data-field-width-res-480-value="225" data-field-width-res-320-value="295"
+                     data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid"
+                     data-field-topunits-value="" data-field-leftunits-value="" data-field-heightunits-value=""
+                     data-field-widthunits-value="">
+                    <div class='tn-atom' field='tn_text_1566070775974'>
+                        У вас есть шанс не только купить внусные питательные батончики для себя, но и подарить такой же
+                        набор детям, которые лечатся в онкоцентрах вашего города и области!<br>
                     </div>
                 </div>
-                <div class='onko__elem tn-elem tn-elem__1225727121566072779397' data-elem-id='1566072779397' data-elem-type='image'	data-field-top-value="220"	data-field-top-res-960-value="190"	data-field-top-res-640-value="247"	data-field-top-res-480-value="300"	data-field-top-res-320-value="425"	data-field-left-value="270"	data-field-left-res-960-value="190"	data-field-left-res-640-value="30"	data-field-left-res-480-value="-130"	data-field-left-res-320-value="-450"	data-field-width-value="810"	data-field-width-res-960-value="700"	data-field-width-res-640-value="600"	data-field-width-res-320-value="760"	data-field-axisy-value="top"	data-field-axisx-value="left"	data-field-container-value="grid"	data-field-topunits-value=""	data-field-leftunits-value=""	data-field-heightunits-value=""	data-field-widthunits-value="" >
-                    <div class='tn-atom' >
+                <div class='onko__elem tn-elem tn-elem__1225727121566072779397' data-elem-id='1566072779397'
+                     data-elem-type='image' data-field-top-value="220" data-field-top-res-960-value="190"
+                     data-field-top-res-640-value="247" data-field-top-res-480-value="300"
+                     data-field-top-res-320-value="425" data-field-left-value="270" data-field-left-res-960-value="190"
+                     data-field-left-res-640-value="30" data-field-left-res-480-value="-130"
+                     data-field-left-res-320-value="-450" data-field-width-value="810"
+                     data-field-width-res-960-value="700" data-field-width-res-640-value="600"
+                     data-field-width-res-320-value="760" data-field-axisy-value="top" data-field-axisx-value="left"
+                     data-field-container-value="grid" data-field-topunits-value="" data-field-leftunits-value=""
+                     data-field-heightunits-value="" data-field-widthunits-value="">
+                    <div class='tn-atom'>
                         <img class='tn-atom__img t-img' src="/img/table-onkokids.png">
                     </div>
                 </div>
-                <div class='onko__elem tn-elem tn-elem__1225727121566073440340' data-elem-id='1566073440340' data-elem-type='image'	data-field-top-value="150"	data-field-top-res-960-value="150"	data-field-top-res-640-value="185"	data-field-top-res-480-value="80"	data-field-top-res-320-value="205"	data-field-left-value="90"	data-field-left-res-960-value="90"	data-field-left-res-640-value="-10"	data-field-left-res-480-value="20"	data-field-left-res-320-value="50"	data-field-width-value="330"	data-field-width-res-960-value="260"	data-field-width-res-640-value="260"	data-field-width-res-480-value="210"	data-field-axisy-value="top"	data-field-axisx-value="left"	data-field-container-value="grid"	data-field-topunits-value=""	data-field-leftunits-value=""	data-field-heightunits-value=""	data-field-widthunits-value="" >
-                    <div class='tn-atom' >
+                <div class='onko__elem tn-elem tn-elem__1225727121566073440340' data-elem-id='1566073440340'
+                     data-elem-type='image' data-field-top-value="150" data-field-top-res-960-value="150"
+                     data-field-top-res-640-value="185" data-field-top-res-480-value="80"
+                     data-field-top-res-320-value="205" data-field-left-value="90" data-field-left-res-960-value="90"
+                     data-field-left-res-640-value="-10" data-field-left-res-480-value="20"
+                     data-field-left-res-320-value="50" data-field-width-value="330"
+                     data-field-width-res-960-value="260" data-field-width-res-640-value="260"
+                     data-field-width-res-480-value="210" data-field-axisy-value="top" data-field-axisx-value="left"
+                     data-field-container-value="grid" data-field-topunits-value="" data-field-leftunits-value=""
+                     data-field-heightunits-value="" data-field-widthunits-value="">
+                    <div class='tn-atom'>
                         <img class='tn-atom__img t-img' src="/img/onkokids.png">
                     </div>
                 </div>
-                <div class='onko__elem tn-elem tn-elem__1225727121566073502758' data-elem-id='1566073502758' data-elem-type='image'	data-field-top-value="285"	data-field-top-res-960-value="235"	data-field-top-res-640-value="315"	data-field-top-res-480-value="310"	data-field-top-res-320-value="490"	data-field-left-value="850"	data-field-left-res-960-value="670"	data-field-left-res-640-value="410"	data-field-left-res-480-value="280"	data-field-left-res-320-value="160"	data-field-width-value="197"	data-field-width-res-480-value="167"	data-field-width-res-320-value="147"	data-field-axisy-value="top"	data-field-axisx-value="left"	data-field-container-value="grid"	data-field-topunits-value=""	data-field-leftunits-value=""	data-field-heightunits-value=""	data-field-widthunits-value="" >
-                    <div class='tn-atom' >
-<!--                        <img class="tn-atom__img t-img" src="/img/rapunzelstick.png">-->
+                <div class='onko__elem tn-elem tn-elem__1225727121566073502758' data-elem-id='1566073502758'
+                     data-elem-type='image' data-field-top-value="285" data-field-top-res-960-value="235"
+                     data-field-top-res-640-value="315" data-field-top-res-480-value="310"
+                     data-field-top-res-320-value="490" data-field-left-value="850" data-field-left-res-960-value="670"
+                     data-field-left-res-640-value="410" data-field-left-res-480-value="280"
+                     data-field-left-res-320-value="160" data-field-width-value="197"
+                     data-field-width-res-480-value="167" data-field-width-res-320-value="147"
+                     data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid"
+                     data-field-topunits-value="" data-field-leftunits-value="" data-field-heightunits-value=""
+                     data-field-widthunits-value="">
+                    <div class='tn-atom'>
+                        <!--                        <img class="tn-atom__img t-img" src="/img/rapunzelstick.png">-->
                     </div>
                 </div>
-                <div class='onko__elem tn-elem tn-elem__1225727121566073525477' data-elem-id='1566073525477' data-elem-type='button'	data-field-top-value="365"	data-field-top-res-960-value="315"	data-field-top-res-640-value="350"	data-field-top-res-480-value="405"	data-field-top-res-320-value="525"	data-field-left-value="460"	data-field-left-res-960-value="370"	data-field-left-res-640-value="250"	data-field-left-res-480-value="10"	data-field-left-res-320-value="10"	data-field-height-value="50"	data-field-height-res-640-value="45"	data-field-height-res-480-value="45"	data-field-width-value="200"	data-field-width-res-640-value="150"	data-field-width-res-480-value="160"	data-field-axisy-value="top"	data-field-axisx-value="left"	data-field-container-value="grid"	data-field-topunits-value=""	data-field-leftunits-value=""	data-field-heightunits-value=""	data-field-widthunits-value="" >
-                    <a class="tn-atom open-order" data-product="300" >Заказать</a>
+                <div class='onko__elem tn-elem tn-elem__1225727121566073525477' data-elem-id='1566073525477'
+                     data-elem-type='button' data-field-top-value="365" data-field-top-res-960-value="315"
+                     data-field-top-res-640-value="350" data-field-top-res-480-value="405"
+                     data-field-top-res-320-value="525" data-field-left-value="460" data-field-left-res-960-value="370"
+                     data-field-left-res-640-value="250" data-field-left-res-480-value="10"
+                     data-field-left-res-320-value="10" data-field-height-value="50"
+                     data-field-height-res-640-value="45" data-field-height-res-480-value="45"
+                     data-field-width-value="200" data-field-width-res-640-value="150"
+                     data-field-width-res-480-value="160" data-field-axisy-value="top" data-field-axisx-value="left"
+                     data-field-container-value="grid" data-field-topunits-value="" data-field-leftunits-value=""
+                     data-field-heightunits-value="" data-field-widthunits-value="">
+                    <a class="tn-atom open-order" data-product="300">Заказать</a>
                 </div>
-                <div class='onko__elem tn-elem tn-elem__1225727121566073609702' data-elem-id='1566073609702' data-elem-type='image'	data-field-top-value="285"	data-field-top-res-960-value="235"	data-field-top-res-640-value="315"	data-field-top-res-480-value="310"	data-field-top-res-320-value="490"	data-field-left-value="900"	data-field-left-res-960-value="720"	data-field-left-res-640-value="470"	data-field-left-res-480-value="320"	data-field-left-res-320-value="200"	data-field-width-value="197"	data-field-width-res-480-value="167"	data-field-width-res-320-value="147"	data-field-axisy-value="top"	data-field-axisx-value="left"	data-field-container-value="grid"	data-field-topunits-value=""	data-field-leftunits-value=""	data-field-heightunits-value=""	data-field-widthunits-value="" >
-                    <div class='tn-atom' >
-<!--                        <img class="tn-atom__img t-img" src="/img/ironmanstick.png">-->
+                <div class='onko__elem tn-elem tn-elem__1225727121566073609702' data-elem-id='1566073609702'
+                     data-elem-type='image' data-field-top-value="285" data-field-top-res-960-value="235"
+                     data-field-top-res-640-value="315" data-field-top-res-480-value="310"
+                     data-field-top-res-320-value="490" data-field-left-value="900" data-field-left-res-960-value="720"
+                     data-field-left-res-640-value="470" data-field-left-res-480-value="320"
+                     data-field-left-res-320-value="200" data-field-width-value="197"
+                     data-field-width-res-480-value="167" data-field-width-res-320-value="147"
+                     data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid"
+                     data-field-topunits-value="" data-field-leftunits-value="" data-field-heightunits-value=""
+                     data-field-widthunits-value="">
+                    <div class='tn-atom'>
+                        <!--                        <img class="tn-atom__img t-img" src="/img/ironmanstick.png">-->
                     </div>
                 </div>
             </div>
@@ -900,8 +979,8 @@ use kartik\select2\Select2;
                     <div class="t-input-block">
                         <div class="t-radio__wrapper t-radio__wrapper-payment" data-tilda-payment-variants-hook="y">
                             <label class="t-radio__control t-text t-text_xs" style="">
-                                <input type="radio" name="paymentsystem" value="cash" checked="checked"
-                                       class="t-radio t-radio_payment" data-payment-variant-system="cash">
+                                <input type="radio" name="paymentsystem" value="cash"
+                                       class="t-radio t-radio_payment" data-payment-variant-system="cash" checked>
                                 <div class="t-radio__indicator">
 
                                 </div>
@@ -918,6 +997,19 @@ use kartik\select2\Select2;
                     </div>
                 </div>
                 <div class="error-send"></div>
+<!--                <form method="POST" accept-charset="utf-8" action="https://www.liqpay.ua/api/3/checkout">-->
+<!--                    <input type="hidden" name="data"-->
+<!--                           value="eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXkiLCJwdWJsaWNfa2V5IjoiaTU3ODM3MzU3OTgxIiwiYW1vdW50IjoiNSIsImN1cnJlbmN5IjoiVUFIIiwiZGVzY3JpcHRpb24iOiLQnNC+0Lkg0YLQvtCy0LDRgCIsInR5cGUiOiJidXkiLCJsYW5ndWFnZSI6InJ1In0="/>-->
+<!--                    <input type="hidden" name="signature" value="E4DA3B7FBBCE2345D7772B0674A318D5"/>-->
+<!--                    <button style="border: none !important; display:inline-block !important;text-align: center !important;padding: 7px 20px !important;-->
+<!--		color: #fff !important; font-size:16px !important; font-weight: 600 !important; font-family:OpenSans, sans-serif; cursor: pointer !important; border-radius: 2px !important;-->
+<!--		background: rgb(122,183,43) !important;" onmouseover="this.style.opacity='0.5';"-->
+<!--                            onmouseout="this.style.opacity='1';">-->
+<!--                        <img src="https://static.liqpay.ua/buttons/logo-small.png" name="btn_text"-->
+<!--                             style="margin-right: 7px !important; vertical-align: middle !important;"/>-->
+<!--                        <span style="vertical-align:middle; !important">Оплатить --><?php //echo $session['cart.sum']?><!-- UAH</span>-->
+<!--                    </button>-->
+<!--                </form>-->
                 <a href="/site/view" class="btn btn-success sendOrder">Оформить заказ</a>
                 <button type="button" class="btn btn-danger clearCart">Очистить корзину</button>
             </div>
@@ -939,8 +1031,9 @@ use kartik\select2\Select2;
             <?php $call = ActiveForm::begin(['id' => 'callback-form', 'options' => ['name' => 'calculator1']]); ?>
             <?= $call->field($callback, 'name') ?>
             <?= $call->field($callback, 'phone') ?>
-            <?php ActiveForm::end();?>
-            <div class="t702__form-bottom-text t-text t-text_xs t-align_center">Нажимая кнопку "отправить", я соглашаюсь с
+            <?php ActiveForm::end(); ?>
+            <div class="t702__form-bottom-text t-text t-text_xs t-align_center">Нажимая кнопку "отправить", я соглашаюсь
+                с
                 <a href="http://sale.maldivesdreams.com.ua/official" style="">политикой конфиденциальности.</a>
             </div>
 
