@@ -4,15 +4,10 @@
 /* @var $content string */
 
 use app\widgets\Alert;
-use yii\bootstrap\ActiveForm;
-use yii\bootstrap\Modal;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\helpers\ArrayHelper;
-use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
-use yii\helpers\Html;
-use kartik\select2\Select2;
+
 
 AppAsset::register($this);
 ?>
@@ -42,10 +37,10 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Заказать', 'options' => ['class' => 'open-order', 'data-product' => "300"]],
-            ['label' => 'О нас', 'url' => ['/#about']],
-            ['label' => 'Польза', 'url' => ['/#profits']],
-            ['label' => 'Контакты', 'url' => ['/#contacts']],
+            ['label' => 'Заказать', 'options' => ['class' => 'open-order nav-label', 'data-product' => "300"]],
+            ['label' => 'О нас', 'url' => ['/#about'],'options'=>['class'=>'nav-label']],
+            ['label' => 'Польза', 'url' => ['/#profits'],'options'=>['class'=>'nav-label']],
+            ['label' => 'Контакты', 'url' => ['/#contacts'],'options'=>['class'=>'nav-label']],
             ['label' => '+38 067 245-20-10', 'options' => ['class' => 'tel-1'], 'url' => 'https://wa.me/380672452010','linkOptions' => ['target'=>'_blank'], 'template' => '<a class="href-tel-1" href="{url}">{label}</a>'],
             ['label' => '+38 067 404-66-01','options' => ['class' => 'tel-2'], 'url' => 'https://wa.me/380674046601', 'linkOptions' => ['target'=>'_blank'], 'template' => '<a class="href-tel-2" href="{url}">{label}</a>'],
             //['label' => 'Корзина', 'options' => ['class' => 'shopping-cart cart-nav']],

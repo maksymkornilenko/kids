@@ -528,57 +528,6 @@ $('#cart .modal-body').on('click', '.sendOrder', function (e) {
          });
      }
 });
-// $('#cart .modal-body').on('click', '.liqpayImage', function (e) {
-//     var name = $('#clientssec-name').val();
-//     var phone = $('#clientssec-phone').val();
-//     var mail = $('#clientssec-email').val();
-//     var area = $('#orders-area').find(":selected").text();
-//     var city = $('#orders-city').find(":selected").text();
-//     var warehouse = $('#orders-warehouse').find(":selected").text();
-//     var pay=$('input[name=paymentsystem]:checked').val();
-//     console.log(pay);
-//     name = name.trim();
-//     mail = mail.trim();
-//     e.preventDefault();
-//      if ($('#clientssec-phone').val().length == 0 || $('#clientssec-phone').val().length == 0 || $('#clientssec-phone').val().length == 0 || $('#orders-area').val().length == 0 || $('#orders-city').val().length == 0 || $('#orders-warehouse').val().length == 0) {
-//          $('.error-send').text('Заполните все поля перед оформлением заказа.');
-//          $('.error-send').css({color: '#a94442'});
-//         // $('.liqpayImage').css({top: '829px'});
-//      }else if($('.help-block').text()!=''){
-//          $('.error-send').text('Заполните все поля перед оформлением заказа.');
-//          $('.error-send').css({color: '#a94442'});
-//         // $('.liqpayImage').css({top: '829px'});
-//      } else {
-//          $.ajax({
-//              url: '/cart/view',
-//              data: {name: name, phone: phone, mail: mail, area: area, city: city, warehouse: warehouse, pay: pay},
-//              type: 'post',
-//              success: function (res) {
-//                  if (!res) res = 'cart empty';
-//                  showCart(res);
-//                  $('.liqpaySend').submit;
-//                  $('.t706__cartwin-bottom').css({display: 'none'});
-//
-//                  $("#cart").on("hidden.bs.modal", function (e) {
-//                      e.preventDefault();
-//                      $.ajax({
-//                          url: '/cart/redirect'
-//                      });
-//                  });
-//                  $("#cart").on(".close", function (e) {
-//                      e.preventDefault();
-//                      $.ajax({
-//                          url: '/cart/redirect'
-//                      });
-//                  });
-//              },
-//              error: function (res) {
-//                  res = 'error';
-//                  showCart(res);
-//              }
-//          });
-//      }
-// });
 /**
  * function for show picture of cart after close modal window of order
  */
@@ -653,6 +602,23 @@ $('.sendCallbackForm').on('click', function (e) {
             }
         });
     }
+});
+function closeNav(){
+    $('#w0-collapse').attr("aria-expanded","false")
+    $('#w0-collapse').removeClass('navbar-collapse collapse in');
+    $('#w0-collapse').toggleClass('navbar-collapse collapse');
+}
+$('.nav-label').on('click', function(e) {
+    closeNav();
+});
+$('.tel-1').on('click', function(e) {
+    closeNav();
+});
+$('.tel-2').on('click', function(e) {
+    closeNav();
+});
+$('.icon-nav').on('click', function(e) {
+    closeNav();
 });
 // $('.t-radio__wrapper').on('change', function() {
 //     if($('input[name=paymentsystem]:checked').val()=='cash'){

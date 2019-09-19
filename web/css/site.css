@@ -8830,8 +8830,8 @@ input::-webkit-inner-spin-button {
 }
 @media (max-width: 768px) {
     .icon-nav{
-        top: 49px;
-        left: 65%;
+        top: 46px;
+        left: 66%;
     }
     .icon-nav > img {
         width: 4%;
@@ -8839,11 +8839,19 @@ input::-webkit-inner-spin-button {
 }
 @media (max-width: 425px) {
     .icon-nav{
-        position: static;
+        position: relative;
+    }
+    .icon-nav {
+        top: 2px;
+        left: 0%;
     }
     .icon-nav > img{
         width: 10%;
     }
+    #w0-collapse{
+        height: 278px;
+    }
+
 }
 #button {
     display: inline-block;
@@ -9373,21 +9381,7 @@ input::-webkit-inner-spin-button {
 .button-callback{
     text-align: center;
 }
-/*.liqpayImage{*/
-/*    position: relative;*/
-/*    top: 803px;*/
-/*    width: 73%;*/
-/*}*/
-/*@media (max-width: 1024px) {*/
-/*    .liqpayImage{*/
-/*        position: relative;*/
-/*        top: 791px;*/
-/*        width: 73%;*/
-/*    }*/
-/*}@media (max-width: 425px) {*/
-/*    .liqpayImage{*/
-/*        position: relative;*/
-/*        top: 782px;*/
-/*        width: 73%;*/
-/*    }*/
+
+/*.navbar-nav{*/
+/*    height: 220px;*/
 /*}*/
