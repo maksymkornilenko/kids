@@ -247,6 +247,8 @@ class CartController extends Controller
         $contactForm->sum = $session['cart.sum'];
         $contactForm->pay = Yii::$app->request->post('pay');
         $sqlclients = $requests->showClient($clientForm->phone_raw);
+//        var_dump($sqlclients);
+//        die();
         if (empty($sqlclients)) {
             if ($clientForm->save()) {
                 $contactForm->client_id = $clientForm->id;
@@ -283,9 +285,31 @@ class CartController extends Controller
                     Yii::$app->session->setFlash('error', 'Ваш заказ не получен');
                 }
             }
-        } else {
+        } else if(!empty($sqlclients)) {
             $contactForm->client_id = $sqlclients['0']['id'];
             if ($contactForm->save()) {
+                if($contactForm->pay=='liqpay'){
+                    $liqpay = new LiqPay('i57837357981', 'k3vWQKOtq4TK2SInQbRevLeFlAZhtcey5bQEznnQ');
+                    if (empty($session['cart'])) {
+                        $html = $liqpay->cnb_form(array(
+                            'action' => 'pay',
+                            'amount' => '0',
+                            'currency' => 'UAH',
+                            'description' => 'empty',
+                            'order_id' => 'order_id_1',
+                            'version' => '3'
+                        ));
+                    } else {
+                        $html = $liqpay->cnb_form(array(
+                            'action' => 'pay',
+                            'amount' => $session['cart.sum'],
+                            'currency' => 'UAH',
+                            'description' => 'Оплата по заказу №'.$contactForm->id,
+                            'order_id' => 'order_id_1',
+                            'version' => '3'
+                        ));
+                    }
+                }
                 $saveItems = new OrderItems();
                 $saveItems->saveOrderItems($session['cart'], $contactForm->id);
                 Yii::$app->session->setFlash('success', "Ваш заказ номер №$contactForm->id получен, менеджер в ближайшее время с вами свяжется");
