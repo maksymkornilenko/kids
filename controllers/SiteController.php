@@ -77,7 +77,30 @@ class SiteController extends Controller
         $session->open();
         $callback= new Callback();
         $areas=Areas::find()->all();
-
+//        $order= $session['client.order'];
+//        $liqpay = new LiqPay('sandbox_i33464885106', 'sandbox_1nQJFsmet0SdrTosYnmrantM9ntnUWWKr62F71B9');
+//        $res = $liqpay->api("request", array(
+//            'action'        => 'status',
+//            'version'       => '3',
+//            'order_id'      => $order,
+//        ));
+//        $sql=Orders::findOne($order);
+//        if($res->status=='success'){
+//            $sql->status_payment='Оплачено';
+//            $sql->save();
+//            Yii::$app->session->setFlash('success', "Ваш заказ номер № $order получен, менеджер в ближайшее время с вами свяжется, оплата прошла успешно");
+//            $session->remove('client.order');
+//        }else if ($res->status=='try_again'){
+//            $sql->status_payment='Не оплачен';
+//            $sql->save();
+//            Yii::$app->session->setFlash('success', "Ваш заказ номер № $order не получен, поизошла ошибка при оплате картой пожалуйста попробуйте оплатить ещё раз или выберите оплату по получению");
+//            $session->remove('client.order');
+//        }else if ($res->status=='error'){
+//           // $sql->status_payment='Не оплачен';
+//           // $sql->save();
+//            Yii::$app->session->setFlash('success', "Ваш заказ номер № $order не получен, поизошла ошибка при оплате картой пожалуйста попробуйте оплатить ещё раз или выберите оплату по получению");
+//            $session->remove('client.order');
+//        }
 //        if($model->load(Yii::$app->request->post())&&$model->validate()){
 //            Yii::$app->session->setFlash('sendForm','success');
 //
@@ -118,23 +141,23 @@ class SiteController extends Controller
     /**
      * 3213
      */
-    public function actionCheck() {
-        \Yii::$app->response->format = Response::FORMAT_JSON;
-        $answer = ['success' => 0];
-        if (Yii::$app->request->isAjax) {
-            $model= new Form();
-            $model->load(Yii::$app->request->post());
-            // обработка и валидациЯ
-            if ($model->validate()) {
-                $answer['success'] = 1;
-            }
-
-        }
-
-        return $answer;
-        //echo Json::encode($answer);
-        //die;
-    }
+//    public function actionCheck() {
+//        \Yii::$app->response->format = Response::FORMAT_JSON;
+//        $answer = ['success' => 0];
+//        if (Yii::$app->request->isAjax) {
+//            $model= new Form();
+//            $model->load(Yii::$app->request->post());
+//            // обработка и валидациЯ
+//            if ($model->validate()) {
+//                $answer['success'] = 1;
+//            }
+//
+//        }
+//
+//        return $answer;
+//        //echo Json::encode($answer);
+//        //die;
+//    }
 
     /**
      * Login action.

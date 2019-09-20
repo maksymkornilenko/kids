@@ -67,4 +67,8 @@ class Cart extends ActiveRecord
         $_SESSION['cart.sum'] -= $sumMinus;
         unset($_SESSION['cart'][$id]);
     }
+    public function saveOrder($order)
+    {
+        $_SESSION['client.order']=[$order];
+    }
 }

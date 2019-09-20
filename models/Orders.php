@@ -50,7 +50,7 @@ class Orders extends ActiveRecord
             [['sum'], 'number'],
             //['email', 'email'],
             [['client_id'], 'exist', 'skipOnError' => true, 'targetClass' => ClientsSec::className(), 'targetAttribute' => ['client_id' => 'id']],
-            [['area','city','warehouse'], 'string', 'max' => 255],
+            [['area','city','warehouse','status_payment'], 'string', 'max' => 255],
         ];
     }
 

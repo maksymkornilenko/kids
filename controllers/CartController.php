@@ -32,7 +32,7 @@ class CartController extends Controller
         $cart = new Cart();
         $cart->addToCart($model[0], $count);
         $this->layout = false;
-        return $this->render('cart-modal', ['session' => $session, 'liqpay' => $html]);
+        return $this->render('cart-modal', ['session' => $session]);
     }
 
     public function actionChange()
@@ -131,6 +131,7 @@ class CartController extends Controller
         $contactForm = new Orders();
         $clientForm = new ClientsSec();
         $requests = new SqlRequests();
+        $cart=new Cart();
         $clientForm->name = Yii::$app->request->post('name');
         $clientForm->phone = Yii::$app->request->post('phone');
         $clientForm->phone_raw = preg_replace('/[^0-9]/', '', $clientForm->phone);
@@ -141,6 +142,11 @@ class CartController extends Controller
         $contactForm->count = $session['cart.count'];
         $contactForm->sum = $session['cart.sum'];
         $contactForm->pay = Yii::$app->request->post('pay');
+        if ($contactForm->pay == 'cash'){
+            $contactForm->status_payment ='По получению';
+        }elseif ($contactForm->pay == 'liqpay'){
+            $contactForm->status_payment ='Не оплачен';
+        }
         $sqlclients = $requests->showClient($clientForm->phone_raw);
 //        var_dump($sqlclients);
 //        die();
@@ -148,27 +154,32 @@ class CartController extends Controller
             if ($clientForm->save()) {
                 $contactForm->client_id = $clientForm->id;
                 if ($contactForm->save()) {
-                    if($contactForm->pay=='liqpay'){
-                        $liqpay = new LiqPay('sandbox_i68448549809', 'sandbox_t4cyKNZkq5kljGEQSKlURFrl6g8Ad0585aZQX3vF');
+                    if ($contactForm->pay == 'liqpay') {
+                        $liqpay = new LiqPay('sandbox_i33464885106', 'sandbox_1nQJFsmet0SdrTosYnmrantM9ntnUWWKr62F71B9');
                         if (empty($session['cart'])) {
                             $html = $liqpay->cnb_form(array(
                                 'action' => 'pay',
                                 'amount' => '0',
                                 'currency' => 'UAH',
                                 'description' => 'empty',
-                                'order_id' => 'order_id_1',
-                                'version' => '3'
+                                'order_id' => $contactForm->id,
+                                'version' => '3',
+                                'server_url'=>'http://kids/',
+                                'result_url'=>'http://kids/',
                             ));
                         } else {
                             $html = $liqpay->cnb_form(array(
                                 'action' => 'pay',
                                 'amount' => $session['cart.sum'],
                                 'currency' => 'UAH',
-                                'description' => 'Оплата по заказу №'.$contactForm->id,
-                                'order_id' => 'order_id_1',
-                                'version' => '3'
+                                'description' => 'Оплата по заказу №' . $contactForm->id,
+                                'order_id' => $contactForm->id,
+                                'version' => '3',
+                                'server_url'=>'http://kids/',
+                                'result_url'=>'http://kids/',
                             ));
                         }
+                        $cart->saveOrder($contactForm->id);
                     }
                     $saveItems = new OrderItems();
                     $saveItems->saveOrderItems($session['cart'], $contactForm->id);
@@ -180,30 +191,35 @@ class CartController extends Controller
                     Yii::$app->session->setFlash('error', 'Ваш заказ не получен');
                 }
             }
-        } else if(!empty($sqlclients)) {
+        } else if (!empty($sqlclients)) {
             $contactForm->client_id = $sqlclients['0']['id'];
             if ($contactForm->save()) {
-                if($contactForm->pay=='liqpay'){
-                    $liqpay = new LiqPay('sandbox_i68448549809', 'sandbox_t4cyKNZkq5kljGEQSKlURFrl6g8Ad0585aZQX3vF');
+                if ($contactForm->pay == 'liqpay') {
+                    $liqpay = new LiqPay('sandbox_i33464885106', 'sandbox_1nQJFsmet0SdrTosYnmrantM9ntnUWWKr62F71B9');
                     if (empty($session['cart'])) {
                         $html = $liqpay->cnb_form(array(
                             'action' => 'pay',
                             'amount' => '0',
                             'currency' => 'UAH',
                             'description' => 'empty',
-                            'order_id' => 'order_id_1',
-                            'version' => '3'
+                            'order_id' => $contactForm->id,
+                            'version' => '3',
+                            'server_url'=>'http://kids/',
+                            'result_url'=>'http://kids/',
                         ));
                     } else {
                         $html = $liqpay->cnb_form(array(
                             'action' => 'pay',
                             'amount' => $session['cart.sum'],
                             'currency' => 'UAH',
-                            'description' => 'Оплата по заказу №'.$contactForm->id,
-                            'order_id' => 'order_id_1',
-                            'version' => '3'
+                            'description' => 'Оплата по заказу №' . $contactForm->id,
+                            'order_id' => $contactForm->id,
+                            'version' => '3',
+                            'server_url'=>'http://kids/',
+                            'result_url'=>'http://kids/',
                         ));
                     }
+                    $cart->saveOrder($contactForm->id);
                 }
                 $saveItems = new OrderItems();
                 $saveItems->saveOrderItems($session['cart'], $contactForm->id);
@@ -216,9 +232,10 @@ class CartController extends Controller
             }
         }
         $this->layout = false;
-        return $this->render('cart-modal',['liqpay'=>$html]);
+        return $this->render('cart-modal', ['liqpay' => $html,]);
     }
-
+    public function actionStatus(){
+    }
     public function actionRedirect()
     {
         return Yii::$app->response->redirect(Url::to('/'));
