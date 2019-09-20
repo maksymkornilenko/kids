@@ -32,27 +32,6 @@ class CartController extends Controller
         $cart = new Cart();
         $cart->addToCart($model[0], $count);
         $this->layout = false;
-        $liqpay = new LiqPay('i57837357981', 'k3vWQKOtq4TK2SInQbRevLeFlAZhtcey5bQEznnQ');
-        if (empty($session['cart'])) {
-            $html = $liqpay->cnb_form(array(
-                'action' => 'pay',
-                'amount' => '0',
-                'currency' => 'UAH',
-                'description' => 'empty',
-                'order_id' => 'order_id_1',
-                'version' => '3'
-            ));
-        } else {
-
-            $html = $liqpay->cnb_form(array(
-                'action' => 'pay',
-                'amount' => $session['cart.sum'],
-                'currency' => 'UAH',
-                'description' => 'Оплата по заказу №',
-                'order_id' => 'order_id_1',
-                'version' => '3'
-            ));
-        }
         return $this->render('cart-modal', ['session' => $session, 'liqpay' => $html]);
     }
 
@@ -70,27 +49,6 @@ class CartController extends Controller
         $cart = new Cart();
         $cart->changeInCart($model[0], $count);
         $this->layout = false;
-        $liqpay = new LiqPay('i57837357981', 'k3vWQKOtq4TK2SInQbRevLeFlAZhtcey5bQEznnQ');
-        if (empty($session['cart'])) {
-            $html = $liqpay->cnb_form(array(
-                'action' => 'pay',
-                'amount' => '0',
-                'currency' => 'UAH',
-                'description' => 'empty',
-                'order_id' => 'order_id_1',
-                'version' => '3'
-            ));
-        } else {
-
-            $html = $liqpay->cnb_form(array(
-                'action' => 'pay',
-                'amount' => $session['cart.sum'],
-                'currency' => 'UAH',
-                'description' => 'Оплата по заказу №',
-                'order_id' => 'order_id_1',
-                'version' => '3'
-            ));
-        }
         return $this->render('cart-modal', ['session' => $session, 'liqpay' => $html]);
     }
 
@@ -108,27 +66,6 @@ class CartController extends Controller
         $cart = new Cart();
         $cart->removeFromCart($model[0], $count);
         $this->layout = false;
-        $liqpay = new LiqPay('i57837357981', 'k3vWQKOtq4TK2SInQbRevLeFlAZhtcey5bQEznnQ');
-        if (empty($session['cart'])) {
-            $html = $liqpay->cnb_form(array(
-                'action' => 'pay',
-                'amount' => '0',
-                'currency' => 'UAH',
-                'description' => 'empty',
-                'order_id' => 'order_id_1',
-                'version' => '3'
-            ));
-        } else {
-
-            $html = $liqpay->cnb_form(array(
-                'action' => 'pay',
-                'amount' => $session['cart.sum'],
-                'currency' => 'UAH',
-                'description' => 'Оплата по заказу №',
-                'order_id' => 'order_id_1',
-                'version' => '3'
-            ));
-        }
         return $this->render('cart-modal', ['session' => $session, 'liqpay' => $html]);
     }
 
@@ -173,28 +110,7 @@ class CartController extends Controller
         $session = Yii::$app->session;
         $session->open();
         $this->layout = false;
-        $liqpay = new LiqPay('i57837357981', 'k3vWQKOtq4TK2SInQbRevLeFlAZhtcey5bQEznnQ');
-        if (empty($session['cart'])) {
-            $html = $liqpay->cnb_form(array(
-                'action' => 'pay',
-                'amount' => '0',
-                'currency' => 'UAH',
-                'description' => 'empty',
-                'order_id' => 'order_id_1',
-                'version' => '3'
-            ));
-        } else {
-
-            $html = $liqpay->cnb_form(array(
-                'action' => 'pay',
-                'amount' => $session['cart.sum'],
-                'currency' => 'UAH',
-                'description' => 'Оплата по заказу №',
-                'order_id' => 'order_id_1',
-                'version' => '3'
-            ));
-        }
-        return $this->render('cart-modal', ['session' => $session, 'liqpay' => $html]);
+        return $this->render('cart-modal', ['session' => $session,]);
     }
 
     public function actionDelete()
@@ -205,27 +121,6 @@ class CartController extends Controller
         $model = new Cart();
         $model->recalc($id);
         $this->layout = false;
-        $liqpay = new LiqPay('i57837357981', 'k3vWQKOtq4TK2SInQbRevLeFlAZhtcey5bQEznnQ');
-        if (empty($session['cart'])) {
-            $html = $liqpay->cnb_form(array(
-                'action' => 'pay',
-                'amount' => '0',
-                'currency' => 'UAH',
-                'description' => 'empty',
-                'order_id' => 'order_id_1',
-                'version' => '3'
-            ));
-        } else {
-
-            $html = $liqpay->cnb_form(array(
-                'action' => 'pay',
-                'amount' => $session['cart.sum'],
-                'currency' => 'UAH',
-                'description' => 'Оплата по заказу №',
-                'order_id' => 'order_id_1',
-                'version' => '3'
-            ));
-        }
         return $this->render('cart-modal', ['session' => $session, 'liqpay' => $html]);
     }
 
@@ -254,7 +149,7 @@ class CartController extends Controller
                 $contactForm->client_id = $clientForm->id;
                 if ($contactForm->save()) {
                     if($contactForm->pay=='liqpay'){
-                        $liqpay = new LiqPay('i57837357981', 'k3vWQKOtq4TK2SInQbRevLeFlAZhtcey5bQEznnQ');
+                        $liqpay = new LiqPay('sandbox_i68448549809', 'sandbox_t4cyKNZkq5kljGEQSKlURFrl6g8Ad0585aZQX3vF');
                         if (empty($session['cart'])) {
                             $html = $liqpay->cnb_form(array(
                                 'action' => 'pay',
@@ -289,7 +184,7 @@ class CartController extends Controller
             $contactForm->client_id = $sqlclients['0']['id'];
             if ($contactForm->save()) {
                 if($contactForm->pay=='liqpay'){
-                    $liqpay = new LiqPay('i57837357981', 'k3vWQKOtq4TK2SInQbRevLeFlAZhtcey5bQEznnQ');
+                    $liqpay = new LiqPay('sandbox_i68448549809', 'sandbox_t4cyKNZkq5kljGEQSKlURFrl6g8Ad0585aZQX3vF');
                     if (empty($session['cart'])) {
                         $html = $liqpay->cnb_form(array(
                             'action' => 'pay',
