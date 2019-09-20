@@ -1,15 +1,18 @@
 <?php
 
 $params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/db.php';
-
+if ($_SERVER['SERVER_ADDR']=='127.0.0.1') {
+    $db = require __DIR__ . '/db.php';
+} else {
+    $db = require __DIR__ . '/db-prod.php';
+}
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
@@ -66,12 +69,12 @@ if (YII_ENV_DEV) {
         //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 
-   $config['bootstrap'][] = 'gii';
-   $config['modules']['gii'] = [
-       'class' => 'yii\gii\Module',
-       // uncomment the following to add your IP if you are not connecting from localhost.
-       //'allowedIPs' => ['127.0.0.1', '::1'],
-   ];
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+        // uncomment the following to add your IP if you are not connecting from localhost.
+        //'allowedIPs' => ['127.0.0.1', '::1'],
+    ];
 }
 
 return $config;
