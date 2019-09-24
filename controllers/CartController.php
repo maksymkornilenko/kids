@@ -49,7 +49,7 @@ class CartController extends Controller
         $cart = new Cart();
         $cart->changeInCart($model[0], $count);
         $this->layout = false;
-        return $this->render('cart-modal', ['session' => $session, 'liqpay' => $html]);
+        return $this->render('cart-modal', ['session' => $session]);
     }
 
     public function actionRemove()
@@ -66,7 +66,7 @@ class CartController extends Controller
         $cart = new Cart();
         $cart->removeFromCart($model[0], $count);
         $this->layout = false;
-        return $this->render('cart-modal', ['session' => $session, 'liqpay' => $html]);
+        return $this->render('cart-modal', ['session' => $session]);
     }
 
     public function actionClear()
@@ -121,7 +121,7 @@ class CartController extends Controller
         $model = new Cart();
         $model->recalc($id);
         $this->layout = false;
-        return $this->render('cart-modal', ['session' => $session, 'liqpay' => $html]);
+        return $this->render('cart-modal', ['session' => $session]);
     }
 
     public function actionView()
